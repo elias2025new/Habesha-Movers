@@ -249,8 +249,8 @@ export default function Preloader() {
                 // Simple hardcoded offset approach based on intro.js
 
                 // Check if we can find the box mesh
-                let boxMesh = null;
-                object.traverse(c => {
+                let boxMesh: THREE.Object3D | null = null;
+                object.traverse((c: THREE.Object3D) => {
                     if (!boxMesh && (c.name.toLowerCase().includes('box') || c.name.toLowerCase().includes('cargo'))) {
                         boxMesh = c;
                     }
