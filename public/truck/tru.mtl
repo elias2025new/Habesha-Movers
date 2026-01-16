@@ -1,0 +1,287 @@
+# 3ds Max Wavefront OBJ Exporter v0.94b - (c)2007 guruware
+# File Created: 31.01.2019 08:56:11
+
+newmtl black
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.3882 0.3882 0.3882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+
+newmtl body
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka nodamage.jpg
+	map_Kd nodamage.jpg
+	map_refl darkrefl.jpg
+
+newmtl lights_gls_noemit
+	Ns 20.0000
+	Ni 1.5000
+	d 0.9200
+	Tr 0.9200
+	Tf 0.9200 0.9200 0.9200 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+
+newmtl lights_gls_oldhead
+	Ns 20.0000
+	Ni 1.5000
+	d 0.6000
+	Tr 0.6000
+	Tf 0.6000 0.6000 0.6000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+
+newmtl matte_colors
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka nodamage.jpg
+	map_Kd nodamage.jpg
+	map_refl darkrefl.jpg
+
+newmtl misc
+	Ns 66.4386
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka nodamage.jpg
+	map_Kd nodamage.jpg
+	map_refl darkrefl.jpg
+
+newmtl numberplate
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka traffic_.jpg
+	map_Kd traffic_.jpg
+
+newmtl glass
+	Ns 20.0000
+	Ni 1.5000
+	d 0.4000
+	Tr 0.4000
+	Tf 0.4000 0.4000 0.4000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_refl skyxn.jpg
+
+newmtl indicator_left
+	Ns 20.0000
+	Ni 1.5000
+	d 0.9200
+	Tr 0.9200
+	Tf 0.9200 0.9200 0.9200 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+
+newmtl reverse_light
+	Ns 20.0000
+	Ni 1.5000
+	d 0.9200
+	Tr 0.9200
+	Tf 0.9200 0.9200 0.9200 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+
+newmtl taillight2S
+	Ns 20.0000
+	Ni 1.5000
+	d 0.9200
+	Tr 0.9200
+	Tf 0.9200 0.9200 0.9200 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+
+newmtl indicator_right
+	Ns 20.0000
+	Ni 1.5000
+	d 0.9200
+	Tr 0.9200
+	Tf 0.9200 0.9200 0.9200 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+
+newmtl oldhead
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+	map_refl skyxn.jpg
+
+newmtl interior
+	Ns 25.8496
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka nodamage.jpg
+	map_Kd nodamage.jpg
+
+newmtl chrome
+	Ns 66.4386
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_refl skyxn.jpg
+
+newmtl chrome_blur_lip
+	Ns 66.4386
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka wheel.jpg
+	map_Kd wheel.jpg
+	map_refl skyxn.jpg
+
+newmtl chrome_rim
+	Ns 66.4386
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 0.0000 0.0000 0.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka wheel.jpg
+	map_Kd wheel.jpg
+	map_refl skyxn.jpg
+
+newmtl inner_rim
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka lights.jpg
+	map_Kd lights.jpg
+	map_refl darkrefl.jpg
+
+newmtl tire
+	Ns 20.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka tireA0.jpg
+	map_Kd tireA0.jpg
+
+newmtl wheel_emblem
+	Ns 56.4386
+	Ni 1.5000
+	d 1.0000
+	Tr 1.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.0000 0.0000 0.0000
+	Kd 1.0000 1.0000 1.0000
+	Ks 0.4000 0.4000 0.4000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka wheel.jpg
+	map_Kd wheel.jpg
+	map_d wheel_a.jpg
+	map_refl darkrefl.jpg
