@@ -28,6 +28,10 @@ const QuoteForm = () => {
         movingDate: "",
         notes: "",
     });
+    const [validity, setValidity] = useState({
+        pickup: false,
+        destination: false
+    });
 
     const updateFormData = (data: Partial<typeof formData>) => {
         setFormData(prev => ({ ...prev, ...data }));
@@ -37,6 +41,10 @@ const QuoteForm = () => {
         if (step === 1) {
             if (!formData.pickup || !formData.destination) {
                 toast.error("Please select both pickup and destination");
+                return;
+            }
+            if (!validity.pickup || !validity.destination) {
+                toast.error("Please provide valid locations in Addis Ababa");
                 return;
             }
         }
@@ -53,6 +61,12 @@ const QuoteForm = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!validity.pickup || !validity.destination) {
+            toast.error("Please provide valid locations in Addis Ababa");
+            return;
+        }
+
         setLoading(true);
 
         try {
@@ -132,8 +146,9 @@ const QuoteForm = () => {
                             <LocationInput
                                 placeholder="Pickup from..."
                                 defaultValue={formData.pickup}
-                                onSelect={(address) => {
+                                onSelect={(address, isValid) => {
                                     updateFormData({ pickup: address });
+                                    setValidity(v => ({ ...v, pickup: isValid }));
                                 }}
                             />
                         </div>
@@ -142,8 +157,9 @@ const QuoteForm = () => {
                             <LocationInput
                                 placeholder="Moving to..."
                                 defaultValue={formData.destination}
-                                onSelect={(address) => {
+                                onSelect={(address, isValid) => {
                                     updateFormData({ destination: address });
+                                    setValidity(v => ({ ...v, destination: isValid }));
                                 }}
                             />
                         </div>

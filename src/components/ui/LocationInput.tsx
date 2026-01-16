@@ -8,7 +8,7 @@ import { ALL_ADDIS_LOCATIONS } from "@/constants/locations";
 
 interface LocationInputProps {
     placeholder?: string;
-    onSelect: (address: string) => void;
+    onSelect: (address: string, isValid: boolean) => void;
     defaultValue?: string;
     className?: string;
 }
@@ -23,16 +23,18 @@ export default function LocationInput({
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [isVerified, setIsVerified] = useState(false);
+    const [isNonsense, setIsNonsense] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     const fuse = new Fuse(ALL_ADDIS_LOCATIONS, {
         threshold: 0.4,
         distance: 100,
+        includeScore: true
     });
 
     useEffect(() => {
         setInputValue(defaultValue);
-        checkVerification(defaultValue);
+        checkValidation(defaultValue);
     }, [defaultValue]);
 
     useEffect(() => {
@@ -45,21 +47,54 @@ export default function LocationInput({
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
-    const checkVerification = (value: string) => {
+    const checkValidation = (value: string) => {
+        if (!value || value.length < 3) {
+            setIsVerified(false);
+            setIsNonsense(false);
+            return;
+        }
+
         const exactMatch = ALL_ADDIS_LOCATIONS.find(
             (loc) => loc.toLowerCase() === value.toLowerCase()
         );
-        setIsVerified(!!exactMatch);
+
+        if (exactMatch) {
+            setIsVerified(true);
+            setIsNonsense(false);
+            return;
+        }
+
+        // Check for fuzzy matching score
+        const results = fuse.search(value);
+        const bestMatch = results[0];
+
+        if (bestMatch && bestMatch.score !== undefined && bestMatch.score < 0.45) {
+            setIsVerified(false);
+            setIsNonsense(false);
+        } else {
+            setIsVerified(false);
+            setIsNonsense(true);
+        }
     };
 
     const handleInputChange = (value: string) => {
         setInputValue(value);
-        onSelect(value);
-        checkVerification(value);
+
+        // Internal validation for UI
+        const isExact = ALL_ADDIS_LOCATIONS.some(l => l.toLowerCase() === value.toLowerCase());
+        const results = fuse.search(value);
+        const hasDecentMatch = results.some(r => r.score !== undefined && r.score < 0.45);
+
+        const isValid = isExact || hasDecentMatch || value.length < 3;
+        const currentNonsense = value.length >= 3 && !isExact && !hasDecentMatch;
+
+        setIsVerified(isExact);
+        setIsNonsense(currentNonsense);
+
+        onSelect(value, !currentNonsense);
 
         if (value.length > 1) {
-            const results = fuse.search(value).map((result) => result.item);
-            setSuggestions(results.slice(0, 5));
+            setSuggestions(results.map((result) => result.item).slice(0, 5));
             setShowSuggestions(results.length > 0);
         } else {
             setSuggestions([]);
@@ -69,26 +104,36 @@ export default function LocationInput({
 
     const handleSelectSuggestion = (suggestion: string) => {
         setInputValue(suggestion);
-        onSelect(suggestion);
+        onSelect(suggestion, true);
         setIsVerified(true);
+        setIsNonsense(false);
         setShowSuggestions(false);
     };
 
     return (
         <div className={`relative ${className}`} ref={containerRef}>
             <div className="relative">
-                <MapPin className={`absolute left-3 top-3 h-5 w-5 z-10 transition-colors ${isVerified ? 'text-green-500' : 'text-gray-400'}`} />
+                <MapPin className={`absolute left-3 top-3 h-5 w-5 z-10 transition-colors 
+                    ${isVerified ? 'text-green-500' : isNonsense ? 'text-red-400' : 'text-gray-400'}`}
+                />
                 <Input
                     value={inputValue}
                     onChange={(e) => handleInputChange(e.target.value)}
                     onFocus={() => inputValue.length > 1 && setShowSuggestions(suggestions.length > 0)}
-                    className={`pl-10 pr-10 transition-all ${isVerified ? 'border-green-500 ring-green-500/20' : ''}`}
+                    className={`pl-10 pr-10 transition-all 
+                        ${isVerified ? 'border-green-500 ring-green-500/20' :
+                            isNonsense ? 'border-red-400 ring-red-400/10' : ''}`}
                     placeholder={placeholder}
                 />
                 {isVerified && (
                     <div className="absolute right-3 top-3 flex items-center gap-1.5 animate-in fade-in zoom-in duration-300">
                         <span className="text-[10px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded uppercase tracking-wider hidden sm:block">Verified</span>
                         <CheckCircle2 className="h-5 w-5 text-green-500" />
+                    </div>
+                )}
+                {isNonsense && (
+                    <div className="absolute right-3 top-3 flex items-center gap-1.5 animate-in fade-in zoom-in slide-in-from-right-2 duration-300">
+                        <span className="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded uppercase tracking-wider">Unknown Location</span>
                     </div>
                 )}
             </div>

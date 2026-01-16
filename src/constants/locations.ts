@@ -18,23 +18,14 @@ export const ADDIS_ABABA_SUBCITIES = [
 ];
 
 export const ADDIS_ABABA_NEIGHBORHOODS = [
-    // Piazza / Cental
-    "Piazza", "Piassa", "6 Kilo", "4 Kilo", "Legehar", "Mexico", "Meskel Adebabay", "Casanchis", "Kasanchis",
-
-    // Bole Area
-    "Bole Atlas", "Bole Medhanealem", "Gerji", "Goro", "Bole Arabsa", "Arabsa Sefera", "Arabsa Condominium", "Arabsa Diaspora", "Yerer", "Jackros", "Bole Michael", "Rwanda", "Wollo Sefer", "Olympia", "Bambis", "Dembel",
-
     // Yeka / East
-    "Megenagna", "Gurd Shola", "22", "Urael", "Ferensay Legasion", "Kotebe", "Kotebe Metropolitan", "Kara", "Kara Alo", "Abado", "Yeka Abado", "Lam Beret", "Summit", "Ayat", "CMC",
-
-    // Nifas Silk / South
-    "Saris", "Saris Abo", "Gotera", "Beklo Bet", "Qera", "Gofa", "Lafto", "Bisrate Gebriel", "Sar Bet", "Mekanisa", "Jemo", "Hana Mariam",
-
+    "Megenagna", "Gurd Shola", "Megenagna Shola", "22", "Urael", "Ferensay Legasion", "Kotebe", "Kotebe Metropolitan", "Kotebe Kara", "Kotebe Mesalemya", "Kara", "Kara Alo", "Abado", "Yeka Abado", "Lam Beret", "Summit", "Ayat", "CMC",
+    ...
     // West / Kolfe / Lideta
-    "Merkato", "Atena Tera", "Autobus Tera", "Abinet", "Somali Tera", "Tor Hailoch", "Bethel", "Alem Bank", "Wingate",
-
-    // Gullele / North
-    "Shiro Meda", "Afincho Ber", "Kechene", "Addisu Gebeya", "Entoto", "Shegole"
+    "Merkato", "Merkato Mesalemya", "Merkato Kara", "Merkato Shola", "Merkato Atikilt Tera", "Atena Tera", "Autobus Tera", "Abinet", "Somali Tera", "Sebategna", "Tor Hailoch", "Bethel", "Alem Bank", "Wingate", "Kara Korore",
+    ...
+    // Piazza / Cental
+    "Piazza", "Piassa", "Piazza Atikilt Tera", "6 Kilo", "4 Kilo", "Legehar", "Mexico", "Meskel Adebabay", "Casanchis", "Kasanchis",
 ];
 
 export const SATELLITE_TOWNS = [
