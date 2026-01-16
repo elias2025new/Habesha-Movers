@@ -4,8 +4,9 @@ import { auth } from '@/auth';
 
 export async function PATCH(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await params;
     const session = await auth();
 
     if (!session) {
@@ -17,7 +18,7 @@ export async function PATCH(
         const { status } = body;
 
         const request = await prisma.movingRequest.update({
-            where: { id: params.id },
+            where: { id: id },
             data: { status },
         });
 
@@ -30,8 +31,9 @@ export async function PATCH(
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { id: string } }
+    { params }: { params: Promise<{ id: string }> }
 ) {
+    const { id } = await params;
     const session = await auth();
 
     if (!session) {
@@ -40,7 +42,7 @@ export async function DELETE(
 
     try {
         await prisma.movingRequest.delete({
-            where: { id: params.id },
+            where: { id: id },
         });
 
         return NextResponse.json({ success: true });

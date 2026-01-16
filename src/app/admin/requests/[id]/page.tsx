@@ -19,10 +19,11 @@ import StatusUpdater from "@/components/admin/StatusUpdater";
 export default async function RequestDetailPage({
     params,
 }: {
-    params: { id: string };
+    params: Promise<{ id: string }>;
 }) {
+    const { id } = await params;
     const request = await prisma.movingRequest.findUnique({
-        where: { id: params.id },
+        where: { id: id },
     });
 
     if (!request) {
