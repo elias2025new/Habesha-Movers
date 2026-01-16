@@ -101,22 +101,22 @@ const QuoteForm = () => {
 
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 md:p-8 w-full max-w-md border-t-4 border-primary">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-4 sm:p-8 w-full max-w-md border-t-4 border-primary">
             {step < 4 && (
                 <>
-                    <div className="text-center mb-6">
-                        <h3 className="text-2xl font-extrabold text-foreground">Let&apos;s Get You Moving</h3>
-                        <p className="text-sm text-secondary-foreground opacity-70 mt-1">
+                    <div className="text-center mb-4 sm:mb-6">
+                        <h3 className="text-lg sm:text-2xl font-extrabold text-foreground leading-tight">Let&apos;s Get You Moving</h3>
+                        <p className="text-[10px] sm:text-sm text-secondary-foreground opacity-70 mt-1">
                             Get your free quote in three quick steps.
                         </p>
                     </div>
 
                     {/* Progress Steps */}
-                    <div className="flex items-center justify-between px-4 mb-8">
+                    <div className="flex items-center justify-between px-2 sm:px-4 mb-6 sm:mb-8">
                         {[1, 2, 3].map((s) => (
                             <div key={s} className="flex items-center w-full last:w-auto">
                                 <div
-                                    className={`flex items-center justify-center w-10 h-10 rounded-full border-2 font-bold text-lg transition-colors
+                                    className={`flex items-center justify-center w-6 h-6 sm:w-10 sm:h-10 rounded-full border-2 font-bold text-xs sm:text-lg transition-colors
                                     ${s === step
                                             ? 'border-primary bg-primary text-white'
                                             : s < step
@@ -128,7 +128,7 @@ const QuoteForm = () => {
                                 </div>
                                 {s < 3 && (
                                     <div
-                                        className={`h-1 mx-2 flex-grow rounded-full transition-colors ${s < step ? 'bg-primary' : 'bg-gray-200'
+                                        className={`h-0.5 sm:h-1 mx-1 sm:mx-2 flex-grow rounded-full transition-colors ${s < step ? 'bg-primary' : 'bg-gray-200'
                                             }`}
                                     />
                                 )}
