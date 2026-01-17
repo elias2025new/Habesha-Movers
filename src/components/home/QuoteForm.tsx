@@ -101,12 +101,12 @@ const QuoteForm = () => {
 
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-4 sm:p-8 w-full max-w-md border-t-4 border-primary">
+        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-md border-t-4 border-primary">
             {step < 4 && (
                 <>
-                    <div className="text-center mb-4 sm:mb-6">
-                        <h3 className="text-lg sm:text-2xl font-extrabold text-foreground leading-tight">Let&apos;s Get You Moving</h3>
-                        <p className="text-[10px] sm:text-sm text-secondary-foreground opacity-70 mt-1">
+                    <div className="text-center mb-6 sm:mb-8">
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground dark:text-white tracking-tight">Let&apos;s Get You Moving</h3>
+                        <p className="text-sm text-secondary-foreground opacity-70 mt-2">
                             Get your free quote in three quick steps.
                         </p>
                     </div>
