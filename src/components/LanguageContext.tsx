@@ -338,7 +338,7 @@ const translations = {
         'quote.serviceTypePlaceholder': 'አገልግሎት ይምረጡ...',
 
         // Quote Form
-        'quote.title': "እንጀምር",
+        'quote.title': "አሁን ዋጋ ግምት ያግኙ",
         'quote.subtitle': 'በሶስት ፈጣን እርምጃዎች ነፃ ዋጋ ያግኙ።',
         'quote.pickup': 'መነሻ አድራሻ',
         'quote.pickupPlaceholder': 'መነሻ ቦታ...',
