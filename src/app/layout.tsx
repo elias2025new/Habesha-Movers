@@ -20,6 +20,8 @@ import SchemaMarkup from "@/components/SEO/SchemaMarkup";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import Preloader from "@/components/Preloader";
+import { LanguageProvider } from "@/components/LanguageContext";
+import MobileCTA from "@/components/ui/MobileCTA";
 
 export default function RootLayout({
   children,
@@ -27,25 +29,52 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="light" style={{ colorScheme: 'light' }}>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  localStorage.removeItem('theme'); // Clear legacy key
+                  const key = 'habesha-movers-theme';
+                  const theme = localStorage.getItem(key);
+                  if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    document.documentElement.style.colorScheme = 'dark';
+                  } else {
+                    document.documentElement.classList.remove('dark');
+                    document.documentElement.style.colorScheme = 'light';
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${poppins.variable} antialiased min-h-screen flex flex-col font-sans`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Toaster position="top-center" richColors />
-          <Preloader />
-          <SchemaMarkup />
-          <Header />
-          <main className="flex-grow pt-32">
-            {children}
-          </main>
-          <Footer />
-        </ThemeProvider>
+        <LanguageProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            storageKey="habesha-movers-theme"
+            enableColorScheme={true}
+            disableTransitionOnChange
+          >
+            <Toaster position="top-center" richColors />
+            <Preloader />
+            <SchemaMarkup />
+            <Header />
+            <main className="flex-grow pt-32">
+              {children}
+            </main>
+            <Footer />
+            <MobileCTA />
+          </ThemeProvider>
+        </LanguageProvider>
       </body>
     </html>
   );

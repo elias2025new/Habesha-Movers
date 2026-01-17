@@ -1,44 +1,47 @@
 "use client";
 
 import Image from 'next/image';
-import { Truck, Home, Building2, Package, Globe, Car, Star } from 'lucide-react';
+import { Home, Building2, Package, Globe, Car } from 'lucide-react';
 import Link from 'next/link';
+import { useLanguage } from '../LanguageContext';
 
 const ProfessionalServices = () => {
+    const { t } = useLanguage();
+
     const services = [
         {
-            title: 'House Moving',
-            description: 'Safe and secure relocation for your entire household items.',
+            title: t('service.house'),
+            description: t('service.houseDesc'),
             icon: Home,
             href: '/services/house-moving'
         },
         {
-            title: 'Office Relocation',
-            description: 'Efficient moving services for offices and businesses.',
+            title: t('service.office'),
+            description: t('service.officeDesc'),
             icon: Building2,
             href: '/services/office-relocation'
         },
         {
-            title: 'Packing Services',
-            description: 'Professional packing materials and expert handling.',
+            title: t('service.packing'),
+            description: t('service.packingDesc'),
             icon: Package,
             href: '/services/packing'
         },
         {
-            title: 'International Moving',
-            description: 'Seamless international relocation services and logistics.',
+            title: t('service.international'),
+            description: t('service.internationalDesc'),
             icon: Globe,
             href: '/services/international'
         },
         {
-            title: 'Storage Solutions',
-            description: 'Secure, climate-controlled storage for short or long terms.',
-            icon: Package, // Representing storage with a package context or finding a better icon like Archive if available, stick to Package for now as per header list context usually
+            title: t('service.storage'),
+            description: t('service.storageDesc'),
+            icon: Package,
             href: '/services/storage'
         },
         {
-            title: 'Car Transportation',
-            description: 'Reliable vehicle transport services to any destination.',
+            title: t('service.car'),
+            description: t('service.carDesc'),
             icon: Car,
             href: '/services/car-transport'
         },
@@ -68,12 +71,10 @@ const ProfessionalServices = () => {
                     <div className="space-y-12">
                         <div className="space-y-4">
                             <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                                Professional Service Ready For <br />
-                                <span className="text-primary">Your Moving Plan</span>
+                                {t('pro.title')}
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
-                                We provide a comprehensive range of moving services designed to meet your every need.
-                                From local house moves to complicated international relocations, our team is ready to help.
+                                {t('pro.description')}
                             </p>
                         </div>
 

@@ -1,24 +1,27 @@
 "use client";
 
 import Image from 'next/image';
-import { Shield, DollarSign, Settings2, Clock, Truck } from 'lucide-react';
+import { Shield, DollarSign, Settings2, Clock } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 const WhyChooseUs = () => {
+    const { t } = useLanguage();
+
     const benefits = [
         {
-            title: "Licensed and insured moving",
+            title: t('why.benefit1'),
             icon: Shield,
         },
         {
-            title: "Transparent pricing with no hidden fees",
+            title: t('why.benefit2'),
             icon: DollarSign,
         },
         {
-            title: "Customized services for every move",
+            title: t('why.benefit3'),
             icon: Settings2,
         },
         {
-            title: "On-time, every time",
+            title: t('why.benefit4'),
             icon: Clock,
         },
     ];
@@ -32,12 +35,10 @@ const WhyChooseUs = () => {
                     <div className="space-y-10">
                         <div className="space-y-4">
                             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
-                                Why Choose <br />
-                                <span className="text-primary">Habesha Movers</span>
+                                {t('why.title')}
                             </h2>
                             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
-                                Here's why customers trust us time and again. From your first quote to your final box,
-                                here's how we make moving smooth and stress-free. Let's get you on the road to your new home.
+                                {t('why.description')}
                             </p>
                         </div>
 
@@ -72,9 +73,9 @@ const WhyChooseUs = () => {
 
                         {/* Floating Badge - Moved outside overflow-hidden container */}
                         <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#f26522] border-4 border-white dark:border-gray-800 flex flex-col items-center justify-center shadow-2xl z-10 p-2 text-center transform hover:scale-105 transition-transform duration-300">
-                            <span className="text-5xl font-extrabold text-white leading-none">5+</span>
-                            <span className="text-sm font-bold text-white/90 mt-1 uppercase tracking-wide">Years of</span>
-                            <span className="text-sm font-bold text-white/90 uppercase tracking-wide">Experience</span>
+                            <span className="text-5xl font-extrabold text-white leading-none">{t('why.experienceValue')}</span>
+                            <span className="text-sm font-bold text-white/90 mt-1 uppercase tracking-wide">{t('why.experienceLabel1')}</span>
+                            <span className="text-sm font-bold text-white/90 uppercase tracking-wide">{t('why.experienceLabel2')}</span>
                         </div>
                     </div>
 

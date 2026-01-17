@@ -2,11 +2,15 @@
 
 import { motion } from 'framer-motion';
 import QuoteForm from './QuoteForm';
+import { useLanguage } from '../LanguageContext';
 import { Users, Package } from 'lucide-react';
 
 import ParticleBackground from './ParticleBackground';
+import { GlowButton } from '@/components/ui/shiny-button-1';
+import Link from 'next/link';
 
 const Hero = () => {
+    const { t } = useLanguage();
     return (
         <div className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
             {/* Background Image */}
@@ -26,7 +30,7 @@ const Hero = () => {
             </div>
 
             {/* Mobile Stats Bar - Absolutely Positioned at THE TOP OF THE HERO */}
-            <div className="lg:hidden absolute top-16 left-0 right-0 z-20 flex justify-center px-2 md:px-0">
+            <div className="lg:hidden absolute top-4 left-0 right-0 z-20 flex justify-center px-2 md:px-0">
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -35,20 +39,21 @@ const Hero = () => {
                 >
                     <div className="flex items-center gap-1.5 border-r border-gray-100 pr-2 md:pr-6 last:border-0 grow justify-center">
                         <Users className="h-3 w-3 md:h-5 md:w-5 text-secondary" />
-                        <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">30k+ Moves</span>
+                        <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">{t('hero.mobileStats.moves')}</span>
                     </div>
                     <div className="flex items-center gap-1.5 border-r border-gray-100 px-2 md:px-6 last:border-0 grow justify-center">
                         <Package className="h-3 w-3 md:h-5 md:w-5 text-secondary" />
-                        <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">100% Safe</span>
+                        <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">{t('hero.mobileStats.safe')}</span>
                     </div>
                     <div className="flex items-center gap-1.5 px-2 md:px-6 grow justify-center">
-                        <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">❤️ Trusted in Addis</span>
+                        <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">{t('hero.mobileStats.trusted')}</span>
                     </div>
                 </motion.div>
             </div>
 
+
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-8 md:py-20 text-white">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-20 lg:mt-0">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-36 lg:mt-0">
 
                     {/* Left Content - Text (PC View Only, Hidden on Mobile as per Image) */}
                     <motion.div
@@ -59,28 +64,27 @@ const Hero = () => {
                     >
                         <div className="space-y-4">
                             <span className="text-secondary font-bold tracking-wider uppercase text-sm bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
-                                Habesha Movers
+                                {t('hero.badge')}
                             </span>
                             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                                Professional <br />
-                                <span className="text-secondary">Moving Services</span>
+                                {t('hero.title1')} <br />
+                                <span className="text-secondary">{t('hero.title2')}</span>
                             </h1>
                             <p className="text-lg text-gray-200 max-w-xl leading-relaxed">
-                                Habesha Movers provides reliable moving solutions across Addis Ababa.
-                                Fill out our quick form to get an instant, competitive quote.
+                                {t('hero.description')}
                             </p>
                         </div>
 
                         <div className="grid grid-cols-2 gap-6 max-w-md">
                             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl">
                                 <Users className="h-6 w-6 text-secondary mb-2" />
-                                <h4 className="text-2xl font-bold text-white">30,000+</h4>
-                                <p className="text-gray-300 text-xs">Families moved</p>
+                                <h4 className="text-2xl font-bold text-white">{t('hero.stats.moves')}</h4>
+                                <p className="text-gray-300 text-xs">{t('hero.stats.movesLabel')}</p>
                             </div>
                             <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl">
                                 <Package className="h-6 w-6 text-secondary mb-2" />
-                                <h4 className="text-2xl font-bold text-white">100%</h4>
-                                <p className="text-gray-300 text-xs">Safe Delivery Rate</p>
+                                <h4 className="text-2xl font-bold text-white">{t('hero.stats.safe')}</h4>
+                                <p className="text-gray-300 text-xs">{t('hero.stats.safeLabel')}</p>
                             </div>
                         </div>
                     </motion.div>

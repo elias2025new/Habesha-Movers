@@ -12,6 +12,13 @@ export default function Preloader() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        document.body.classList.add('preloader-active');
+        return () => {
+            document.body.classList.remove('preloader-active');
+        };
+    }, []);
+
+    useEffect(() => {
         if (!containerRef.current) return;
 
         // --- SCENE SETUP ---
@@ -436,7 +443,7 @@ export default function Preloader() {
                 left: 0,
                 width: '100%',
                 height: '100%',
-                zIndex: 9999,
+                zIndex: 10000,
                 pointerEvents: 'none'
             }}
         >

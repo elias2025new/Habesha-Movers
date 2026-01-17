@@ -5,17 +5,20 @@ import { Button } from '@/components/ui/Button';
 import LocationInput from '@/components/ui/LocationInput';
 import { Input } from '@/components/ui/Input';
 import { toast } from 'sonner';
-
-const houseSizes = [
-    { label: 'Studio', value: 'studio' },
-    { label: '1 Bedroom', value: '1br' },
-    { label: '2 Bedrooms', value: '2br' },
-    { label: '3 Bedrooms', value: '3br' },
-    { label: '4+ Bedrooms', value: '4br+' },
-    { label: 'Office', value: 'office' },
-];
+import { useLanguage } from '../LanguageContext';
 
 const QuoteForm = () => {
+    const { t } = useLanguage();
+
+    const houseSizes = [
+        { label: t('size.studio'), value: 'studio' },
+        { label: t('size.1br'), value: '1br' },
+        { label: t('size.2br'), value: '2br' },
+        { label: t('size.3br'), value: '3br' },
+        { label: t('size.4br'), value: '4br+' },
+        { label: t('size.office'), value: 'office' },
+    ];
+
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -24,6 +27,7 @@ const QuoteForm = () => {
         phone: "",
         pickup: "",
         destination: "",
+        serviceType: "",
         houseSize: "",
         movingDate: "",
         notes: "",
@@ -32,6 +36,7 @@ const QuoteForm = () => {
         pickup: false,
         destination: false
     });
+    const [attachment, setAttachment] = useState<File | null>(null);
 
     const updateFormData = (data: Partial<typeof formData>) => {
         setFormData(prev => ({ ...prev, ...data }));
@@ -40,17 +45,17 @@ const QuoteForm = () => {
     const nextStep = () => {
         if (step === 1) {
             if (!formData.pickup || !formData.destination) {
-                toast.error("Please select both pickup and destination");
+                toast.error(t('toast.locationError'));
                 return;
             }
             if (!validity.pickup || !validity.destination) {
-                toast.error("Please provide valid locations in Addis Ababa");
+                toast.error(t('toast.addisError'));
                 return;
             }
         }
         if (step === 2) {
-            if (!formData.houseSize || !formData.movingDate) {
-                toast.error("Please provide house size and moving date");
+            if (!formData.serviceType || !formData.houseSize || !formData.movingDate) {
+                toast.error(t('toast.detailsError'));
                 return;
             }
         }
@@ -63,37 +68,42 @@ const QuoteForm = () => {
         e.preventDefault();
 
         if (!validity.pickup || !validity.destination) {
-            toast.error("Please provide valid locations in Addis Ababa");
+            toast.error(t('toast.addisError'));
             return;
         }
 
         setLoading(true);
 
         try {
+            const data = new FormData();
+            data.append('fullName', formData.fullName);
+            data.append('email', formData.email);
+            data.append('phone', formData.phone);
+            data.append('pickupAddress', formData.pickup);
+            data.append('destinationAddress', formData.destination);
+            data.append('serviceType', formData.serviceType);
+            data.append('houseSize', formData.houseSize);
+            data.append('movingDate', formData.movingDate);
+            data.append('notes', formData.notes);
+            if (attachment) {
+                data.append('attachment', attachment);
+            }
+
             const response = await fetch('/api/quote', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    fullName: formData.fullName,
-                    email: formData.email,
-                    phone: formData.phone,
-                    pickupAddress: formData.pickup,
-                    destinationAddress: formData.destination,
-                    houseSize: formData.houseSize,
-                    movingDate: formData.movingDate,
-                    notes: formData.notes,
-                }),
+                // Content-Type header not needed for FormData, browser sets it with boundary
+                body: data,
             });
 
             if (response.ok) {
-                toast.success("Quote request sent successfully!");
+                toast.success(t('toast.success'));
                 setStep(4); // Success state
             } else {
                 const data = await response.json();
                 toast.error(data.error || "Submission failed");
             }
         } catch (error) {
-            toast.error("An error occurred");
+            toast.error(t('toast.error'));
         } finally {
             setLoading(false);
         }
@@ -105,9 +115,9 @@ const QuoteForm = () => {
             {step < 4 && (
                 <>
                     <div className="text-center mb-6 sm:mb-8">
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground dark:text-white tracking-tight">Let&apos;s Get You Moving</h3>
+                        <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground dark:text-white tracking-tight">{t('quote.title')}</h3>
                         <p className="text-sm text-secondary-foreground opacity-70 mt-2">
-                            Get your free quote in three quick steps.
+                            {t('quote.subtitle')}
                         </p>
                     </div>
 
@@ -142,9 +152,9 @@ const QuoteForm = () => {
                 {step === 1 && (
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">Pickup Address</label>
+                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.pickup')}</label>
                             <LocationInput
-                                placeholder="Pickup from..."
+                                placeholder={t('quote.pickupPlaceholder')}
                                 defaultValue={formData.pickup}
                                 onSelect={(address, isValid) => {
                                     updateFormData({ pickup: address });
@@ -153,9 +163,9 @@ const QuoteForm = () => {
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">Destination Address</label>
+                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.destination')}</label>
                             <LocationInput
-                                placeholder="Moving to..."
+                                placeholder={t('quote.destinationPlaceholder')}
                                 defaultValue={formData.destination}
                                 onSelect={(address, isValid) => {
                                     updateFormData({ destination: address });
@@ -168,7 +178,7 @@ const QuoteForm = () => {
                             className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white mt-4"
                             onClick={nextStep}
                         >
-                            Continue
+                            {t('quote.continue')}
                         </Button>
                     </div>
                 )}
@@ -176,20 +186,70 @@ const QuoteForm = () => {
                 {step === 2 && (
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">House Size</label>
+                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.serviceType')}</label>
                             <select
                                 className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
-                                value={formData.houseSize}
-                                onChange={(e) => updateFormData({ houseSize: e.target.value })}
+                                value={formData.serviceType}
+                                onChange={(e) => updateFormData({ serviceType: e.target.value, houseSize: "" })} // Reset size on type change
                             >
-                                <option value="">Select Size</option>
-                                {houseSizes.map(size => (
-                                    <option key={size.value} value={size.value}>{size.label}</option>
-                                ))}
+                                <option value="">{t('quote.serviceTypePlaceholder')}</option>
+                                <option value="house">{t('quote.service.house')}</option>
+                                <option value="office">{t('quote.service.office')}</option>
+                                <option value="packing">{t('quote.service.packing')}</option>
                             </select>
                         </div>
+
+                        {(formData.serviceType === 'house' || formData.serviceType === 'packing') && (
+                            <div>
+                                <label className="block text-sm font-medium text-foreground mb-1">{t('quote.houseSize')}</label>
+                                <select
+                                    className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                    value={formData.houseSize}
+                                    onChange={(e) => updateFormData({ houseSize: e.target.value })}
+                                >
+                                    <option value="">{t('quote.selectSize')}</option>
+                                    <option value="studio">{t('size.studio')}</option>
+                                    <option value="1br">{t('size.1br')}</option>
+                                    <option value="2br">{t('size.2br')}</option>
+                                    <option value="3br">{t('size.3br')}</option>
+                                    <option value="4br">{t('size.4br')}</option>
+                                </select>
+                            </div>
+                        )}
+
+                        {formData.serviceType === 'office' && (
+                            <div>
+                                <label className="block text-sm font-medium text-foreground mb-1">{t('quote.officeSize')}</label>
+                                <select
+                                    className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                    value={formData.houseSize} // reusing houseSize field for convenience, or add officeSize
+                                    onChange={(e) => updateFormData({ houseSize: e.target.value })}
+                                >
+                                    <option value="">{t('quote.selectSize')}</option>
+                                    <option value="small_office">{t('quoteForm.smallOffice')}</option>
+                                    <option value="medium_office">{t('quote.service.mediumOffice')}</option>
+                                    <option value="large_office">{t('quoteForm.largeOffice')}</option>
+                                    <option value="floor_relocation">{t('quote.service.floorRelocation')}</option>
+                                </select>
+                            </div>
+                        )}
+
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">Moving Date</label>
+                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.attachFile')}</label>
+                            <Input
+                                type="file"
+                                accept="image/*"
+                                onChange={(e) => {
+                                    if (e.target.files && e.target.files[0]) {
+                                        setAttachment(e.target.files[0]);
+                                    }
+                                }}
+                                className="cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
+                            />
+                        </div>
+
+                        <div>
+                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.movingDate')}</label>
                             <Input
                                 type="date"
                                 value={formData.movingDate}
@@ -204,14 +264,14 @@ const QuoteForm = () => {
                                 className="flex-1 h-12"
                                 onClick={prevStep}
                             >
-                                Back
+                                {t('quote.back')}
                             </Button>
                             <Button
                                 type="button"
                                 className="flex-[2] h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white"
                                 onClick={nextStep}
                             >
-                                Next
+                                {t('quote.next')}
                             </Button>
                         </div>
                     </div>
@@ -220,27 +280,27 @@ const QuoteForm = () => {
                 {step === 3 && (
                     <div className="space-y-4">
                         <Input
-                            placeholder="Full Name"
+                            placeholder={t('quote.fullName')}
                             value={formData.fullName}
                             onChange={(e) => updateFormData({ fullName: e.target.value })}
                             required
                         />
                         <Input
-                            placeholder="Email Address"
+                            placeholder={t('quote.email')}
                             type="email"
                             value={formData.email}
                             onChange={(e) => updateFormData({ email: e.target.value })}
                             required
                         />
                         <Input
-                            placeholder="Phone Number"
+                            placeholder={t('quote.phone')}
                             type="tel"
                             value={formData.phone}
                             onChange={(e) => updateFormData({ phone: e.target.value })}
                             required
                         />
                         <textarea
-                            placeholder="Special Notes (Optional)"
+                            placeholder={t('quote.notes')}
                             className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground resize-none h-24"
                             value={formData.notes}
                             onChange={(e) => updateFormData({ notes: e.target.value })}
@@ -259,7 +319,7 @@ const QuoteForm = () => {
                                 disabled={loading}
                                 className="flex-[2] h-12 text-lg font-bold bg-secondary hover:bg-secondary/90 text-white"
                             >
-                                {loading ? "Sending..." : "Get Free Quote"}
+                                {loading ? t('quote.sending') : t('quote.button')}
                             </Button>
                         </div>
                     </div>
@@ -272,9 +332,9 @@ const QuoteForm = () => {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                             </svg>
                         </div>
-                        <h3 className="text-2xl font-bold text-foreground">Request Received!</h3>
+                        <h3 className="text-2xl font-bold text-foreground">{t('quote.successTitle')}</h3>
                         <p className="text-gray-600 dark:text-gray-400">
-                            Thank you for choosing Habesha Movers. We will review your request and contact you within 30 minutes with a detailed quote.
+                            {t('quote.successMessage')}
                         </p>
                         <Button
                             type="button"
@@ -287,13 +347,14 @@ const QuoteForm = () => {
                                     phone: "",
                                     pickup: "",
                                     destination: "",
+                                    serviceType: "",
                                     houseSize: "",
                                     movingDate: "",
                                     notes: "",
                                 });
                             }}
                         >
-                            Make Another Request
+                            {t('quote.another')}
                         </Button>
                     </div>
                 )}

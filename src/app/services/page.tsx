@@ -1,41 +1,46 @@
+"use client";
+
 import { Package, Building2, Home } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
-
-const services = [
-    {
-        title: 'House Moving',
-        description: 'Relocating to a new home? Our team handles everything from packing to transport and unpacking at your new residence.',
-        icon: Home,
-        href: '/services/house-moving',
-        image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        title: 'Office Relocation',
-        description: 'Minimize downtime for your business. We provide efficient office moving services, including furniture disassembly and equipment handling.',
-        icon: Building2,
-        href: '/services/office-relocation',
-        image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
-    },
-    {
-        title: 'Packing & Unpacking',
-        description: 'Save time and ensure safety. We provide high-quality packing materials and professional packing services for all your belongings.',
-        icon: Package,
-        href: '/services/packing',
-        image: 'https://images.unsplash.com/photo-1520038410233-7141be7e6f97?auto=format&fit=crop&q=80&w=800',
-    },
-];
+import { useLanguage } from '@/components/LanguageContext';
 
 export default function ServicesPage() {
+    const { t } = useLanguage();
+
+    const services = [
+        {
+            title: t('service.house'),
+            description: t('service.houseDescLong'),
+            icon: Home,
+            href: '/services/house-moving',
+            image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=800',
+        },
+        {
+            title: t('service.office'),
+            description: t('service.officeDescLong'),
+            icon: Building2,
+            href: '/services/office-relocation',
+            image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800',
+        },
+        {
+            title: t('service.packing'),
+            description: t('service.packingDescLong'),
+            icon: Package,
+            href: '/services/packing',
+            image: 'https://images.unsplash.com/photo-1520038410233-7141be7e6f97?auto=format&fit=crop&q=80&w=800',
+        },
+    ];
+
     return (
         <div className="bg-background transition-colors">
             {/* Hero Section */}
-            <section className="bg-blue-600 dark:bg-blue-700 py-20 text-white transition-colors">
+            <section className="bg-primary dark:bg-primary/90 py-20 text-white transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl font-extrabold sm:text-5xl">Our Professional Services</h1>
-                    <p className="mt-4 text-xl text-blue-100 max-w-2xl mx-auto">
-                        Comprehensive moving solutions designed to make your transition smooth, safe, and efficient.
+                    <h1 className="text-4xl font-extrabold sm:text-5xl">{t('services.heroTitle')}</h1>
+                    <p className="mt-4 text-xl text-white/80 max-w-2xl mx-auto">
+                        {t('services.heroSubtitle')}
                     </p>
                 </div>
             </section>
@@ -52,9 +57,9 @@ export default function ServicesPage() {
                                     </div>
                                 </div>
                                 <div className="w-full lg:w-1/2">
-                                    <div className="flex items-center space-x-3 text-blue-600 dark:text-blue-400 mb-4">
+                                    <div className="flex items-center space-x-3 text-primary mb-4">
                                         <service.icon className="h-8 w-8" />
-                                        <span className="text-sm font-bold uppercase tracking-wider">Service</span>
+                                        <span className="text-sm font-bold uppercase tracking-wider">{t('services.serviceLabel')}</span>
                                     </div>
                                     <h2 className="text-3xl font-bold text-foreground mb-6">{service.title}</h2>
                                     <p className="text-lg text-secondary-foreground opacity-90 mb-8 leading-relaxed">
@@ -62,20 +67,20 @@ export default function ServicesPage() {
                                     </p>
                                     <ul className="space-y-4 mb-10 text-secondary-foreground">
                                         <li className="flex items-center space-x-2">
-                                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                                            <span>Professional packing and handling</span>
+                                            <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                                            <span>{t('services.feature1')}</span>
                                         </li>
                                         <li className="flex items-center space-x-2">
-                                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                                            <span>Secure transportation with modern trucks</span>
+                                            <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                                            <span>{t('services.feature2')}</span>
                                         </li>
                                         <li className="flex items-center space-x-2">
-                                            <div className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-blue-400" />
-                                            <span>Full insurance coverage options</span>
+                                            <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                                            <span>{t('services.feature3')}</span>
                                         </li>
                                     </ul>
                                     <Link href="/quote">
-                                        <Button variant="primary" size="lg">Request Quote for this Service</Button>
+                                        <Button variant="primary" size="lg">{t('services.ctaButton')}</Button>
                                     </Link>
                                 </div>
                             </div>
@@ -87,16 +92,16 @@ export default function ServicesPage() {
             {/* Testimonial Preview or additional value prop */}
             <section className="bg-gray-50 dark:bg-gray-900/50 py-24 transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-foreground mb-8">Need a Custom Solution?</h2>
+                    <h2 className="text-3xl font-bold text-foreground mb-8">{t('services.customTitle')}</h2>
                     <p className="text-lg text-secondary-foreground opacity-90 mb-10 max-w-2xl mx-auto">
-                        We understand every move is unique. If you have special requirements, contact us and we&apos;ll create a tailored plan for you.
+                        {t('services.customSubtitle')}
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <Link href="/contact">
-                            <Button variant="outline" size="lg">Contact Us</Button>
+                            <Button variant="outline" size="lg">{t('services.customCta1')}</Button>
                         </Link>
                         <Link href="/quote">
-                            <Button variant="secondary" size="lg" className="dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100">Get a Custom Quote</Button>
+                            <Button variant="secondary" size="lg" className="bg-secondary text-white hover:bg-secondary/90 border-none">{t('services.customCta2')}</Button>
                         </Link>
                     </div>
                 </div>

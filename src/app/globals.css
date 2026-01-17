@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
   --primary: #8B3A2C;
@@ -9,18 +10,19 @@
   --secondary-foreground: #ffffff;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-poppins);
+  --variant-dark: .dark &;
 }
 
 .dark {
+  color-scheme: dark;
   --background: #0a0a0a;
   --foreground: #ededed;
   --primary: #A94435;
@@ -33,4 +35,66 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes speen {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(190deg);
+  }
+
+  100% {
+    transform: rotate(370deg);
+  }
+}
+
+@keyframes woah {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(0.75);
+  }
+}
+
+/* Amharic Typography Adjustments */
+.lang-am {
+  font-weight: 300 !important;
+}
+
+.lang-am h1,
+.lang-am h2,
+.lang-am h3,
+.lang-am h4,
+.lang-am h5,
+.lang-am h6,
+.lang-am strong,
+.lang-am b,
+.lang-am .font-bold,
+.lang-am .font-extrabold {
+  font-weight: 500 !important;
+}
+
+.lang-am .font-semibold,
+.lang-am .font-medium {
+  font-weight: 400 !important;
+}
+
+/* Hide CTAs during Preloader on Mobile */
+@media (max-width: 1023px) {
+
+  .preloader-active .mobile-cta,
+  .preloader-active .header-phone-cta {
+    display: none !important;
+  }
+}
+
+.lang-am .font-normal {
+  font-weight: 300 !important;
 }

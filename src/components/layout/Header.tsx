@@ -7,11 +7,14 @@ import { motion, useAnimation } from 'framer-motion';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { ThemeToggle } from '../ThemeToggle';
+import { useLanguage } from '../LanguageContext';
+import { Globe } from 'lucide-react';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [mobileServicesOpen, setMobileServicesOpen] = useState(true);
     const phoneControls = useAnimation();
+    const { language, setLanguage, t } = useLanguage();
 
     useEffect(() => {
         let intervalId: NodeJS.Timeout;
@@ -36,28 +39,28 @@ const Header = () => {
     }, [phoneControls]);
 
     const navigation = [
-        { name: 'Moving Services', href: '/services', hasDropdown: true },
-        { name: 'Locations', href: '/contact' },
+        { name: t('nav.services'), href: '/services', hasDropdown: true },
+        { name: t('nav.locations'), href: '/locations' },
         /* { name: 'Guides & Resources', href: '/about' }, */
-        { name: 'About Us', href: '/about' },
-        { name: 'Contact Us', href: '/contact' },
+        { name: t('nav.about'), href: '/about' },
+        { name: t('nav.contact'), href: '/contact' },
     ];
 
     const services = [
-        { name: 'House Moving', href: '/services/house-moving' },
-        { name: 'Office Relocation', href: '/services/office-relocation' },
-        { name: 'Packing Services', href: '/services/packing' },
-        { name: 'International Moving', href: '/services/international' },
-        { name: 'Storage Solutions', href: '/services/storage' },
-        { name: 'Car Transportation', href: '/services/car-transport' },
+        { name: t('service.house'), href: '/services/house-moving' },
+        { name: t('service.office'), href: '/services/office-relocation' },
+        { name: t('service.packing'), href: '/services/packing' },
+        { name: t('service.international'), href: '/services/not-available' },
+        { name: t('service.storage'), href: '/services/not-available' },
+        { name: t('service.car'), href: '/services/not-available' },
     ];
 
     return (
         <div className="fixed w-full z-50">
             {/* Top Bar */}
-            <div className="bg-primary text-white text-xs py-2 hidden md:block">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-end space-x-6 font-medium">
-                    <span>Licensed</span>
+            <div className="bg-primary text-white text-xs py-2">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center md:justify-end space-x-6 font-medium">
+                    <span>{t('header.licensed')}</span>
                 </div>
             </div>
 
@@ -120,18 +123,42 @@ const Header = () => {
                         {/* Right: Actions */}
                         <div className="hidden lg:flex items-center space-x-4 ml-auto">
                             <ThemeToggle />
+
                             <div className="border border-primary rounded-md px-4 py-2 text-primary font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors cursor-pointer">
                                 <div className="flex items-center gap-2">
                                     <motion.div animate={phoneControls}>
                                         <Phone className="h-4 w-4" />
                                     </motion.div>
-                                    <a href="tel:0999220000">Call Us - 0999220000</a>
+                                    <a href="tel:0999220000">{t('header.callUsAt')}</a>
                                 </div>
                             </div>
+
+                            {/* Language Switcher */}
+                            <button
+                                onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
+                                className="flex items-center gap-2 px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-bold"
+                            >
+                                <Globe className="h-4 w-4" />
+                                {language === 'en' ? 'አማርኛ' : 'English'}
+                            </button>
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <div className="lg:hidden flex items-center space-x-4 ml-auto">
+                        <div className="lg:hidden flex items-center space-x-2 ml-auto">
+                            <a
+                                href="tel:0999220000"
+                                className="header-phone-cta flex items-center justify-center p-2 rounded-full bg-primary text-white shadow-lg active:scale-95 transition-transform"
+                                aria-label="Call Us"
+                            >
+                                <Phone className="h-4 w-4" />
+                            </a>
+                            <button
+                                onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
+                                className="flex items-center gap-1.5 px-2 py-1.5 rounded-md border border-gray-200 dark:border-gray-700 text-[10px] font-bold"
+                            >
+                                <Globe className="h-3 w-3" />
+                                {language === 'en' ? 'አማርኛ' : 'EN'}
+                            </button>
                             <ThemeToggle />
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
@@ -187,7 +214,7 @@ const Header = () => {
                             <div className="pt-4 mt-4 border-t border-gray-100 dark:border-gray-700">
                                 <Button className="w-full justify-center gap-2 font-bold" variant="primary">
                                     <Phone className="h-4 w-4" />
-                                    Call Us Now
+                                    {t('header.callUs')}
                                 </Button>
                             </div>
                         </div>
