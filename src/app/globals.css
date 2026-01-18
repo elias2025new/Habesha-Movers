@@ -23,12 +23,12 @@
 
 .dark {
   color-scheme: dark;
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --primary: #A94435;
+  --background: #121212;
+  --foreground: #f0f0f0;
+  --primary: #c95d4d;
   --primary-foreground: #ffffff;
-  --secondary: #dea02c;
-  --secondary-foreground: #ffffff;
+  --secondary: #fcae2f;
+  --secondary-foreground: #000000;
 }
 
 body {

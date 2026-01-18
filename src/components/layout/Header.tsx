@@ -77,7 +77,7 @@ const Header = () => {
                                     alt="Habesha Movers"
                                     width={280}
                                     height={100}
-                                    className="h-24 w-auto object-contain"
+                                    className="h-24 w-auto object-contain dark:invert transition-all duration-300"
                                     priority
                                     unoptimized
                                 />
