@@ -1,23 +1,12 @@
 @import "tailwindcss";
 
-/* Force light mode only */
 :root {
-  color-scheme: light;
   --background: #ffffff;
   --foreground: #171717;
   --primary: #8B3A2C;
   --primary-foreground: #ffffff;
   --secondary: #F5A623;
   --secondary-foreground: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-
-  html,
-  body {
-    background-color: #ffffff !important;
-    color: #171717 !important;
-  }
 }
 
 input,

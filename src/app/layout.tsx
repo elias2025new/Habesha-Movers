@@ -33,14 +33,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning data-forced-light="true">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${poppins.variable} antialiased min-h-screen flex flex-col font-sans`}
       >
         <LanguageProvider>
           <ThemeProvider
             attribute="class"
-            forcedTheme="light"
+            defaultTheme="light"
+            enableSystem={false}
             disableTransitionOnChange
           >
             <Toaster position="top-center" richColors />
