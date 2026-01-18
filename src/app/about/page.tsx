@@ -17,7 +17,7 @@ export default function AboutPage() {
     return (
         <div className="bg-background transition-colors">
             {/* Hero Section */}
-            <section className="bg-blue-600 dark:bg-blue-700 py-20 text-white transition-colors">
+            <section className="bg-blue-600  py-20 text-white transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                     <h1 className="text-4xl font-extrabold sm:text-5xl">{t('about.heroTitle')}</h1>
                     <p className="mt-4 text-xl text-blue-100 max-w-2xl mx-auto">
@@ -49,7 +49,7 @@ export default function AboutPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-gray-100 dark:bg-gray-800">
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/3] bg-gray-100 ">
                             <Image
                                 src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1200"
                                 alt="Our Team"
@@ -62,12 +62,12 @@ export default function AboutPage() {
             </section>
 
             {/* Values */}
-            <section className="bg-gray-50 dark:bg-gray-900/50 py-24 transition-colors">
+            <section className="bg-gray-50  py-24 transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-bold text-foreground mb-16">{t('about.valuesTitle')}</h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {values.map((value) => (
-                            <div key={value.title} className="bg-white dark:bg-gray-800 p-10 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                            <div key={value.title} className="bg-white  p-10 rounded-2xl shadow-sm border border-gray-100 ">
                                 <h3 className="text-xl font-bold text-foreground mb-4">{value.title}</h3>
                                 <p className="text-secondary-foreground opacity-80 leading-relaxed">{value.description}</p>
                             </div>

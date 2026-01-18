@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   keywords: ["moving company", "Addis Ababa", "Ethiopia", "house moving", "office relocation", "Habesha Movers"],
 };
 
+export const viewport = {
+  colorScheme: 'light',
+};
+
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import SchemaMarkup from "@/components/SEO/SchemaMarkup";
@@ -36,9 +40,7 @@ export default function RootLayout({
         <LanguageProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="system"
-            enableSystem
-            storageKey="habesha-movers-theme"
+            forcedTheme="light"
             disableTransitionOnChange
           >
             <Toaster position="top-center" richColors />

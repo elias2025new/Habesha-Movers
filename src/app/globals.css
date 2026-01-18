@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* Force light mode only */
 :root {
   color-scheme: light;
   --background: #ffffff;
@@ -10,6 +11,26 @@
   --secondary-foreground: #ffffff;
 }
 
+@media (prefers-color-scheme: dark) {
+
+  html,
+  body {
+    background-color: #ffffff !important;
+    color: #171717 !important;
+  }
+}
+
+input,
+textarea,
+select {
+  background-color: #ffffff;
+  color: #171717;
+}
+
+button {
+  color-scheme: light;
+}
+
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -18,17 +39,6 @@
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --font-sans: var(--font-poppins);
-  --variant-dark: .dark &;
-}
-
-.dark {
-  color-scheme: dark;
-  --background: #121212;
-  --foreground: #f0f0f0;
-  --primary: #c95d4d;
-  --primary-foreground: #ffffff;
-  --secondary: #fcae2f;
-  --secondary-foreground: #000000;
 }
 
 body {

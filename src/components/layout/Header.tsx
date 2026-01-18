@@ -6,7 +6,6 @@ import { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Menu, X, Phone, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { ThemeToggle } from '../ThemeToggle';
 import { useLanguage } from '../LanguageContext';
 import { Globe } from 'lucide-react';
 
@@ -70,7 +69,7 @@ const Header = () => {
             </div>
 
             {/* Main Header */}
-            <header className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-sm transition-colors">
+            <header className="bg-white/95    backdrop-blur-md shadow-sm transition-colors">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex h-24 items-center gap-12">
 
@@ -82,7 +81,7 @@ const Header = () => {
                                     alt="Habesha Movers"
                                     width={200}
                                     height={200}
-                                    className="h-20 sm:h-22 lg:h-24 w-auto object-contain dark:invert transition-all duration-300"
+                                    className="h-20 sm:h-22 lg:h-24 w-auto object-contain  transition-all duration-300"
                                     priority
                                     unoptimized
                                 />
@@ -95,7 +94,7 @@ const Header = () => {
                                 <div key={item.name} className="relative group">
                                     <Link
                                         href={item.href}
-                                        className="flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-primary dark:hover:text-primary transition-colors py-2"
+                                        className="flex items-center gap-1 text-sm font-semibold text-gray-700 hover:text-primary transition-colors py-2"
                                     >
                                         {item.name}
                                         {item.hasDropdown && (
@@ -106,13 +105,13 @@ const Header = () => {
                                     {/* Dropdown Menu */}
                                     {item.hasDropdown && (
                                         <div className="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                                            <div className="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50 dark:border-gray-700/50 overflow-hidden">
+                                            <div className="bg-white/80  backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50  overflow-hidden">
                                                 <div className="p-2 space-y-1">
                                                     {services.map((service) => (
                                                         <Link
                                                             key={service.name}
                                                             href={service.href}
-                                                            className="block px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/5 hover:text-primary dark:hover:text-primary rounded-lg transition-colors"
+                                                            className="block px-4 py-2.5 text-sm font-medium text-gray-600  hover:bg-primary/5 hover:text-primary  rounded-lg transition-colors"
                                                         >
                                                             {service.name}
                                                         </Link>
@@ -127,9 +126,9 @@ const Header = () => {
 
                         {/* Right: Actions */}
                         <div className="hidden lg:flex items-center space-x-4 ml-auto">
-                            <ThemeToggle />
 
-                            <div className="border border-primary rounded-md px-4 py-2 text-primary font-bold flex items-center gap-2 hover:bg-primary hover:text-white transition-colors cursor-pointer">
+
+                            <div className="border border-primary rounded-md px-4 py-2 text-primary font-bold flex items-center gap-2 hover:bg-primary hover:text-white   hover: transition-colors cursor-pointer">
                                 <div className="flex items-center gap-2">
                                     <motion.div animate={phoneControls}>
                                         <Phone className="h-4 w-4" />
@@ -141,7 +140,7 @@ const Header = () => {
                             {/* Language Switcher */}
                             <button
                                 onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
-                                className="flex items-center gap-2 px-3 py-2 rounded-md border border-gray-200 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-bold"
+                                className="flex items-center gap-2 px-3 py-2 rounded-md border border-gray-200  hover:bg-gray-100  transition-colors text-sm font-bold"
                             >
                                 <Globe className="h-4 w-4" />
                                 {language === 'en' ? 'አማርኛ' : 'English'}
@@ -160,15 +159,15 @@ const Header = () => {
                             </a>
                             <button
                                 onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
-                                className="flex items-center gap-1 px-1.5 py-1.5 rounded-md border border-gray-200 dark:border-gray-700 text-[9px] font-bold"
+                                className="flex items-center gap-1 px-1.5 py-1.5 rounded-md border border-gray-200  text-[9px] font-bold"
                             >
                                 <Globe className="h-3 w-3" />
                                 {language === 'en' ? 'አማ' : 'EN'}
                             </button>
-                            <ThemeToggle />
+
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none"
+                                className="text-gray-600  hover:text-gray-900  focus:outline-none"
                             >
                                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                             </button>
@@ -178,7 +177,7 @@ const Header = () => {
 
                 {/* Mobile Navigation */}
                 {isOpen && (
-                    <div className="lg:hidden bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 animate-in slide-in-from-top duration-300 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
+                    <div className="lg:hidden bg-white  border-b border-gray-100  animate-in slide-in-from-top duration-300 shadow-xl max-h-[calc(100vh-80px)] overflow-y-auto">
                         <div className="px-4 pt-4 pb-6 space-y-2">
                             {navigation.map((item) => (
                                 <div key={item.name}>
@@ -186,7 +185,7 @@ const Header = () => {
                                         <>
                                             <button
                                                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                                                className="flex w-full items-center justify-between px-3 py-3 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                                className="flex w-full items-center justify-between px-3 py-3 text-base font-medium text-gray-600  hover:text-primary  hover:bg-gray-50  rounded-lg"
                                             >
                                                 {item.name}
                                                 <ChevronDown className={`h-5 w-5 transition-transform ${mobileServicesOpen ? 'rotate-180' : ''}`} />
@@ -197,7 +196,7 @@ const Header = () => {
                                                         <Link
                                                             key={service.name}
                                                             href={service.href}
-                                                            className="block px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary rounded-lg"
+                                                            className="block px-3 py-2 text-sm font-medium text-gray-500  hover:text-primary  rounded-lg"
                                                             onClick={() => setIsOpen(false)}
                                                         >
                                                             {service.name}
@@ -209,7 +208,7 @@ const Header = () => {
                                     ) : (
                                         <Link
                                             href={item.href}
-                                            className="block px-3 py-3 text-base font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg"
+                                            className="block px-3 py-3 text-base font-medium text-gray-600  hover:text-primary  hover:bg-gray-50  rounded-lg"
                                             onClick={() => setIsOpen(false)}
                                         >
                                             {item.name}
@@ -217,7 +216,7 @@ const Header = () => {
                                     )}
                                 </div>
                             ))}
-                            <div className="pt-4 mt-4 border-t border-gray-100 dark:border-gray-700">
+                            <div className="pt-4 mt-4 border-t border-gray-100 ">
                                 <Button className="w-full justify-center gap-2 font-bold" variant="primary">
                                     <Phone className="h-4 w-4" />
                                     {t('header.callUs')}

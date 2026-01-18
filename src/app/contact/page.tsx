@@ -9,7 +9,7 @@ export default function ContactPage() {
     return (
         <div className="bg-background transition-colors">
             {/* Hero Section */}
-            <section className="bg-primary dark:bg-primary/90 py-20 text-white transition-colors">
+            <section className="bg-primary  py-20 text-white transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                     <h1 className="text-4xl font-extrabold sm:text-5xl">{t('contact.heroTitle')}</h1>
                     <p className="mt-4 text-xl text-white/80 max-w-2xl mx-auto">
@@ -30,7 +30,7 @@ export default function ContactPage() {
 
                             <div className="space-y-8">
                                 <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 dark:bg-primary/20 flex items-center justify-center shrink-0">
+                                    <div className="h-12 w-12 rounded-xl bg-primary/5  flex items-center justify-center shrink-0">
                                         <MapPin className="h-6 w-6 text-primary" />
                                     </div>
                                     <div>
@@ -40,7 +40,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 dark:bg-primary/20 flex items-center justify-center shrink-0">
+                                    <div className="h-12 w-12 rounded-xl bg-primary/5  flex items-center justify-center shrink-0">
                                         <Phone className="h-6 w-6 text-primary" />
                                     </div>
                                     <div>
@@ -51,7 +51,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 dark:bg-primary/20 flex items-center justify-center shrink-0">
+                                    <div className="h-12 w-12 rounded-xl bg-primary/5  flex items-center justify-center shrink-0">
                                         <Mail className="h-6 w-6 text-primary" />
                                     </div>
                                     <div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
                                 </div>
 
                                 <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 dark:bg-primary/20 flex items-center justify-center shrink-0">
+                                    <div className="h-12 w-12 rounded-xl bg-primary/5  flex items-center justify-center shrink-0">
                                         <Clock className="h-6 w-6 text-primary" />
                                     </div>
                                     <div>
@@ -75,7 +75,7 @@ export default function ContactPage() {
                         </div>
 
                         {/* Google Map Embed Placeholder */}
-                        <div className="h-full min-h-[400px] w-full bg-gray-100 dark:bg-gray-800 rounded-3xl overflow-hidden relative shadow-lg">
+                        <div className="h-full min-h-[400px] w-full bg-gray-100  rounded-3xl overflow-hidden relative shadow-lg">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126115.11545465243!2d38.7188!3d9.006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24c49!2sAddis%20Ababa!5e0!3m2!1sen!2set!4v1620000000000!5m2!1sen!2set"
                                 width="100%"
@@ -84,7 +84,7 @@ export default function ContactPage() {
                                 allowFullScreen={true}
                                 loading="lazy"
                                 title="Google Map"
-                                className="dark:grayscale dark:invert dark:opacity-80"
+                                className="  "
                             ></iframe>
                         </div>
                     </div>

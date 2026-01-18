@@ -34,7 +34,7 @@ const GlowButton = ({ children = 'Register', ...props }: GlowButtonProps) => {
             />
 
             {/* Backdrop */}
-            <div className="absolute dark:inset-[-9900%] dark:bg-[radial-gradient(circle_at_50%_50%,#0000_0,#0000_20%,#111111aa_50%)] bg-[length:3px_3px] -z-10" />
+            <div className="absolute   bg-[length:3px_3px] -z-10" />
 
             {/* Button Container */}
             <div className="relative">

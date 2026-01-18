@@ -36,7 +36,7 @@ export default function ServicesPage() {
     return (
         <div className="bg-background transition-colors">
             {/* Hero Section */}
-            <section className="bg-primary dark:bg-primary/90 py-20 text-white transition-colors">
+            <section className="bg-primary  py-20 text-white transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                     <h1 className="text-4xl font-extrabold sm:text-5xl">{t('services.heroTitle')}</h1>
                     <p className="mt-4 text-xl text-white/80 max-w-2xl mx-auto">
@@ -90,7 +90,7 @@ export default function ServicesPage() {
             </section>
 
             {/* Testimonial Preview or additional value prop */}
-            <section className="bg-gray-50 dark:bg-gray-900/50 py-24 transition-colors">
+            <section className="bg-gray-50  py-24 transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                     <h2 className="text-3xl font-bold text-foreground mb-8">{t('services.customTitle')}</h2>
                     <p className="text-lg text-secondary-foreground opacity-90 mb-10 max-w-2xl mx-auto">

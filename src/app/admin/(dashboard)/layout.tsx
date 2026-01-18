@@ -16,7 +16,7 @@ export default async function AdminLayout({
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 dark:bg-black/95 flex transition-colors">
+        <div className="min-h-screen bg-gray-100  flex transition-colors">
             {/* Sidebar - Fixed on desktop, hidden on mobile by default */}
             <AdminSidebar />
 

@@ -10,7 +10,7 @@ export default function NotAvailablePage() {
     const { t } = useLanguage();
 
     return (
-        <div className="bg-white dark:bg-gray-900 min-h-screen flex items-center justify-center px-6 transition-colors">
+        <div className="bg-white  min-h-screen flex items-center justify-center px-6 transition-colors">
             <div className="max-w-md w-full text-center space-y-8">
                 <div className="w-24 h-24 bg-primary/5 rounded-full flex items-center justify-center mx-auto mb-6">
                     <Construction className="w-12 h-12 text-primary" />

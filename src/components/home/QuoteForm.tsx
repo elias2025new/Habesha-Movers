@@ -111,11 +111,11 @@ const QuoteForm = () => {
 
 
     return (
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-md border-t-4 border-primary">
+        <div className="bg-white rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-md border-t-4 border-primary transition-all duration-300 hover:scale-[1.01]">
             {step < 4 && (
                 <>
                     <div className="text-center mb-6 sm:mb-8">
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground dark:text-white tracking-tight">{t('quote.title')}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">{t('quote.title')}</h3>
                         <p className="text-sm text-secondary-foreground opacity-70 mt-2">
                             {t('quote.subtitle')}
                         </p>
@@ -175,7 +175,7 @@ const QuoteForm = () => {
                         </div>
                         <Button
                             type="button"
-                            className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white mt-4"
+                            className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white mt-4 transition-transform duration-200 hover:scale-[1.03]"
                             onClick={nextStep}
                         >
                             {t('quote.continue')}
@@ -188,7 +188,7 @@ const QuoteForm = () => {
                         <div>
                             <label className="block text-sm font-medium text-foreground mb-1">{t('quote.serviceType')}</label>
                             <select
-                                className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
                                 value={formData.serviceType}
                                 onChange={(e) => updateFormData({ serviceType: e.target.value, houseSize: "" })} // Reset size on type change
                             >
@@ -203,7 +203,7 @@ const QuoteForm = () => {
                             <div>
                                 <label className="block text-sm font-medium text-foreground mb-1">{t('quote.houseSize')}</label>
                                 <select
-                                    className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
                                     value={formData.houseSize}
                                     onChange={(e) => updateFormData({ houseSize: e.target.value })}
                                 >
@@ -221,7 +221,7 @@ const QuoteForm = () => {
                             <div>
                                 <label className="block text-sm font-medium text-foreground mb-1">{t('quote.officeSize')}</label>
                                 <select
-                                    className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                    className="w-full px-4 py-3 bg-white  border border-gray-300  rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground "
                                     value={formData.houseSize} // reusing houseSize field for convenience, or add officeSize
                                     onChange={(e) => updateFormData({ houseSize: e.target.value })}
                                 >
@@ -244,7 +244,7 @@ const QuoteForm = () => {
                                         setAttachment(e.target.files[0]);
                                     }
                                 }}
-                                className="cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20"
+                                className="cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20   "
                             />
                         </div>
 
@@ -255,6 +255,7 @@ const QuoteForm = () => {
                                 value={formData.movingDate}
                                 onChange={(e) => updateFormData({ movingDate: e.target.value })}
                                 min={new Date().toISOString().split('T')[0]}
+                                className="  "
                             />
                         </div>
                         <div className="flex gap-4">
@@ -268,98 +269,106 @@ const QuoteForm = () => {
                             </Button>
                             <Button
                                 type="button"
-                                className="flex-[2] h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white"
+                                className="flex-[2] h-12 text-lg font-bold bg-primary hover:bg-primary/90 hover: text-white transition-transform duration-200 hover:scale-[1.03]"
                                 onClick={nextStep}
                             >
                                 {t('quote.next')}
                             </Button>
                         </div>
                     </div>
-                )}
+                )
+                }
 
-                {step === 3 && (
-                    <div className="space-y-4">
-                        <Input
-                            placeholder={t('quote.fullName')}
-                            value={formData.fullName}
-                            onChange={(e) => updateFormData({ fullName: e.target.value })}
-                            required
-                        />
-                        <Input
-                            placeholder={t('quote.email')}
-                            type="email"
-                            value={formData.email}
-                            onChange={(e) => updateFormData({ email: e.target.value })}
-                            required
-                        />
-                        <Input
-                            placeholder={t('quote.phone')}
-                            type="tel"
-                            value={formData.phone}
-                            onChange={(e) => updateFormData({ phone: e.target.value })}
-                            required
-                        />
-                        <textarea
-                            placeholder={t('quote.notes')}
-                            className="w-full px-4 py-3 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground resize-none h-24"
-                            value={formData.notes}
-                            onChange={(e) => updateFormData({ notes: e.target.value })}
-                        />
-                        <div className="flex gap-4">
+                {
+                    step === 3 && (
+                        <div className="space-y-4">
+                            <Input
+                                placeholder={t('quote.fullName')}
+                                value={formData.fullName}
+                                onChange={(e) => updateFormData({ fullName: e.target.value })}
+                                required
+                                className="  "
+                            />
+                            <Input
+                                placeholder={t('quote.email')}
+                                type="email"
+                                value={formData.email}
+                                onChange={(e) => updateFormData({ email: e.target.value })}
+                                required
+                                className="  "
+                            />
+                            <Input
+                                placeholder={t('quote.phone')}
+                                type="tel"
+                                value={formData.phone}
+                                onChange={(e) => updateFormData({ phone: e.target.value })}
+                                required
+                                className="  "
+                            />
+                            <textarea
+                                placeholder={t('quote.notes')}
+                                className="w-full px-4 py-3 bg-white  border border-gray-300  rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground  resize-none h-24"
+                                value={formData.notes}
+                                onChange={(e) => updateFormData({ notes: e.target.value })}
+                            />
+                            <div className="flex gap-4">
+                                <Button
+                                    type="button"
+                                    variant="outline"
+                                    className="flex-1 h-12"
+                                    onClick={prevStep}
+                                >
+                                    Back
+                                </Button>
+                                <Button
+                                    type="submit"
+                                    disabled={loading}
+                                    className="flex-[2] h-12 text-lg font-bold bg-secondary hover:bg-secondary/90 text-white transition-transform duration-200 hover:scale-[1.03]"
+                                >
+                                    {loading ? t('quote.sending') : t('quote.button')}
+                                </Button>
+                            </div>
+                        </div>
+                    )
+                }
+
+                {
+                    step === 4 && (
+                        <div className="text-center py-8 space-y-4">
+                            <div className="w-20 h-20 bg-green-100  rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-foreground">{t('quote.successTitle')}</h3>
+                            <p className="text-gray-600 ">
+                                {t('quote.successMessage')}
+                            </p>
                             <Button
                                 type="button"
-                                variant="outline"
-                                className="flex-1 h-12"
-                                onClick={prevStep}
+                                className="w-full"
+                                onClick={() => {
+                                    setStep(1);
+                                    setFormData({
+                                        fullName: "",
+                                        email: "",
+                                        phone: "",
+                                        pickup: "",
+                                        destination: "",
+                                        serviceType: "",
+                                        houseSize: "",
+                                        movingDate: "",
+                                        notes: "",
+                                    });
+                                }}
                             >
-                                Back
-                            </Button>
-                            <Button
-                                type="submit"
-                                disabled={loading}
-                                className="flex-[2] h-12 text-lg font-bold bg-secondary hover:bg-secondary/90 text-white"
-                            >
-                                {loading ? t('quote.sending') : t('quote.button')}
+                                {t('quote.another')}
                             </Button>
                         </div>
-                    </div>
-                )}
-
-                {step === 4 && (
-                    <div className="text-center py-8 space-y-4">
-                        <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                        </div>
-                        <h3 className="text-2xl font-bold text-foreground">{t('quote.successTitle')}</h3>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            {t('quote.successMessage')}
-                        </p>
-                        <Button
-                            type="button"
-                            className="w-full"
-                            onClick={() => {
-                                setStep(1);
-                                setFormData({
-                                    fullName: "",
-                                    email: "",
-                                    phone: "",
-                                    pickup: "",
-                                    destination: "",
-                                    serviceType: "",
-                                    houseSize: "",
-                                    movingDate: "",
-                                    notes: "",
-                                });
-                            }}
-                        >
-                            {t('quote.another')}
-                        </Button>
-                    </div>
-                )}
-            </form>
-        </div>
+                    )
+                }
+            </form >
+        </div >
     );
 };
 

@@ -139,8 +139,8 @@ export default function LocationInput({
             </div>
 
             {showSuggestions && (
-                <div className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="p-2 border-b border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-800/50 flex items-center gap-2">
+                <div className="absolute z-50 w-full mt-1 bg-white  border border-gray-200  rounded-lg shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="p-2 border-b border-gray-100  bg-gray-50/50  flex items-center gap-2">
                         <Search className="h-3 w-3 text-gray-400" />
                         <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Suggested Locations</span>
                     </div>
@@ -149,7 +149,7 @@ export default function LocationInput({
                             <li
                                 key={index}
                                 onClick={() => handleSelectSuggestion(suggestion)}
-                                className="px-4 py-3 hover:bg-primary/5 dark:hover:bg-primary/10 cursor-pointer flex items-center gap-3 transition-colors group"
+                                className="px-4 py-3 hover:bg-primary/5  cursor-pointer flex items-center gap-3 transition-colors group"
                             >
                                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
                                     <MapPin className="h-4 w-4" />

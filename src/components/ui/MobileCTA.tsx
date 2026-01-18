@@ -57,7 +57,7 @@ export default function MobileCTA() {
                                 stiffness: 260,
                                 damping: 20
                             }}
-                            className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md px-4 py-2 rounded-full shadow-large border border-primary/20 pointer-events-none"
+                            className="bg-white/90  backdrop-blur-md px-4 py-2 rounded-full shadow-large border border-primary/20 pointer-events-none"
                         >
                             <span className="text-primary font-bold text-sm whitespace-nowrap">
                                 {t('header.callUs')}
