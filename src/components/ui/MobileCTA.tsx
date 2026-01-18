@@ -69,10 +69,13 @@ export default function MobileCTA() {
                 <div className="relative">
                     {/* Pulse Animation Background */}
                     <motion.div
-                        className="absolute inset-0 bg-primary/40 rounded-full"
+                        className="absolute inset-0 bg-primary rounded-full"
+                        style={{
+                            boxShadow: '0 0 20px rgba(139, 58, 44, 0.6), 0 0 40px rgba(139, 58, 44, 0.4)'
+                        }}
                         animate={{
-                            scale: [1, 1.4, 1],
-                            opacity: [0.6, 0, 0.6],
+                            scale: [1, 1.6, 1],
+                            opacity: [0.7, 0, 0.7],
                         }}
                         transition={{
                             duration: 2,

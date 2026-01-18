@@ -86,14 +86,14 @@ body {
   font-weight: 400 !important;
 }
 
-/* Hide CTAs during Preloader on Mobile */
-@media (max-width: 1023px) {
+/* Hide CTAs during Preloader on Mobile - DISABLED per user request */
+/* @media (max-width: 1023px) {
 
   .preloader-active .mobile-cta,
   .preloader-active .header-phone-cta {
     display: none !important;
   }
-}
+} */
 
 .lang-am .font-normal {
   font-weight: 300 !important;
