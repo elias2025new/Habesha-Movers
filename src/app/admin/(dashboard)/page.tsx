@@ -43,7 +43,7 @@ export default async function AdminDashboard() {
                 {stats.map((stat) => (
                     <div key={stat.name} className="bg-white  p-6 rounded-2xl shadow-sm border border-gray-100  transition-colors">
                         <div className="flex items-center justify-between mb-4">
-                            <div className={`${stat.bg} ${stat.color} p-3 rounded-xl 
+                            <div className={`${stat.bg} ${stat.color} p-3 rounded-xl`}>
                                 <stat.icon className="h-6 w-6" />
                             </div>
                             <span className="flex items-center text-xs font-medium text-green-600  bg-green-50  px-2 py-1 rounded-full">
