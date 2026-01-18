@@ -17,11 +17,11 @@ const Hero = () => {
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
                 style={{
-                    backgroundImage: 'url(/images/habesha-mover-hero.png)',
+                    backgroundImage: 'url(/images/habesha-hero-final.png)',
                 }}
             >
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/70 to-black/40" />
             </div>
 
             {/* Particles - Fixed Position but localized in DOM order for layering */}
@@ -53,7 +53,7 @@ const Hero = () => {
 
 
             <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full py-8 md:py-20 text-white">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-36 lg:mt-0">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mt-28 lg:mt-0">
 
                     {/* Left Content - Text (PC View Only, Hidden on Mobile as per Image) */}
                     <motion.div

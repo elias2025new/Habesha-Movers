@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" fill="none">
+  <!-- Group for the Icon (Centered) -->
+  <g transform="translate(100, 85)">
+    <!-- 
+      Isometric Construction 
+      Based on a hexagon shape/cube projection.
+    -->
+
+    <!-- Right Outer Plane: #8B3A2C -->
+    <!-- Vertices: Center(0,0), Right-Top(43, -25), Right-Bottom(43, 25), Bottom(0, 50) -->
+    <path d="M0 0 L43.3 -25 L43.3 25 L0 50 Z" fill="#8B3A2C" />
+
+    <!-- Left/Bottom Plane: #8B3A2C -->
+    <!-- Vertices: Center(0,0), Bottom(0, 50), Left-Bottom(-43.3, 25), Left-Top(-43.3, -25) -->
+    <path d="M0 0 L0 50 L-43.3 25 L-43.3 -25 Z" fill="#8B3A2C" />
+
+    <!-- Inner Upper-Left Folded Plane: #E6B887 -->
+    <!-- Vertices: Center(0,0), Left-Top(-43.3, -25), Top(0, -50), Right-Top(43.3, -25) -->
+    <path d="M0 0 L-43.3 -25 L0 -50 L43.3 -25 Z" fill="#E6B887" />
+  </g>
+
+  <!-- Typography -->
+  <text 
+    x="100" 
+    y="165" 
+    text-anchor="middle" 
+    font-family="Inter, Arial, sans-serif" 
+    font-weight="bold" 
+    font-size="24" 
+    letter-spacing="6" 
+    fill="#C48A7C"
+  >HABESHA</text>
+</svg>

@@ -59,7 +59,12 @@ const Header = () => {
         <div className="fixed w-full z-50">
             {/* Top Bar */}
             <div className="bg-primary text-white text-xs py-2">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-center md:justify-end space-x-6 font-medium">
+                <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center font-medium">
+                    <div className="flex items-center gap-2">
+                        <span>Moving company in Addis Ababa</span>
+                        <span className="opacity-50">||</span>
+                        <a href="tel:0999220000" className="hover:text-white/80 transition-colors">0999220000</a>
+                    </div>
                     <span>{t('header.licensed')}</span>
                 </div>
             </div>
@@ -73,11 +78,11 @@ const Header = () => {
                         <div className="flex items-center flex-shrink-0">
                             <Link href="/" className="flex items-center gap-2 group">
                                 <Image
-                                    src="/images/habesha-logo-pro.png"
+                                    src="/images/habesha-logo-svg.svg"
                                     alt="Habesha Movers"
-                                    width={280}
-                                    height={100}
-                                    className="h-24 w-auto object-contain dark:invert transition-all duration-300"
+                                    width={200}
+                                    height={200}
+                                    className="h-20 sm:h-22 lg:h-24 w-auto object-contain dark:invert transition-all duration-300"
                                     priority
                                     unoptimized
                                 />
@@ -144,27 +149,28 @@ const Header = () => {
                         </div>
 
                         {/* Mobile Menu Button */}
-                        <div className="lg:hidden flex items-center space-x-2 ml-auto">
+                        <div className="lg:hidden flex items-center space-x-1 ml-auto">
                             <a
                                 href="tel:0999220000"
-                                className="header-phone-cta flex items-center justify-center p-2 rounded-full bg-primary text-white shadow-lg active:scale-95 transition-transform"
+                                className="header-phone-cta flex items-center justify-center gap-1 px-2 py-1.5 rounded-full bg-primary text-white shadow-lg active:scale-95 transition-transform"
                                 aria-label="Call Us"
                             >
-                                <Phone className="h-4 w-4" />
+                                <Phone className="h-3.5 w-3.5" />
+                                <span className="text-[10px] font-bold whitespace-nowrap">{t('header.callUs')}</span>
                             </a>
                             <button
                                 onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
-                                className="flex items-center gap-1.5 px-2 py-1.5 rounded-md border border-gray-200 dark:border-gray-700 text-[10px] font-bold"
+                                className="flex items-center gap-1 px-1.5 py-1.5 rounded-md border border-gray-200 dark:border-gray-700 text-[9px] font-bold"
                             >
                                 <Globe className="h-3 w-3" />
-                                {language === 'en' ? 'አማርኛ' : 'EN'}
+                                {language === 'en' ? 'አማ' : 'EN'}
                             </button>
                             <ThemeToggle />
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none"
                             >
-                                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                             </button>
                         </div>
                     </div>

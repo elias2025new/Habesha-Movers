@@ -115,7 +115,7 @@ const QuoteForm = () => {
             {step < 4 && (
                 <>
                     <div className="text-center mb-6 sm:mb-8">
-                        <h3 className="text-2xl sm:text-3xl font-extrabold text-foreground dark:text-white tracking-tight">{t('quote.title')}</h3>
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground dark:text-white tracking-tight">{t('quote.title')}</h3>
                         <p className="text-sm text-secondary-foreground opacity-70 mt-2">
                             {t('quote.subtitle')}
                         </p>
