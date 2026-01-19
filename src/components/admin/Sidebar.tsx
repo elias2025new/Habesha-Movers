@@ -8,8 +8,8 @@ import {
     Users,
     Settings,
     LogOut,
-    Truck
 } from 'lucide-react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { signOut } from 'next-auth/react';
 
@@ -25,9 +25,15 @@ const AdminSidebar = () => {
 
     return (
         <aside className="w-64 bg-white  border-r border-gray-200  hidden md:flex flex-col transition-colors">
-            <div className="p-6 border-b border-gray-100  flex items-center space-x-2">
-                <Truck className="h-6 w-6 text-blue-600" />
-                <span className="text-lg font-bold text-gray-900  tracking-tight">Admin Portal</span>
+            <div className="p-6 border-b border-gray-100 flex items-center space-x-2">
+                <Image
+                    src="/images/habesha-logo-svg.svg"
+                    alt="Habesha Movers"
+                    width={100}
+                    height={30}
+                    className="h-8 w-auto object-contain"
+                />
+                <span className="text-lg font-bold text-gray-900 tracking-tight">Admin Portal</span>
             </div>
 
             <nav className="flex-1 p-4 space-y-1">

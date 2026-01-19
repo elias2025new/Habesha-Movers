@@ -23,7 +23,7 @@ export default function OfficeRelocationPage() {
     };
 
     return (
-        <div className="bg-white min-h-screen font-sans text-gray-900 pb-20">
+        <div className="bg-white dark:bg-[#121212] min-h-screen font-sans text-gray-900 dark:text-gray-100 pb-20 transition-colors">
             {/* 1. Hero Section - Corporate & Clean */}
             <section className="relative h-[85vh] w-full overflow-hidden flex items-center">
                 {/* Background */}
@@ -45,7 +45,7 @@ export default function OfficeRelocationPage() {
                         variants={stagger}
                         className="max-w-3xl space-y-8"
                     >
-                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium">
+                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium dark:bg-[#1C1C1C]/50 dark:border-white/10">
                             <Building2 className="w-4 h-4 text-[#F5A623]" />
                             <span>Corporate Relocation Specialists</span>
                         </motion.div>
@@ -57,7 +57,7 @@ export default function OfficeRelocationPage() {
                             </span>
                         </motion.h1>
 
-                        <motion.p variants={fadeIn} className="text-xl text-gray-300 max-w-2xl leading-relaxed">
+                        <motion.p variants={fadeIn} className="text-xl text-gray-300 max-w-2xl leading-relaxed dark:text-gray-400">
                             We minimize downtime so you can get back to business. Expert handling of IT infrastructure, office furniture, vs confidential files.
                         </motion.p>
 
@@ -78,7 +78,7 @@ export default function OfficeRelocationPage() {
             </section>
 
             {/* 2. Key Metrics - Trust & Efficiency */}
-            <section className="bg-gray-50 border-b border-gray-100">
+            <section className="bg-gray-50 border-b border-gray-100 dark:bg-[#1C1C1C] dark:border-[#2A2A2A]">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
@@ -87,10 +87,10 @@ export default function OfficeRelocationPage() {
                             { value: "100%", label: "IT Safe", sub: "Secure tech handling" },
                             { value: "24/7", label: "Flexibility", sub: "Weekend & Night moves" },
                         ].map((stat, idx) => (
-                            <div key={idx} className="text-center md:text-left border-r last:border-0 border-gray-200 pr-0 md:pr-8">
-                                <p className="text-4xl lg:text-5xl font-bold text-[#8B3A2C] mb-2">{stat.value}</p>
-                                <p className="text-lg font-bold text-gray-900">{stat.label}</p>
-                                <p className="text-sm text-gray-500">{stat.sub}</p>
+                            <div key={idx} className="text-center md:text-left border-r last:border-0 border-gray-200 dark:border-[#333] pr-0 md:pr-8">
+                                <p className="text-4xl lg:text-5xl font-bold text-[#8B3A2C] mb-2 dark:text-[#F5A623]">{stat.value}</p>
+                                <p className="text-lg font-bold text-gray-900 dark:text-white">{stat.label}</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{stat.sub}</p>
                             </div>
                         ))}
                     </div>
@@ -101,8 +101,8 @@ export default function OfficeRelocationPage() {
             <section className="py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Complete Corporate Solutions</h2>
-                        <p className="text-lg text-gray-600">We don't just move boxes; we relocate entire workflows. Our specialized services cover every aspect of your business transition.</p>
+                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Complete Corporate Solutions</h2>
+                        <p className="text-lg text-gray-600 dark:text-[#CFCFCF]">We don't just move boxes; we relocate entire workflows. Our specialized services cover every aspect of your business transition.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -128,7 +128,15 @@ export default function OfficeRelocationPage() {
                                 desc: "We work evenings effectively and weekends to ensure you never miss a business day."
                             },
                             {
-                                icon: Truck,
+                                icon: () => (
+                                    <Image
+                                        src="/images/habesha-logo-svg.svg"
+                                        alt="Logo"
+                                        width={28}
+                                        height={28}
+                                        className="w-7 h-7 object-contain brightness-0 dark:brightness-200 opacity-60 group-hover:opacity-100 transition-opacity"
+                                    />
+                                ),
                                 title: "Logistics Planning",
                                 desc: "Dedicated project managers to coordinate elevators, parking, and building access."
                             },
@@ -138,12 +146,12 @@ export default function OfficeRelocationPage() {
                                 desc: "Comprehensive coverage for all office assets, giving you complete peace of mind."
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#8B3A2C]/20 transition-all duration-300 group">
-                                <div className="w-14 h-14 rounded-xl bg-gray-50 group-hover:bg-[#8B3A2C]/10 flex items-center justify-center mb-6 transition-colors">
-                                    <item.icon className="w-7 h-7 text-gray-600 group-hover:text-[#8B3A2C]" />
+                            <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#8B3A2C]/20 transition-all duration-300 group dark:bg-[#1C1C1C] dark:border-[#2A2A2A] dark:hover:border-[#F5A623]/20">
+                                <div className="w-14 h-14 rounded-xl bg-gray-50 group-hover:bg-[#8B3A2C]/10 flex items-center justify-center mb-6 transition-colors dark:bg-[#2A2A2A] dark:group-hover:bg-[#F5A623]/10">
+                                    <item.icon className="w-7 h-7 text-gray-600 group-hover:text-[#8B3A2C] dark:text-gray-400 dark:group-hover:text-[#F5A623]" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 dark:text-white">{item.title}</h3>
+                                <p className="text-gray-500 leading-relaxed dark:text-[#CFCFCF]">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -151,7 +159,7 @@ export default function OfficeRelocationPage() {
             </section>
 
             {/* 4. The Process - Minimal Downtime Focus */}
-            <section className="py-24 bg-[#1a1a1a] text-white">
+            <section className="py-24 bg-[#1a1a1a] text-white dark:bg-[#0A0A0A]">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
@@ -189,7 +197,7 @@ export default function OfficeRelocationPage() {
                                 </Link>
                             </div>
                         </div>
-                        <div className="relative h-[600px] bg-gray-800 rounded-2xl overflow-hidden border border-gray-700">
+                        <div className="relative h-[600px] bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 dark:bg-[#121212] dark:border-[#333]">
                             {/* Abstract Visualization of Process or Image */}
                             <div className="absolute inset-0 bg-gradient-to-br from-[#8B3A2C]/20 to-transparent z-10" />
                             <Image
@@ -211,15 +219,15 @@ export default function OfficeRelocationPage() {
             </section>
 
             {/* 5. Final Consultation CTA */}
-            <section className="py-24 bg-white">
-                <div className="max-w-5xl mx-auto px-6 lg:px-8 bg-[#FDF8F7] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden">
+            <section className="py-24 bg-white dark:bg-[#121212]">
+                <div className="max-w-5xl mx-auto px-6 lg:px-8 bg-[#FDF8F7] rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden dark:bg-[#1C1C1C]">
                     {/* Decor */}
                     <div className="absolute top-0 right-0 w-64 h-64 bg-[#F5A623]/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B3A2C]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
                     <div className="relative z-10">
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Planning a Big Move?</h2>
-                        <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Planning a Big Move?</h2>
+                        <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto dark:text-[#CFCFCF]">
                             Let's discuss your requirements. We offer free on-site assessments to provide an accurate, fixed-price quote.
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -229,7 +237,7 @@ export default function OfficeRelocationPage() {
                                 </Button>
                             </Link>
                             <Link href="tel:0999220000">
-                                <Button variant="outline" className="border-gray-300 bg-white hover:bg-gray-50 text-gray-900 px-10 py-7 rounded-lg text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2">
+                                <Button variant="outline" className="border-gray-300 bg-white hover:bg-gray-50 text-gray-900 px-10 py-7 rounded-lg text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 dark:bg-[#2A2A2A] dark:text-white dark:border-[#444] dark:hover:bg-[#333]">
                                     <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
                                     0999220000
                                 </Button>

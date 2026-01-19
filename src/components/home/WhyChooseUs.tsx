@@ -1,7 +1,7 @@
 "use client";
 
 import Image from 'next/image';
-import { Shield, DollarSign, Settings2, Clock } from 'lucide-react';
+import { Shield, DollarSign, Settings2, Clock, CalendarDays, Star } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const WhyChooseUs = () => {
@@ -10,76 +10,89 @@ const WhyChooseUs = () => {
     const benefits = [
         {
             title: t('why.benefit1'),
+            description: t('why.benefit1Desc'),
             icon: Shield,
+            color: "bg-[#8B3A2C]", // Primary Brand
         },
         {
             title: t('why.benefit2'),
+            description: t('why.benefit2Desc'),
             icon: DollarSign,
+            color: "bg-[#F5A623]", // Accent Gold
         },
         {
             title: t('why.benefit3'),
+            description: t('why.benefit3Desc'),
             icon: Settings2,
+            color: "bg-[#8B3A2C]",
         },
         {
             title: t('why.benefit4'),
+            description: t('why.benefit4Desc'),
             icon: Clock,
+            color: "bg-[#F5A623]",
         },
     ];
 
     return (
-        <section className="py-24 bg-transparent overflow-hidden">
+        <section className="py-24 bg-gray-50 dark:bg-[#121212] transition-colors overflow-hidden">
             <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    {/* Left Content */}
-                    <div className="space-y-10">
-                        <div className="space-y-4">
-                            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900  leading-tight">
-                                {t('why.title')}
-                            </h2>
-                            <p className="text-lg text-gray-600  leading-relaxed max-w-lg">
-                                {t('why.description')}
-                            </p>
-                        </div>
-
-                        <div className="space-y-6">
-                            {benefits.map((benefit, index) => (
-                                <div key={index} className="flex items-center gap-4 group">
-                                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-md group-hover:bg-primary/90 transition-colors">
-                                        <benefit.icon className="w-6 h-6" />
-                                    </div>
-                                    <span className="text-lg font-bold text-gray-800 ">
-                                        {benefit.title}
-                                    </span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Right Image Area */}
-                    <div className="relative">
-                        {/* Background Decorative Shape */}
-                        <div className="absolute top-8 -right-8 w-full h-full bg-blue-100  rounded-3xl -z-10 transform translate-x-4 translate-y-4" />
-
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                            <Image
-                                src="/images/hero-movers.jpg"
-                                alt="Moving boxes and plants"
-                                width={600}
-                                height={700}
-                                className="w-full h-auto object-cover"
-                            />
-                        </div>
-
-                        {/* Floating Badge - Moved outside overflow-hidden container */}
-                        <div className="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#f26522] border-4 border-white  flex flex-col items-center justify-center shadow-2xl z-10 p-2 text-center transform hover:scale-105 transition-transform duration-300">
-                            <span className="text-5xl font-extrabold text-white leading-none">{t('why.experienceValue')}</span>
-                            <span className="text-sm font-bold text-white/90 mt-1 uppercase tracking-wide">{t('why.experienceLabel1')}</span>
-                            <span className="text-sm font-bold text-white/90 uppercase tracking-wide">{t('why.experienceLabel2')}</span>
-                        </div>
-                    </div>
-
+                {/* 1. Header Section - Centered */}
+                <div className="text-center max-w-3xl mx-auto mb-16">
+                    <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight">
+                        {t('why.title')}
+                    </h2>
+                    <p className="text-lg text-gray-600 dark:text-[#CFCFCF] leading-relaxed">
+                        {t('why.description')}
+                    </p>
                 </div>
+
+                {/* 2. Benefits Grid - 4 Columns */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+                    {benefits.map((benefit, index) => (
+                        <div key={index} className="bg-white dark:bg-[#1C1C1C] p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 dark:border-[#2A2A2A]">
+                            <div className={`w-14 h-14 rounded-full ${benefit.color} flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform`}>
+                                <benefit.icon className="w-7 h-7" />
+                            </div>
+                            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                                {benefit.title}
+                            </h3>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+                                {benefit.description}
+                            </p>
+                            {/* Decorative Code/Date like in mockup */}
+                            <div className="mt-6 pt-6 border-t border-gray-100 dark:border-[#2A2A2A] flex items-center text-xs font-semibold text-gray-400 dark:text-gray-600 uppercase tracking-wider">
+                                <CalendarDays className="w-4 h-4 mr-2" />
+                                {t('why.available247')}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* 3. Bottom Image Section */}
+                <div className="relative rounded-[3rem] overflow-hidden h-[400px] md:h-[500px] shadow-2xl">
+                    <div className="absolute inset-0 bg-black/20 z-10" /> {/* Overlay */}
+                    <Image
+                        src="/images/habesha-truck-real.jpg"
+                        alt="Zemen Movers Truck"
+                        fill
+                        className="object-cover"
+                    />
+
+                    {/* Centered Floating Badge */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+                        <div className="w-48 h-48 md:w-56 md:h-56 rounded-full bg-white dark:bg-[#1C1C1C] border-8 border-white/30 dark:border-white/10 backdrop-blur-sm flex flex-col items-center justify-center shadow-[0_20px_50px_rgba(0,0,0,0.3)] text-center p-4">
+                            <span className="text-6xl md:text-7xl font-extrabold text-[#8B3A2C] dark:text-[#F5A623] leading-none mb-2">
+                                {t('why.experienceValue')}
+                            </span>
+                            <div className="bg-[#F5A623] text-white text-xs md:text-sm font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                                {t('why.experienceLabel1')} {t('why.experienceLabel2')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
     );

@@ -29,17 +29,28 @@ export default function Home() {
 
         {/* CTA Section */}
         <ScrollReveal animation="scale-up" delay={0.2}>
-          <section className="bg-primary py-16">
-            <div className="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between text-white">
-              <div className="mb-8 md:mb-0">
-                <h2 className="text-3xl font-bold">{t('cta.title')}</h2>
-                <p className="mt-2 text-lg text-white/90">{t('cta.subtitle')}</p>
+          <section className="bg-gray-50 dark:bg-[#1A1A1A] py-20 relative overflow-hidden transition-colors duration-300">
+            {/* Subtle Texture or Pattern if needed, for now just clean */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white to-transparent dark:from-white/5 opacity-50 pointer-events-none" />
+
+            <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+              <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-6 leading-tight tracking-tight">
+                {t('cta.title')}
+              </h2>
+              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+                {t('cta.subtitle')}
+              </p>
+
+              <div className="flex justify-center">
+                <Link href="/quote">
+                  <Button
+                    size="lg"
+                    className="bg-[#8B3A2C] hover:bg-[#7A3226] text-white px-10 py-7 rounded-full text-lg font-bold shadow-xl hover:shadow-[#8B3A2C]/40 hover:scale-105 transition-all duration-300"
+                  >
+                    {t('cta.button')}
+                  </Button>
+                </Link>
               </div>
-              <Link href="/quote">
-                <Button size="lg" className="bg-white text-primary hover:bg-gray-100 border-none font-bold">
-                  {t('cta.button')}
-                </Button>
-              </Link>
             </div>
           </section>
         </ScrollReveal>

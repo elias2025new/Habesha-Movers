@@ -5,7 +5,8 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
-import { Truck, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
+import Image from 'next/image';
 
 export default function AdminLoginPage() {
     const [email, setEmail] = useState('');
@@ -43,8 +44,14 @@ export default function AdminLoginPage() {
         <div className="min-h-screen bg-gray-50  flex flex-col justify-center items-center px-6 transition-colors">
             <div className="max-w-md w-full bg-white  rounded-3xl shadow-xl p-8 lg:p-12 border border-gray-100  transition-colors">
                 <div className="flex flex-col items-center mb-8">
-                    <div className="h-12 w-12 rounded-xl bg-blue-600 flex items-center justify-center mb-4 shadow-lg shadow-blue-200 ">
-                        <Truck className="h-7 w-7 text-white" />
+                    <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center mb-4 shadow-lg border border-gray-100">
+                        <Image
+                            src="/images/habesha-logo-svg.svg"
+                            alt="Habesha Movers"
+                            width={32}
+                            height={32}
+                            className="h-7 w-7 object-contain"
+                        />
                     </div>
                     <h1 className="text-2xl font-bold text-gray-900  text-center">Admin Login</h1>
                     <p className="text-gray-500  text-sm mt-2 text-center">Access the Habesha Movers dashboard</p>

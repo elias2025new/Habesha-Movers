@@ -59,7 +59,7 @@ const Header = () => {
     return (
         <div className="fixed w-full z-50">
             {/* Top Bar */}
-            <div className="bg-primary text-white text-xs py-2">
+            <div className="bg-primary text-white text-xs py-2 dark:bg-[#2A2A2A]">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center font-medium">
                     <div className="flex items-center gap-2">
                         <span>Moving company in Addis Ababa</span>
@@ -111,13 +111,13 @@ const Header = () => {
                                     {/* Dropdown Menu */}
                                     {item.hasDropdown && (
                                         <div className="absolute top-full left-0 w-64 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0">
-                                            <div className="bg-white/80  backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50  overflow-hidden">
+                                            <div className="bg-white/80 dark:bg-[#1C1C1C] backdrop-blur-md rounded-xl shadow-xl border border-gray-200/50 dark:border-[#2A2A2A] overflow-hidden">
                                                 <div className="p-2 space-y-1">
                                                     {services.map((service) => (
                                                         <Link
                                                             key={service.name}
                                                             href={service.href}
-                                                            className="block px-4 py-2.5 text-sm font-medium text-gray-600  hover:bg-primary/5 hover:text-primary  rounded-lg transition-colors"
+                                                            className="block px-4 py-2.5 text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-primary/5 hover:text-black dark:hover:text-white hover:font-semibold rounded-lg transition-all duration-200"
                                                         >
                                                             {service.name}
                                                         </Link>

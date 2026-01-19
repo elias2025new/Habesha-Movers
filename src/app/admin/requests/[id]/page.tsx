@@ -10,8 +10,9 @@ import {
     FileText,
     ArrowLeft,
     Trash2,
-    Truck
+    Trash2,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import StatusUpdater from "@/components/admin/StatusUpdater";
@@ -162,7 +163,14 @@ export default async function RequestDetailPage({
                                 <p className="text-xs text-gray-400">Last Updated: {new Date(request.updatedAt).toLocaleString()}</p>
                             </div>
                         </div>
-                        <Truck className="absolute -bottom-4 -right-4 h-24 w-24 text-white/5 rotate-12" />
+                        <div className="absolute -bottom-4 -right-4 h-24 w-24 opacity-10 rotate-12">
+                            <Image
+                                src="/images/habesha-logo-svg.svg"
+                                alt="Logo"
+                                fill
+                                className="object-contain brightness-0 invert"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

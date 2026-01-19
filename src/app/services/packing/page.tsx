@@ -23,7 +23,7 @@ export default function PackingServicesPage() {
     };
 
     return (
-        <div className="bg-white min-h-screen font-sans text-gray-900 pb-20">
+        <div className="bg-white dark:bg-[#121212] min-h-screen font-sans text-gray-900 dark:text-gray-100 pb-20 transition-colors">
             {/* 1. Hero Section - Precise & Clean */}
             <section className="relative min-h-[60vh] md:h-[85vh] w-full overflow-hidden flex items-center py-20 md:py-0">
                 {/* Background */}
@@ -45,7 +45,7 @@ export default function PackingServicesPage() {
                         variants={stagger}
                         className="max-w-4xl mx-auto space-y-6 md:space-y-8"
                     >
-                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs md:text-sm font-medium">
+                        <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs md:text-sm font-medium dark:bg-[#1C1C1C]/50 dark:border-white/10">
                             <Box className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#F5A623]" />
                             <span>Professional Packing Services</span>
                         </motion.div>
@@ -57,7 +57,7 @@ export default function PackingServicesPage() {
                             </span>
                         </motion.h1>
 
-                        <motion.p variants={fadeIn} className="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+                        <motion.p variants={fadeIn} className="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed dark:text-gray-300">
                             Don't stress about the boxes. Our trained professionals use premium materials to wrap, pad, and protect your valuables with military precision.
                         </motion.p>
 
@@ -78,11 +78,11 @@ export default function PackingServicesPage() {
             </section>
 
             {/* 2. Packing Materials - Premium Quality */}
-            <section className="py-12 md:py-24 bg-[#FDF8F7]">
+            <section className="py-12 md:py-24 bg-[#FDF8F7] dark:bg-[#1C1C1C] transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6">Premium Materials Only</h2>
-                        <p className="text-base sm:text-lg text-gray-600">We don't cut corners. We use industry-leading packing supplies to ensure your items withstand any journey.</p>
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Premium Materials Only</h2>
+                        <p className="text-base sm:text-lg text-gray-600 dark:text-[#CFCFCF]">We don't cut corners. We use industry-leading packing supplies to ensure your items withstand any journey.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -103,12 +103,12 @@ export default function PackingServicesPage() {
                                 desc: "Made-to-measure wooden crates for sculptures, large mirrors, and antiques."
                             }
                         ].map((item, idx) => (
-                            <div key={idx} className="bg-white p-6 sm:p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 text-center group">
-                                <div className="w-20 h-20 rounded-2xl bg-[#8B3A2C]/5 group-hover:bg-[#8B3A2C] text-[#8B3A2C] group-hover:text-white flex items-center justify-center mx-auto mb-6 transition-colors duration-300">
+                            <div key={idx} className="bg-white p-6 sm:p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 text-center group dark:bg-[#2A2A2A] dark:border-[#333] dark:hover:border-[#F5A623]/30">
+                                <div className="w-20 h-20 rounded-2xl bg-[#8B3A2C]/5 group-hover:bg-[#8B3A2C] text-[#8B3A2C] group-hover:text-white flex items-center justify-center mx-auto mb-6 transition-colors duration-300 dark:bg-[#F5A623]/10 dark:text-[#F5A623] dark:group-hover:bg-[#F5A623]">
                                     <item.icon className="w-10 h-10" />
                                 </div>
-                                <h3 className="text-xl font-bold text-gray-900 mb-4">{item.title}</h3>
-                                <p className="text-gray-500 leading-relaxed">{item.desc}</p>
+                                <h3 className="text-xl font-bold text-gray-900 mb-4 dark:text-white">{item.title}</h3>
+                                <p className="text-gray-500 leading-relaxed dark:text-[#CFCFCF]">{item.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -130,13 +130,13 @@ export default function PackingServicesPage() {
                                 />
                             </div>
                             {/* Badge */}
-                            <div className="absolute bottom-4 right-4 md:-bottom-8 md:-right-8 bg-white p-4 md:p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 md:gap-4">
+                            <div className="absolute bottom-4 right-4 md:-bottom-8 md:-right-8 bg-white p-4 md:p-6 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 md:gap-4 dark:bg-[#2A2A2A] dark:border-[#333]">
                                 <div className="p-2 md:p-3 bg-[#F5A623]/20 rounded-full">
                                     <Gem className="w-6 h-6 md:w-8 md:h-8 text-[#F5A623]" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 text-base md:text-lg">White Glove</p>
-                                    <p className="text-xs md:text-sm text-gray-500">Certified Handling</p>
+                                    <p className="font-bold text-gray-900 text-base md:text-lg dark:text-white">White Glove</p>
+                                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Certified Handling</p>
                                 </div>
                             </div>
                         </div>
@@ -145,10 +145,10 @@ export default function PackingServicesPage() {
                             <span className="text-[#8B3A2C] font-bold tracking-widest uppercase text-sm border-b-2 border-[#F5A623] pb-1">
                                 Fragile Care
                             </span>
-                            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-6 mb-8 leading-tight">
-                                We Handle Your Treasures With <span className="text-[#8B3A2C]">Respect.</span>
+                            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-6 mb-8 leading-tight dark:text-white">
+                                We Handle Your Treasures With <span className="text-[#8B3A2C] dark:text-[#F5A623]">Respect.</span>
                             </h2>
-                            <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed">
+                            <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed dark:text-[#CFCFCF]">
                                 From crystal chandeliers to grand pianos, our specialist team is trained in the art of fragile packing. We treat every item as if it were irreplaceable.
                             </p>
 
@@ -159,7 +159,7 @@ export default function PackingServicesPage() {
                                     "Vertical smooth packing for plates",
                                     "Corner protectors for framed art"
                                 ].map((item, i) => (
-                                    <li key={i} className="flex items-center gap-3 text-sm sm:text-lg text-gray-700">
+                                    <li key={i} className="flex items-center gap-3 text-sm sm:text-lg text-gray-700 dark:text-gray-300">
                                         <CheckCircle2 className="w-5 h-5 text-[#34D399]" />
                                         {item}
                                     </li>
@@ -168,7 +168,7 @@ export default function PackingServicesPage() {
 
                             <div className="mt-10">
                                 <Link href="/contact">
-                                    <Button className="bg-gray-900 hover:bg-black text-white px-6 py-4 sm:px-8 sm:py-6 rounded-lg font-bold text-sm sm:text-base">
+                                    <Button className="bg-gray-900 hover:bg-black text-white px-6 py-4 sm:px-8 sm:py-6 rounded-lg font-bold text-sm sm:text-base dark:bg-[#F5A623] dark:text-black dark:hover:bg-[#e09612]">
                                         Discuss Special Items
                                     </Button>
                                 </Link>
@@ -179,7 +179,7 @@ export default function PackingServicesPage() {
             </section>
 
             {/* 4. Quality Standards Checklist */}
-            <section className="py-12 md:py-24 bg-[#8B3A2C] text-white">
+            <section className="py-12 md:py-24 bg-[#8B3A2C] text-white dark:bg-[#2A2A2A]">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-8">
                         <div>
@@ -206,10 +206,10 @@ export default function PackingServicesPage() {
             </section>
 
             {/* 5. Final CTA */}
-            <section className="py-12 md:py-24 bg-white text-center">
+            <section className="py-12 md:py-24 bg-white text-center dark:bg-[#121212]">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">Ready to Save Your Back?</h2>
-                    <p className="text-base sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 dark:text-white">Ready to Save Your Back?</h2>
+                    <p className="text-base sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto dark:text-[#CFCFCF]">
                         Let us do the heavy lifting and the meticulous wrapping. Add professional packing to your move today.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -219,7 +219,7 @@ export default function PackingServicesPage() {
                             </Button>
                         </Link>
                         <Link href="tel:0999220000">
-                            <Button variant="outline" className="border-gray-200 text-gray-900 hover:bg-gray-50 px-8 py-5 sm:px-10 sm:py-8 rounded-full text-lg sm:text-xl font-bold w-full sm:w-auto flex items-center justify-center gap-2">
+                            <Button variant="outline" className="border-gray-200 text-gray-900 hover:bg-gray-50 px-8 py-5 sm:px-10 sm:py-8 rounded-full text-lg sm:text-xl font-bold w-full sm:w-auto flex items-center justify-center gap-2 dark:bg-[#2A2A2A] dark:text-white dark:border-[#444] dark:hover:bg-[#333]">
                                 <span className="w-3 h-3 rounded-full bg-[#34D399]" />
                                 0999220000
                             </Button>

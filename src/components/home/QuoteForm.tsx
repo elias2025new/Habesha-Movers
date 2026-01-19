@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import LocationInput from '@/components/ui/LocationInput';
 import { Input } from '@/components/ui/Input';
@@ -111,7 +112,24 @@ const QuoteForm = () => {
 
 
     return (
-        <div className="bg-white/95 dark:bg-[#1C1C1C] backdrop-blur-md rounded-[16px] shadow-2xl dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-6 sm:p-8 w-full max-w-md border-t-4 border-primary transition-all duration-300 hover:scale-[1.01] dark:border-primary/80">
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{
+                opacity: 1,
+                y: [0, -10, 0]
+            }}
+            transition={{
+                opacity: { duration: 0.8 },
+                y: {
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.8 // Wait for entrance
+                }
+            }}
+            whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+            className="bg-white/95 dark:bg-[#1C1C1C] backdrop-blur-md rounded-[16px] shadow-2xl dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-6 sm:p-8 w-full max-w-md border-t-4 border-primary transition-all duration-300 dark:border-primary/80"
+        >
             {step < 4 && (
                 <>
                     <div className="text-center mb-6 sm:mb-8">
@@ -175,7 +193,7 @@ const QuoteForm = () => {
                         </div>
                         <Button
                             type="button"
-                            className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white mt-4 transition-transform duration-200 hover:scale-[1.03]"
+                            className="w-full h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white mt-4 transition-transform duration-200 hover:scale-[1.03] dark:bg-[#8B3A2C] dark:hover:bg-[#7A3226]"
                             onClick={nextStep}
                         >
                             {t('quote.continue')}
@@ -269,7 +287,7 @@ const QuoteForm = () => {
                             </Button>
                             <Button
                                 type="button"
-                                className="flex-[2] h-12 text-lg font-bold bg-primary hover:bg-primary/90 hover: text-white transition-transform duration-200 hover:scale-[1.03]"
+                                className="flex-[2] h-12 text-lg font-bold bg-primary hover:bg-primary/90 text-white transition-transform duration-200 hover:scale-[1.03] dark:bg-[#8B3A2C] dark:hover:bg-[#7A3226]"
                                 onClick={nextStep}
                             >
                                 {t('quote.next')}
@@ -368,7 +386,7 @@ const QuoteForm = () => {
                     )
                 }
             </form >
-        </div >
+        </motion.div >
     );
 };
 

@@ -17,7 +17,7 @@ const ParticleBackground = () => {
 
         // Configuration - Low count for low GPU usage
         const PARTICLE_COUNT = 20;
-        const COLORS = ['#8B3A2C', '#DEA02C', '#CCCCCC']; // Primary, Secondary, Grey
+        const COLORS = ['#DEA02C', '#F4C430', '#B8860B', '#8B3A2C']; // Warm Gold & Red Accents
 
         class Particle {
             x: number;
@@ -39,7 +39,7 @@ const ParticleBackground = () => {
                 this.rotation = Math.random() * Math.PI * 2;
                 this.rotationSpeed = (Math.random() - 0.5) * 0.02;
                 this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
-                this.opacity = Math.random() * 0.5 + 0.3; // Much higher opacity (0.3 to 0.8)
+                this.opacity = Math.random() * 0.2 + 0.05; // Reduced opacity (0.05 to 0.25)
             }
 
             update() {

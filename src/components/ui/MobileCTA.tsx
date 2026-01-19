@@ -87,7 +87,7 @@ export default function MobileCTA() {
                     {/* Main Floating Button */}
                     <Link href="tel:0999220000">
                         <motion.div
-                            className="relative flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-[0_8px_30px_rgb(139,58,44,0.4)] border border-white/20 active:scale-90 transition-transform"
+                            className="relative flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-[0_8px_30px_rgb(139,58,44,0.4)] border border-white/20 active:scale-90 transition-transform dark:bg-[#8B3A2C] dark:hover:bg-[#7A3226]"
                             whileHover={{ scale: 1.05 }}
                             initial={{ scale: 0, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
