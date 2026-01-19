@@ -21,7 +21,10 @@ const Hero = () => {
                 }}
             >
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/70 to-black/40" />
+                <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/70 to-black/40 dark:hidden" />
+                <div className="absolute inset-0 hidden dark:block" style={{
+                    background: 'linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0.55))'
+                }} />
             </div>
 
             {/* Particles - Fixed Position but localized in DOM order for layering */}
@@ -35,14 +38,14 @@ const Hero = () => {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="bg-white rounded-full md:rounded-none shadow-lg p-2.5 px-4 sm:px-8 flex items-center justify-between text-gray-800 w-full max-w-[550px] md:max-w-full md:p-6 md:px-20"
+                    className="bg-white dark:bg-[#1C1C1C]/70 dark:backdrop-blur-md rounded-full md:rounded-none shadow-lg p-2.5 px-4 sm:px-8 flex items-center justify-between text-gray-800 dark:text-white w-full max-w-[550px] md:max-w-full md:p-6 md:px-20 border border-transparent dark:border-white/5"
                 >
-                    <div className="flex items-center gap-1.5 border-r border-gray-100 pr-2 md:pr-6 last:border-0 grow justify-center">
-                        <Users className="h-3 w-3 md:h-5 md:w-5 text-secondary" />
+                    <div className="flex items-center gap-1.5 border-r border-gray-100 dark:border-white/10 pr-2 md:pr-6 last:border-0 grow justify-center">
+                        <Users className="h-3 w-3 md:h-5 md:w-5 text-secondary dark:text-[#F5A623]" />
                         <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">{t('hero.mobileStats.moves')}</span>
                     </div>
-                    <div className="flex items-center gap-1.5 border-r border-gray-100 px-2 md:px-6 last:border-0 grow justify-center">
-                        <Package className="h-3 w-3 md:h-5 md:w-5 text-secondary" />
+                    <div className="flex items-center gap-1.5 border-r border-gray-100 dark:border-white/10 px-2 md:px-6 last:border-0 grow justify-center">
+                        <Package className="h-3 w-3 md:h-5 md:w-5 text-secondary dark:text-[#F5A623]" />
                         <span className="text-[9px] md:text-sm font-bold whitespace-nowrap">{t('hero.mobileStats.safe')}</span>
                     </div>
                     <div className="flex items-center gap-1.5 px-2 md:px-6 grow justify-center">
@@ -63,28 +66,28 @@ const Hero = () => {
                         className="hidden lg:block text-white space-y-8 lg:col-span-7"
                     >
                         <div className="space-y-4">
-                            <span className="text-secondary font-bold tracking-wider uppercase text-sm bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+                            <span className="text-secondary dark:text-[#F5A623] font-bold tracking-wider uppercase text-sm bg-secondary/10 dark:bg-[#F5A623]/10 px-3 py-1 rounded-full border border-secondary/20 dark:border-[#F5A623]/20">
                                 {t('hero.badge')}
                             </span>
                             <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                                {t('hero.title1')} <br />
-                                <span className="text-secondary">{t('hero.title2')}</span>
+                                <span className="text-white dark:text-white">{t('hero.title1')}</span> <br />
+                                <span className="text-secondary dark:text-[#F5A623]">{t('hero.title2')}</span>
                             </h1>
-                            <p className="text-lg text-gray-200 max-w-xl leading-relaxed">
+                            <p className="text-lg text-gray-200 dark:text-[#CFCFCF] max-w-xl leading-relaxed">
                                 {t('hero.description')}
                             </p>
                         </div>
 
                         <div className="grid grid-cols-2 gap-6 max-w-md">
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl">
-                                <Users className="h-6 w-6 text-secondary mb-2" />
+                            <div className="bg-white/10 dark:bg-[rgba(28,28,28,0.7)] backdrop-blur-md border border-white/20 dark:border-[rgba(255,255,255,0.05)] p-4 rounded-xl">
+                                <Users className="h-6 w-6 text-secondary dark:text-[#F5A623] mb-2" />
                                 <h4 className="text-2xl font-bold text-white">{t('hero.stats.moves')}</h4>
-                                <p className="text-gray-300 text-xs">{t('hero.stats.movesLabel')}</p>
+                                <p className="text-gray-300 dark:text-[#CFCFCF]/80 text-xs">{t('hero.stats.movesLabel')}</p>
                             </div>
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl">
-                                <Package className="h-6 w-6 text-secondary mb-2" />
+                            <div className="bg-white/10 dark:bg-[rgba(28,28,28,0.7)] backdrop-blur-md border border-white/20 dark:border-[rgba(255,255,255,0.05)] p-4 rounded-xl">
+                                <Package className="h-6 w-6 text-secondary dark:text-[#F5A623] mb-2" />
                                 <h4 className="text-2xl font-bold text-white">{t('hero.stats.safe')}</h4>
-                                <p className="text-gray-300 text-xs">{t('hero.stats.safeLabel')}</p>
+                                <p className="text-gray-300 dark:text-[#CFCFCF]/80 text-xs">{t('hero.stats.safeLabel')}</p>
                             </div>
                         </div>
                     </motion.div>

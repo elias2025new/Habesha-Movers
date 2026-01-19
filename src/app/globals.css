@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -9,15 +11,28 @@
   --secondary-foreground: #ffffff;
 }
 
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #F5A623;
+  --primary-foreground: #0a0a0a;
+  --secondary: #8B3A2C;
+  --secondary-foreground: #ffffff;
+}
+
 input,
 textarea,
 select {
-  background-color: #ffffff;
-  color: #171717;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
-button {
-  color-scheme: light;
+.dark input,
+.dark textarea,
+.dark select {
+  background-color: #1a1a1a;
+  color: #ededed;
+  border-color: #333;
 }
 
 @theme {

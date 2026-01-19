@@ -111,12 +111,12 @@ const QuoteForm = () => {
 
 
     return (
-        <div className="bg-white rounded-xl shadow-2xl p-6 sm:p-8 w-full max-w-md border-t-4 border-primary transition-all duration-300 hover:scale-[1.01]">
+        <div className="bg-white/95 dark:bg-[#1C1C1C] backdrop-blur-md rounded-[16px] shadow-2xl dark:shadow-[0_20px_60px_rgba(0,0,0,0.6)] p-6 sm:p-8 w-full max-w-md border-t-4 border-primary transition-all duration-300 hover:scale-[1.01] dark:border-primary/80">
             {step < 4 && (
                 <>
                     <div className="text-center mb-6 sm:mb-8">
-                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">{t('quote.title')}</h3>
-                        <p className="text-sm text-secondary-foreground opacity-70 mt-2">
+                        <h3 className="text-2xl sm:text-3xl font-semibold text-foreground dark:text-white tracking-wide">{t('quote.title')}</h3>
+                        <p className="text-sm text-secondary-foreground dark:text-[#CFCFCF] opacity-70 mt-2">
                             {t('quote.subtitle')}
                         </p>
                     </div>
@@ -128,17 +128,17 @@ const QuoteForm = () => {
                                 <div
                                     className={`flex items-center justify-center w-6 h-6 sm:w-10 sm:h-10 rounded-full border-2 font-bold text-xs sm:text-lg transition-colors
                                     ${s === step
-                                            ? 'border-primary bg-primary text-white'
+                                            ? 'border-primary bg-primary dark:bg-[#8B3A2C] dark:border-[#8B3A2C] text-white'
                                             : s < step
-                                                ? 'border-primary bg-primary text-white'
-                                                : 'border-gray-200 text-gray-400'
+                                                ? 'border-primary bg-primary dark:bg-[#8B3A2C] dark:border-[#8B3A2C] text-white'
+                                                : 'border-gray-200 dark:border-gray-700 text-gray-400 dark:text-[#777]'
                                         }`}
                                 >
                                     {s}
                                 </div>
                                 {s < 3 && (
                                     <div
-                                        className={`h-0.5 sm:h-1 mx-1 sm:mx-2 flex-grow rounded-full transition-colors ${s < step ? 'bg-primary' : 'bg-gray-200'
+                                        className={`h-0.5 sm:h-1 mx-1 sm:mx-2 flex-grow rounded-full transition-colors ${s < step ? 'bg-primary' : 'bg-gray-200 dark:bg-[#2A2A2A]'
                                             }`}
                                     />
                                 )}
@@ -186,9 +186,9 @@ const QuoteForm = () => {
                 {step === 2 && (
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.serviceType')}</label>
+                            <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.serviceType')}</label>
                             <select
-                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2]"
                                 value={formData.serviceType}
                                 onChange={(e) => updateFormData({ serviceType: e.target.value, houseSize: "" })} // Reset size on type change
                             >
@@ -201,9 +201,9 @@ const QuoteForm = () => {
 
                         {(formData.serviceType === 'house' || formData.serviceType === 'packing') && (
                             <div>
-                                <label className="block text-sm font-medium text-foreground mb-1">{t('quote.houseSize')}</label>
+                                <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.houseSize')}</label>
                                 <select
-                                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground"
+                                    className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2]"
                                     value={formData.houseSize}
                                     onChange={(e) => updateFormData({ houseSize: e.target.value })}
                                 >
@@ -219,9 +219,9 @@ const QuoteForm = () => {
 
                         {formData.serviceType === 'office' && (
                             <div>
-                                <label className="block text-sm font-medium text-foreground mb-1">{t('quote.officeSize')}</label>
+                                <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.officeSize')}</label>
                                 <select
-                                    className="w-full px-4 py-3 bg-white  border border-gray-300  rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground "
+                                    className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2]"
                                     value={formData.houseSize} // reusing houseSize field for convenience, or add officeSize
                                     onChange={(e) => updateFormData({ houseSize: e.target.value })}
                                 >
@@ -307,7 +307,7 @@ const QuoteForm = () => {
                             />
                             <textarea
                                 placeholder={t('quote.notes')}
-                                className="w-full px-4 py-3 bg-white  border border-gray-300  rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-foreground  resize-none h-24"
+                                className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2] placeholder:dark:text-[#777] resize-none h-24"
                                 value={formData.notes}
                                 onChange={(e) => updateFormData({ notes: e.target.value })}
                             />
@@ -335,13 +335,13 @@ const QuoteForm = () => {
                 {
                     step === 4 && (
                         <div className="text-center py-8 space-y-4">
-                            <div className="w-20 h-20 bg-green-100  rounded-full flex items-center justify-center mx-auto mb-4">
-                                <svg className="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg className="w-10 h-10 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                                 </svg>
                             </div>
-                            <h3 className="text-2xl font-bold text-foreground">{t('quote.successTitle')}</h3>
-                            <p className="text-gray-600 ">
+                            <h3 className="text-2xl font-bold text-foreground dark:text-white">{t('quote.successTitle')}</h3>
+                            <p className="text-gray-600 dark:text-gray-400">
                                 {t('quote.successMessage')}
                             </p>
                             <Button

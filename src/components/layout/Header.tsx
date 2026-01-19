@@ -84,7 +84,7 @@ const Header = () => {
                                     alt="Habesha Movers"
                                     width={200}
                                     height={200}
-                                    className="h-20 sm:h-22 lg:h-24 w-auto object-contain dark:brightness-110 transition-all duration-300"
+                                    className="h-20 sm:h-22 lg:h-24 w-auto object-contain dark:brightness-125 transition-all duration-300"
 
                                     priority
                                     unoptimized
@@ -101,7 +101,7 @@ const Header = () => {
                                         className="relative flex items-center gap-1 text-sm font-semibold text-gray-700 dark:text-[#E6E6E6] hover:text-primary dark:hover:text-[#F5A623] transition-colors py-2 group/link"
                                     >
                                         <span>{item.name}</span>
-                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary dark:bg-[#F5A623] transition-all duration-300 dark:group-hover/link:w-full hidden dark:block"></span>
+                                        <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary dark:bg-[#F5A623] transition-all duration-300 group-hover/link:w-full"></span>
 
                                         {item.hasDropdown && (
                                             <ChevronDown className="h-4 w-4 transition-transform group-hover:rotate-180" />
@@ -135,13 +135,13 @@ const Header = () => {
 
 
 
-                            <div className="border border-primary dark:border-[#8B3A2C] rounded-md px-4 py-2 text-primary dark:text-[#F2F2F2] font-bold flex items-center gap-2 hover:bg-primary hover:text-white dark:bg-transparent dark:hover:bg-[#8B3A2C] transition-colors cursor-pointer">
+                            <div className="border border-primary dark:border-[#8B3A2C] rounded-md px-4 py-2 text-primary dark:text-[#F2F2F2] font-bold flex items-center gap-2 hover:bg-primary hover:text-white dark:bg-transparent dark:hover:bg-[#8B3A2C] transition-colors cursor-pointer group">
 
                                 <div className="flex items-center gap-2">
                                     <motion.div animate={phoneControls}>
-                                        <Phone className="h-4 w-4" />
+                                        <Phone className="h-4 w-4 text-primary dark:text-[#F2F2F2] group-hover:text-white" />
                                     </motion.div>
-                                    <a href="tel:0999220000">{t('header.callUsAt')}</a>
+                                    <a href="tel:0999220000" className="text-inherit transition-none">{t('header.callUsAt')}</a>
                                 </div>
                             </div>
 
@@ -151,7 +151,7 @@ const Header = () => {
                             {/* Language Switcher */}
                             <button
                                 onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
-                                className="flex items-center gap-2 px-3 py-2 rounded-md border border-gray-200  hover:bg-gray-100  transition-colors text-sm font-bold"
+                                className="flex items-center gap-2 px-3 py-2 rounded-md border border-gray-200 dark:border-[#1F1F1F] hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm font-bold dark:text-[#E6E6E6]"
                             >
                                 <Globe className="h-4 w-4" />
                                 {language === 'en' ? 'አማርኛ' : 'English'}
@@ -172,7 +172,7 @@ const Header = () => {
 
                             <button
                                 onClick={() => setLanguage(language === 'en' ? 'am' : 'en')}
-                                className="flex items-center gap-1 px-1.5 py-1.5 rounded-md border border-gray-200  text-[9px] font-bold"
+                                className="flex items-center gap-1 px-1.5 py-1.5 rounded-md border border-gray-200 dark:border-[#1F1F1F] text-[9px] font-bold dark:text-[#E6E6E6]"
                             >
                                 <Globe className="h-3 w-3" />
                                 {language === 'en' ? 'አማ' : 'EN'}
@@ -180,7 +180,7 @@ const Header = () => {
 
                             <button
                                 onClick={() => setIsOpen(!isOpen)}
-                                className="text-gray-600  hover:text-gray-900  focus:outline-none"
+                                className="text-gray-600 dark:text-[#E6E6E6] hover:text-gray-900 dark:hover:text-white focus:outline-none"
                             >
                                 {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                             </button>

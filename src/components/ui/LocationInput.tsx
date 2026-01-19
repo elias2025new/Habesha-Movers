@@ -127,22 +127,22 @@ export default function LocationInput({
                 />
                 {isVerified && (
                     <div className="absolute right-3 top-3 flex items-center gap-1.5 animate-in fade-in zoom-in duration-300">
-                        <span className="text-[10px] font-bold text-green-600 bg-green-50 px-1.5 py-0.5 rounded uppercase tracking-wider hidden sm:block">Verified</span>
+                        <span className="text-[10px] font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-1.5 py-0.5 rounded uppercase tracking-wider hidden sm:block">Verified</span>
                         <CheckCircle2 className="h-5 w-5 text-green-500" />
                     </div>
                 )}
                 {isNonsense && (
                     <div className="absolute right-3 top-3 flex items-center gap-1.5 animate-in fade-in zoom-in slide-in-from-right-2 duration-300">
-                        <span className="text-[10px] font-bold text-red-600 bg-red-50 px-1.5 py-0.5 rounded uppercase tracking-wider">Unknown Location</span>
+                        <span className="text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-1.5 py-0.5 rounded uppercase tracking-wider">Unknown Location</span>
                     </div>
                 )}
             </div>
 
             {showSuggestions && (
-                <div className="absolute z-50 w-full mt-1 bg-white  border border-gray-200  rounded-lg shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="p-2 border-b border-gray-100  bg-gray-50/50  flex items-center gap-2">
-                        <Search className="h-3 w-3 text-gray-400" />
-                        <span className="text-[10px] font-semibold text-gray-400 uppercase tracking-widest">Suggested Locations</span>
+                <div className="absolute z-50 w-full mt-1 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#2A2A2A] rounded-lg shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="p-2 border-b border-gray-100 dark:border-[#2A2A2A] bg-gray-50/50 dark:bg-gray-900/50 flex items-center gap-2">
+                        <Search className="h-3 w-3 text-gray-400 dark:text-[#777]" />
+                        <span className="text-[10px] font-semibold text-gray-400 dark:text-[#777] uppercase tracking-widest">Suggested Locations</span>
                     </div>
                     <ul className="max-h-60 overflow-auto">
                         {suggestions.map((suggestion, index) => (
@@ -155,8 +155,8 @@ export default function LocationInput({
                                     <MapPin className="h-4 w-4" />
                                 </div>
                                 <div>
-                                    <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">{suggestion}</span>
-                                    <p className="text-[10px] text-gray-400">Addis Ababa, Ethiopia</p>
+                                    <span className="text-sm font-medium text-foreground dark:text-[#F2F2F2] group-hover:text-primary transition-colors">{suggestion}</span>
+                                    <p className="text-[10px] text-gray-400 dark:text-[#777]">Addis Ababa, Ethiopia</p>
                                 </div>
                             </li>
                         ))}
