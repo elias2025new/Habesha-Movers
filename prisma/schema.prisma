@@ -30,6 +30,7 @@ model MovingRequest {
   phone           String
   pickupAddress   String
   destinationAddress String
+  serviceType     String?
   houseSize       String
   movingDate      DateTime
   attachmentPath  String?
