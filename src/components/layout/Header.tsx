@@ -42,7 +42,6 @@ const Header = () => {
     const navigation = [
         { name: t('nav.services'), href: '/services', hasDropdown: true },
         { name: t('nav.locations'), href: '/locations' },
-        /* { name: 'Guides & Resources', href: '/about' }, */
         { name: t('nav.about'), href: '/about' },
         { name: t('nav.contact'), href: '/contact' },
     ];

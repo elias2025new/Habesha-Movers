@@ -26,10 +26,35 @@ export default function SchemaMarkup() {
                 "Tuesday",
                 "Wednesday",
                 "Thursday",
-                "Friday"
+                "Friday",
+                "Saturday"
             ],
             "opens": "08:00",
             "closes": "18:00"
+        },
+        "serviceArea": {
+            "@type": "AdministrativeArea",
+            "name": "Addis Ababa"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Moving Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "House Moving"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Office Relocation"
+                    }
+                }
+            ]
         }
     };
 

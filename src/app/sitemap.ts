@@ -34,5 +34,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: 'yearly',
             priority: 0.7,
         },
+        {
+            url: `${baseUrl}/locations`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly',
+            priority: 0.8,
+        },
+        ...[
+            'bole', 'gurd-shola', 'kazanchis', 'sar-bet', 'cmc', 'gerji', 'ayat', 'jemo', 'nifas-silk', 'kirkos', 'kolfe', 'akaki', 'yeka'
+        ].map(slug => ({
+            url: `${baseUrl}/locations/${slug}`,
+            lastModified: new Date(),
+            changeFrequency: 'monthly' as 'monthly',
+            priority: 0.7,
+        }))
     ]
 }
