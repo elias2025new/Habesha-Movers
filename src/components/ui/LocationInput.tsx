@@ -85,13 +85,13 @@ export default function LocationInput({
         const results = fuse.search(value);
         const hasDecentMatch = results.some(r => r.score !== undefined && r.score < 0.45);
 
-        const isValid = isExact || hasDecentMatch || value.length < 3;
         const currentNonsense = value.length >= 3 && !isExact && !hasDecentMatch;
 
         setIsVerified(isExact);
         setIsNonsense(currentNonsense);
 
-        onSelect(value, !currentNonsense);
+        const isValid = isExact || (value.length >= 3 && !currentNonsense);
+        onSelect(value, isValid);
 
         if (value.length > 1) {
             setSuggestions(results.map((result) => result.item).slice(0, 5));

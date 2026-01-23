@@ -10,6 +10,7 @@ import {
     FileText,
     ArrowLeft,
     Trash2,
+    ClipboardList,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -66,7 +67,7 @@ export default async function RequestDetailPage({
                                     <div>
                                         <h3 className="text-sm font-bold text-gray-900">Customer Info</h3>
                                         <div className="mt-1 space-y-1">
-                                            <p className="flex items-center text-sm text-gray-600"><Mail className="h-3 w-3 mr-2" /> {request.email}</p>
+                                            {request.email && <p className="flex items-center text-sm text-gray-600"><Mail className="h-3 w-3 mr-2" /> {request.email}</p>}
                                             <p className="flex items-center text-sm text-gray-600"><Phone className="h-3 w-3 mr-2" /> {request.phone}</p>
                                         </div>
                                     </div>
@@ -118,6 +119,37 @@ export default async function RequestDetailPage({
                             </div>
                         </div>
 
+                        {request.attachmentPath && (
+                            <div className="mt-10 pt-8 border-t border-gray-50">
+                                <div className="flex items-start space-x-3 mb-4">
+                                    <div className="p-2 bg-blue-50 text-blue-600 rounded-lg">
+                                        <ClipboardList className="h-5 w-5" />
+                                    </div>
+                                    <h3 className="text-sm font-bold text-gray-900">Item Photos</h3>
+                                </div>
+                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                                    {request.attachmentPath.split(',').map((path, index) => (
+                                        <div key={index} className="relative aspect-square rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                                            <Image
+                                                src={path}
+                                                alt={`Item photo ${index + 1}`}
+                                                fill
+                                                className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                            />
+                                            <a
+                                                href={path}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                                            >
+                                                <span className="text-white text-xs font-medium">View Full</span>
+                                            </a>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         <div className="mt-10 pt-8 border-t border-gray-50">
                             <div className="flex items-start space-x-3">
                                 <div className="p-2 bg-gray-50 text-gray-600 rounded-lg">
@@ -139,14 +171,20 @@ export default async function RequestDetailPage({
                     <div className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6">
                         <h3 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wider">Quick Actions</h3>
                         <div className="space-y-3">
-                            <Button className="w-full justify-start py-6 bg-blue-50 text-blue-700 hover:bg-blue-100 border-none shadow-none">
-                                <Mail className="h-4 w-4 mr-2" />
-                                Email Customer
-                            </Button>
-                            <Button className="w-full justify-start py-6 bg-green-50 text-green-700 hover:bg-green-100 border-none shadow-none">
-                                <Phone className="h-4 w-4 mr-2" />
-                                Call Customer
-                            </Button>
+                            {request.email && (
+                                <a href={`mailto:${request.email}`} className="block">
+                                    <Button className="w-full justify-start py-6 bg-blue-50 text-blue-700 hover:bg-blue-100 border-none shadow-none">
+                                        <Mail className="h-4 w-4 mr-2" />
+                                        Email Customer
+                                    </Button>
+                                </a>
+                            )}
+                            <a href={`tel:${request.phone}`} className="block">
+                                <Button className="w-full justify-start py-6 bg-green-50 text-green-700 hover:bg-green-100 border-none shadow-none">
+                                    <Phone className="h-4 w-4 mr-2" />
+                                    Call Customer
+                                </Button>
+                            </a>
                         </div>
                     </div>
 

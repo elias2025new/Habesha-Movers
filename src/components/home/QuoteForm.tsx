@@ -1,31 +1,25 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
-import LocationInput from '@/components/ui/LocationInput';
 import { Input } from '@/components/ui/Input';
-import { toast } from 'sonner';
+import LocationInput from '@/components/ui/LocationInput';
 import { useLanguage } from '../LanguageContext';
+import { toast } from 'sonner';
 
 const QuoteForm = () => {
     const { t } = useLanguage();
-
-    const houseSizes = [
-        { label: t('size.studio'), value: 'studio' },
-        { label: t('size.1br'), value: '1br' },
-        { label: t('size.2br'), value: '2br' },
-        { label: t('size.3br'), value: '3br' },
-        { label: t('size.4br'), value: '4br+' },
-        { label: t('size.office'), value: 'office' },
-    ];
-
     const [step, setStep] = useState(1);
     const [loading, setLoading] = useState(false);
+    const [attachments, setAttachments] = useState<File[]>([]);
+    const [isLocked, setIsLocked] = useState(false);
+    const [cooldownRemaining, setCooldownRemaining] = useState(0);
+
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
-        phone: "",
+        phone: "+251",
         pickup: "",
         destination: "",
         serviceType: "",
@@ -35,30 +29,55 @@ const QuoteForm = () => {
     });
     const [validity, setValidity] = useState({
         pickup: false,
-        destination: false
+        destination: false,
     });
-    const [attachment, setAttachment] = useState<File | null>(null);
 
-    const updateFormData = (data: Partial<typeof formData>) => {
-        setFormData(prev => ({ ...prev, ...data }));
+    // Check for cooldown on mount
+    useEffect(() => {
+        const checkCooldown = () => {
+            const lastSubmission = localStorage.getItem('last_quote_submission');
+            if (lastSubmission) {
+                const timeDiff = Date.now() - parseInt(lastSubmission);
+                const fifteenMins = 15 * 60 * 1000;
+
+                if (timeDiff < fifteenMins) {
+                    setIsLocked(true);
+                    setCooldownRemaining(Math.ceil((fifteenMins - timeDiff) / 60000));
+                } else {
+                    setIsLocked(false);
+                }
+            }
+        };
+
+        checkCooldown();
+        const interval = setInterval(checkCooldown, 60000); // Update every minute
+        return () => clearInterval(interval);
+    }, []);
+
+    const updateFormData = (updates: Partial<typeof formData>) => {
+        setFormData(prev => ({ ...prev, ...updates }));
     };
 
     const nextStep = () => {
-        if (step === 1) {
-            if (!formData.pickup || !formData.destination) {
-                toast.error(t('toast.locationError'));
-                return;
-            }
-            if (!validity.pickup || !validity.destination) {
-                toast.error(t('toast.addisError'));
-                return;
-            }
+        if (isLocked) {
+            toast.error(`${t('error.rateLimit15m')} (${cooldownRemaining}m remaining)`);
+            return;
         }
-        if (step === 2) {
-            if (!formData.serviceType || !formData.houseSize || !formData.movingDate) {
-                toast.error(t('toast.detailsError'));
-                return;
-            }
+        if (step === 1 && (!formData.pickup || !formData.destination || !validity.pickup || !validity.destination)) {
+            toast.error(t('toast.locationError'));
+            return;
+        }
+        if (step === 2 && !formData.serviceType) {
+            toast.error(t('toast.selectService'));
+            return;
+        }
+        if (step === 2 && (formData.serviceType === 'house' || formData.serviceType === 'packing' || formData.serviceType === 'office') && !formData.houseSize) {
+            toast.error(t('val.selectSize'));
+            return;
+        }
+        if (step === 2 && !formData.movingDate) {
+            toast.error(t('val.selectDate'));
+            return;
         }
         setStep(step + 1);
     };
@@ -68,8 +87,10 @@ const QuoteForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!validity.pickup || !validity.destination) {
-            toast.error(t('toast.addisError'));
+        // Ethiopian Phone Validation: +251 followed by 9 or 10 digits (optional leading 0)
+        const phoneRegex = /^\+2510?\d{9}$/;
+        if (!phoneRegex.test(formData.phone)) {
+            toast.error(t('error.invalidPhone'));
             return;
         }
 
@@ -86,22 +107,30 @@ const QuoteForm = () => {
             data.append('houseSize', formData.houseSize);
             data.append('movingDate', formData.movingDate);
             data.append('notes', formData.notes);
-            if (attachment) {
-                data.append('attachment', attachment);
-            }
+
+            attachments.forEach((file) => {
+                data.append('attachments', file);
+            });
 
             const response = await fetch('/api/quote', {
                 method: 'POST',
-                // Content-Type header not needed for FormData, browser sets it with boundary
                 body: data,
             });
 
+            const result = await response.json();
+
             if (response.ok) {
                 toast.success(t('toast.success'));
+                localStorage.setItem('last_quote_submission', Date.now().toString());
+                setIsLocked(true);
+                setCooldownRemaining(15);
                 setStep(4); // Success state
+            } else if (response.status === 429) {
+                // Handle Rate Limit specifically
+                const errorKey = result.message === 'rateLimit24h' ? 'error.rateLimit24h' : 'error.rateLimit15m';
+                toast.error(t(errorKey));
             } else {
-                const data = await response.json();
-                toast.error(data.error || "Submission failed");
+                toast.error(result.message || result.error || "Submission failed");
             }
         } catch (error) {
             toast.error(t('toast.error'));
@@ -132,6 +161,20 @@ const QuoteForm = () => {
         >
             {step < 4 && (
                 <>
+                    {isLocked && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            className="mb-6 p-3 bg-primary/10 dark:bg-[#8B3A2C]/20 border border-primary/20 dark:border-[#8B3A2C]/30 rounded-lg text-center"
+                        >
+                            <p className="text-xs font-medium text-primary dark:text-[#FF6B4A]">
+                                🔒 {t('error.rateLimit15m')}
+                            </p>
+                            <p className="text-[10px] text-primary/70 dark:text-[#FF6B4A]/70 mt-1">
+                                {cooldownRemaining} {t('quote.minutesRemaining')}
+                            </p>
+                        </motion.div>
+                    )}
                     <div className="text-center mb-6 sm:mb-8">
                         <h3 className="text-2xl sm:text-3xl font-semibold text-foreground dark:text-white tracking-wide">{t('quote.title')}</h3>
                         <p className="text-sm text-secondary-foreground dark:text-[#CFCFCF] opacity-70 mt-2">
@@ -145,7 +188,7 @@ const QuoteForm = () => {
                             <div key={s} className="flex items-center w-full last:w-auto">
                                 <div
                                     className={`flex items-center justify-center w-6 h-6 sm:w-10 sm:h-10 rounded-full border-2 font-bold text-xs sm:text-lg transition-colors
-                                    ${s === step
+                                        ${s === step
                                             ? 'border-primary bg-primary dark:bg-[#8B3A2C] dark:border-[#8B3A2C] text-white'
                                             : s < step
                                                 ? 'border-primary bg-primary dark:bg-[#8B3A2C] dark:border-[#8B3A2C] text-white'
@@ -253,17 +296,49 @@ const QuoteForm = () => {
                         )}
 
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.attachFile')}</label>
-                            <Input
-                                type="file"
-                                accept="image/*"
-                                onChange={(e) => {
-                                    if (e.target.files && e.target.files[0]) {
-                                        setAttachment(e.target.files[0]);
-                                    }
-                                }}
-                                className="cursor-pointer file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20   "
-                            />
+                            <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.attachFile')}</label>
+                            <div className="relative">
+                                <input
+                                    type="file"
+                                    multiple
+                                    accept="image/*"
+                                    onChange={(e) => {
+                                        if (e.target.files) {
+                                            const files = Array.from(e.target.files);
+                                            if (files.length > 4) {
+                                                toast.error(t('quote.photoLimitError'));
+                                                e.target.value = ""; // Clear input
+                                                setAttachments([]);
+                                                return;
+                                            }
+                                            setAttachments(files);
+                                        }
+                                    }}
+                                    className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2] cursor-pointer text-sm
+                                        file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold 
+                                        file:bg-primary/10 dark:file:bg-[#8B3A2C]/20 
+                                        file:text-primary dark:file:text-[#FF6B4A] 
+                                        hover:file:bg-primary/20 dark:hover:file:bg-[#8B3A2C]/30 
+                                        file:transition-all file:duration-200 file:cursor-pointer"
+                                />
+                                {attachments.length > 0 && (
+                                    <div className="mt-2 space-y-1">
+                                        <p className="text-xs text-green-600 dark:text-green-400 font-medium flex items-center gap-1">
+                                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                                            </svg>
+                                            {attachments.length} {t('quote.selectedPhotos')}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {attachments.map((file, i) => (
+                                                <span key={i} className="text-[10px] bg-gray-100 dark:bg-white/5 px-2 py-1 rounded text-gray-600 dark:text-gray-400 truncate max-w-[120px]">
+                                                    {file.name}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
                         </div>
 
                         <div>
@@ -312,14 +387,22 @@ const QuoteForm = () => {
                                 type="email"
                                 value={formData.email}
                                 onChange={(e) => updateFormData({ email: e.target.value })}
-                                required
                                 className="  "
                             />
                             <Input
                                 placeholder={t('quote.phone')}
                                 type="tel"
                                 value={formData.phone}
-                                onChange={(e) => updateFormData({ phone: e.target.value })}
+                                onChange={(e) => {
+                                    let val = e.target.value;
+                                    if (!val.startsWith('+251')) {
+                                        val = '+251' + val.replace(/^\+?2?5?1?/, '');
+                                    }
+                                    // Limit to 14 characters (+251 + optional 0 + 9 digits)
+                                    if (val.length <= 14) {
+                                        updateFormData({ phone: val });
+                                    }
+                                }}
                                 required
                                 className="  "
                             />
@@ -367,6 +450,7 @@ const QuoteForm = () => {
                                 className="w-full"
                                 onClick={() => {
                                     setStep(1);
+                                    setAttachments([]);
                                     setFormData({
                                         fullName: "",
                                         email: "",

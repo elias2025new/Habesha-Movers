@@ -9,6 +9,7 @@ export interface LocationData {
         lat: number;
         lng: number;
     };
+    image?: string;
     faqs: {
         question: string;
         answer: string;
@@ -24,6 +25,7 @@ export const LOCATIONS_DATA: LocationData[] = [
         description: "Bole is the most vibrant and modern district in Addis Ababa, known for its high-end residential areas, bustling shopping centers, and international standard hotels. Moving in Bole requires specialized knowledge of its busy thoroughfares and luxury apartment complexes.",
         density: "High commercial and premium residential density.",
         coordinates: { lat: 8.9892, lng: 38.7844 },
+        image: "/images/locations/bole.jpg",
         faqs: [
             {
                 question: "Do you offer late-night moving in Bole?",
@@ -58,6 +60,7 @@ export const LOCATIONS_DATA: LocationData[] = [
         description: "Kazanchis is the diplomatic heart of Addis Ababa. Home to the UN headquarters and numerous embassies, it demands a high level of professionalism and security for any relocation service.",
         density: "High diplomatic and governmental office density with luxury expatriate housing.",
         coordinates: { lat: 9.0177, lng: 38.7678 },
+        image: "/images/locations/kazanchis.jpg",
         faqs: [
             {
                 question: "Do you have experience moving diplomatic staff in Kazanchis?",

@@ -45,26 +45,39 @@ export default function LocationsPage() {
                     {LOCATIONS_DATA.map((loc, idx) => (
                         <ScrollReveal key={loc.slug} animation="fade-up" delay={idx * 0.05}>
                             <Link href={`/locations/${loc.slug}`} className="group">
-                                <div className="h-full bg-gray-50 dark:bg-[#1C1C1C] rounded-[2rem] p-8 border border-gray-100 dark:border-white/5 hover:border-[#F5A623]/30 dark:hover:border-[#F5A623]/30 transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-2 flex flex-col">
-                                    <div className="flex items-center justify-between mb-6">
-                                        <div className="w-14 h-14 rounded-2xl bg-[#8B3A2C]/10 dark:bg-[#F5A623]/10 flex items-center justify-center text-[#8B3A2C] dark:text-[#F5A623] group-hover:scale-110 transition-transform duration-500">
-                                            <MapPin className="w-7 h-7" />
+                                <div className="h-full bg-gray-50 dark:bg-[#1C1C1C] rounded-[2rem] overflow-hidden border border-gray-100 dark:border-white/5 hover:border-[#F5A623]/30 dark:hover:border-[#F5A623]/30 transition-all duration-500 shadow-sm hover:shadow-xl hover:-translate-y-2 flex flex-col">
+                                    <div className="relative h-48 w-full overflow-hidden">
+                                        <img
+                                            src={loc.image || "/images/house-moving-hero.png"}
+                                            alt={loc.name}
+                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                        <div className="absolute bottom-4 left-6">
+                                            <span className="text-xs font-bold text-[#F5A623] uppercase tracking-widest bg-black/40 backdrop-blur-md px-3 py-1 rounded-full">
+                                                {loc.subCity}
+                                            </span>
                                         </div>
-                                        <span className="text-sm font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
-                                            {loc.subCity}
-                                        </span>
                                     </div>
 
-                                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-[#8B3A2C] dark:group-hover:text-[#F5A623] transition-colors">
-                                        Moving in {loc.name}
-                                    </h2>
+                                    <div className="p-8 flex flex-col flex-grow">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="w-10 h-10 rounded-xl bg-[#8B3A2C]/10 dark:bg-[#F5A623]/10 flex items-center justify-center text-[#8B3A2C] dark:text-[#F5A623]">
+                                                <MapPin className="w-5 h-5" />
+                                            </div>
+                                        </div>
 
-                                    <p className="text-gray-600 dark:text-gray-400 mb-8 line-clamp-3 leading-relaxed flex-grow">
-                                        {loc.description}
-                                    </p>
+                                        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-[#8B3A2C] dark:group-hover:text-[#F5A623] transition-colors">
+                                            Moving in {loc.name}
+                                        </h2>
 
-                                    <div className="flex items-center gap-2 text-[#8B3A2C] dark:text-[#F5A623] font-bold group-hover:gap-4 transition-all">
-                                        View Details <ChevronRight className="w-5 h-5" />
+                                        <p className="text-gray-600 dark:text-gray-400 mb-8 line-clamp-3 leading-relaxed flex-grow">
+                                            {loc.description}
+                                        </p>
+
+                                        <div className="flex items-center gap-2 text-[#8B3A2C] dark:text-[#F5A623] font-bold group-hover:gap-4 transition-all">
+                                            View Details <ChevronRight className="w-5 h-5" />
+                                        </div>
                                     </div>
                                 </div>
                             </Link>

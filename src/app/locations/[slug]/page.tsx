@@ -119,7 +119,7 @@ export default async function LocationDetailPage({ params }: { params: Promise<{
                             <ScrollReveal animation="slide-left">
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white dark:border-[#1C1C1C]">
                                     <Image
-                                        src="/images/house-moving-hero.png"
+                                        src={location.image || "/images/house-moving-hero.png"}
                                         alt={`Moving in ${location.name}, Addis Ababa`}
                                         width={800}
                                         height={600}

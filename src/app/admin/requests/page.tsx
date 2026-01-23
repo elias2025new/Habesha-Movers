@@ -52,7 +52,7 @@ export default async function RequestsListPage() {
                                 <tr key={request.id} className="hover:bg-gray-50 transition-colors">
                                     <td className="px-6 py-4">
                                         <p className="text-sm font-medium text-gray-900">{request.fullName}</p>
-                                        <p className="text-xs text-gray-500">{request.email}</p>
+                                        {request.email && <p className="text-xs text-gray-500">{request.email}</p>}
                                         <p className="text-xs text-gray-400">{request.phone}</p>
                                     </td>
                                     <td className="px-6 py-4">
