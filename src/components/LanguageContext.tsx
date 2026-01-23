@@ -78,24 +78,57 @@ const translations = {
 
         // About Page
         'about.heroTitle': 'About Habesha Movers',
-        'about.heroSubtitle': 'Our mission is to provide the most reliable and stress-free moving experience in Ethiopia.',
-        'about.storyTitle': 'Our Story',
-        'about.storyP1': 'Founded with a vision to revolutionize the logistics and moving industry in Addis Ababa, Habesha Movers has grown from a small local team to one of the most trusted names in professional moving.',
-        'about.storyP2': 'We recognized the challenges residents and businesses face when relocating—lack of transparency, safety concerns, and unreliable scheduling. Habesha Movers was built to solve these problems through professionalism, technology, and a customer-first approach.',
-        'about.expValue': '5+',
-        'about.expLabel': 'Years Experience',
-        'about.movesValue': '300+',
-        'about.movesLabel': 'Successful Moves',
-        'about.valuesTitle': 'Our Core Values',
-        'about.value1Title': 'Integrity',
-        'about.value1Desc': 'Transparency in pricing and honesty in every interaction with our clients.',
-        'about.value2Title': 'Care',
-        'about.value2Desc': 'We treat your belongings as if they were our own, with the utmost respect and care.',
-        'about.value3Title': 'Efficiency',
-        'about.value3Desc': 'Constant improvement of our processes to provide the fastest service possible.',
-        'about.ctaTitle': 'Want to work with us?',
-        'about.ctaSubtitle': 'Experience the difference with a professional moving team that values your time and property.',
-        'about.ctaButton': 'Get Your Quote Now',
+        'about.heroSubtitle': 'Your trusted partner for professional, secure, and efficient relocation services in Addis Ababa.',
+
+        // 1. Company Overview
+        'about.overview.title': 'Company Overview',
+        'about.overview.content': 'Habesha Movers is a premier, licensed moving company based in Addis Ababa, dedicated to providing world-class relocation services. With a robust operational framework and a team of seasoned professionals, we specialize in seamless residential and corporate moves. Our deep understanding of local logistics, combined with international best practices, ensures that every move is executed with precision, safety, and reliability.',
+
+        // 2. Mission Statement
+        'about.mission.title': 'Our Mission',
+        'about.mission.content': 'To deliver reliable, efficient, and secure relocation services that exceed client expectations. We are committed to maintaining the highest standards of professionalism, integrity, and safety, ensuring a stress-free transition for every household and business we serve.',
+
+        // 3. Services
+        'about.services.title': 'Our Core Services',
+        'about.services.residential': 'Residential & Apartment Moving',
+        'about.services.residentialDesc': 'Comprehensive home relocation services tailored to your specific needs, from studio apartments to large estates.',
+        'about.services.corporate': 'Office & Corporate Relocation',
+        'about.services.corporateDesc': 'Minimizing business downtime with structured, efficient, and secure office moving solutions.',
+        'about.services.packing': 'Professional Packing & Unpacking',
+        'about.services.packingDesc': 'Expert handling of your belongings using high-quality materials to ensure zero damage during transit.',
+        'about.services.local': 'Local Logistics',
+        'about.services.localDesc': 'Specialized short-distance moves within Addis Ababa and surrounding areas, optimized for speed and safety.',
+
+        // 4. Operational Strengths
+        'about.strengths.title': 'Operational Excellence',
+        'about.strengths.staff': 'Expertly Trained Team',
+        'about.strengths.staffDesc': 'Our movers are rigorously trained in handling techniques, safety protocols, and customer service.',
+        'about.strengths.fleet': 'Modern Fleet & Equipment',
+        'about.strengths.fleetDesc': 'We utilize well-maintained vehicles and professional handling equipment to guarantee the safety of your assets.',
+        'about.strengths.pricing': 'Transparent Pricing',
+        'about.strengths.pricingDesc': 'Clear, upfront quotes with no hidden fees, providing you with financial predictability.',
+        'about.strengths.planning': 'Risk-Aware Planning',
+        'about.strengths.planningDesc': 'Detailed operational planning to mitigate risks and ensure on-time execution.',
+
+        // 5. Values
+        'about.values.title': 'Our Professional Standards',
+        'about.values.reliability': 'Reliability',
+        'about.values.reliabilityDesc': 'We deliver on our promises, every time.',
+        'about.values.safety': 'Safety',
+        'about.values.safetyDesc': 'The security of your property is our top priority.',
+        'about.values.transparency': 'Transparency',
+        'about.values.transparencyDesc': 'Honest communication constitutes the foundation of our trusted relationships.',
+        'about.values.efficiency': 'Efficiency',
+        'about.values.efficiencyDesc': 'Optimized processes for timely and smooth delivery.',
+
+        // 6. Local Expertise
+        'about.local.title': 'Local Expertise',
+        'about.local.content': 'Navigating Addis Ababa requires more than just a truck; it demands deep local knowledge. Our team possesses an intimate understanding of the city’s sub-cities, traffic patterns, and logistical unique challenges. This expertise allows us to plan efficient routes, avoid delays, and ensure that your move remains on schedule regardless of local conditions.',
+
+        // 7. Closing & CTA
+        'about.ctaTitle': 'Partner With Us',
+        'about.ctaSubtitle': 'Experience the difference of working with a true industry professional. Contact Habesha Movers today for a seamless relocation experience.',
+        'about.ctaButton': 'Request Corporate Quote',
 
         // Contact Page
         'contact.heroTitle': 'Contact Us',
@@ -337,24 +370,57 @@ const translations = {
 
         // About Page
         'about.heroTitle': 'ስለ ሐበሻ አጓጓዦች',
-        'about.heroSubtitle': 'ተልእኳችን በኢትዮጵያ ውስጥ እጅግ አስተማማኝ እና ከጭንቀት ነፃ የሆነ የማጓጓዝ ልምድ ማቅረብ ነው።',
-        'about.storyTitle': 'ታሪካችን',
-        'about.storyP1': 'በአዲስ አበባ የሎጂስቲክስ እና የማጓጓዝ ኢንዱስትሪን ለመለወጥ ባለ ራዕይ ሆኖ የተመሰረተው ሐበሻ አጓጓዦች፣ ከአነስተኛ የሀገር ውስጥ ቡድን ተነስቶ አሁን ፕሮፌሽናል የማጓጓዝ አገልግሎት በሚሰጡ ስሞች መካከል አንዱ ሆኗል።',
-        'about.storyP2': 'ነዋሪዎች እና ንግዶች በሚዘዋወሩበት ጊዜ የሚያጋጥሟቸውን ተግዳሮቶች—የግልጽነት እጥረት፣ የደህንነት ስጋቶች እና የማይታመን የጊዜ ሰሌዳን ተገንዝበናል። ሐበሻ አጓጓዦች እነዚህን ችግሮች በፕሮፌሽናሊዝም፣ በቴክኖሎጂ እና ለደንበኛ ቅድሚያ በሚሰጥ አቀራረብ ለመፍታት ተገንብቷል።',
-        'about.expValue': '5+',
-        'about.expLabel': 'የዓመታት ልምድ',
-        'about.movesValue': '300+',
-        'about.movesLabel': 'ስኬታማ ጉዞዎች',
-        'about.valuesTitle': 'ዋና እሴቶቻችን',
-        'about.value1Title': 'ታማኝነት',
-        'about.value1Desc': 'በዋጋ አሰጣጥ ላይ ግልጽነት እና ከደንበኞቻችን ጋር በሚኖረን እያንዳንዱ ግንኙነት ታማኝነት።',
-        'about.value2Title': 'እንክብካቤ',
-        'about.value2Desc': 'ንብረቶቻችሁን ልክ እንደ ራሳችን አድርገን በከፍተኛ ጥንቃቄ እና ክብር እንይዛለን።',
-        'about.value3Title': 'ቅልጥፍና',
-        'about.value3Desc': 'ፈጣን አገልግሎት ለመስጠት ሂደቶቻችንን በየጊዜው እናሻሽላለን።',
-        'about.ctaTitle': 'ከእኛ ጋር መስራት ይፈልጋሉ?',
-        'about.ctaSubtitle': 'ለጊዜዎ እና ለንብረትዎ ዋጋ ከሚሰጥ ፕሮፌሽናል የማጓጓዝ ቡድን ጋር ልዩነቱን ይለማመዱ።',
-        'about.ctaButton': 'አሁኑኑ ዋጋ ያግኙ',
+        'about.heroSubtitle': 'የእርስዎ ታማኝ አጋር ለሙያዊ፣ አስተማማኝ እና ቀልጣፋ የማጓጓዝ አገልግሎት በአዲስ አበባ።',
+
+        // 1. Company Overview
+        'about.overview.title': 'ስለ ኩባንያው',
+        'about.overview.content': 'ሐበሻ አጓጓዦች በአዲስ አበባ የሚገኝ ፍቃድ ያለው እና የመጀመሪያ ደረጃ የማጓጓዝ አገልግሎት የሚሰጥ ድርጅት ነው። በጠንካራ አሰራር እና ልምድ ባላቸው ባለሙያዎች ታግዘን፣ ለነዋሪዎች እና ለድርጅቶች ቀልጣፋ የማጓጓዝ አገልግሎት እንሰጣለን። ስለ አካባቢው ሎጅስቲክስ ያለን ጥልቅ እውቀት ከዓለም አቀፍ አሰራር ጋር ተዳምሮ እያንዳንዱን ጉዞ በብቃት፣ በደህንነት እና በአስተማማኝነት እንድንፈጽም ያስችለናል።',
+
+        // 2. Mission Statement
+        'about.mission.title': 'ተልዕኳችን',
+        'about.mission.content': 'የደንበኞቻችንን ከጠበቁት በላይ የሆነ አስተማማኝ፣ ቀልጣፋ እና ደህንነቱ የተጠበቀ የማጓጓዝ አገልግሎት መስጠት። ከፍተኛ የሆነ የሙያዊነት፣ የታማኝነት እና የደህንነት ደረጃን በመጠበቅ ለምናገለግለው ለእያንዳንዱ ቤተሰብ እና ድርጅት ከጭንቀት ነጻ የሆነ ሽግግርን እናረጋግጣለን።',
+
+        // 3. Services
+        'about.services.title': 'ዋና አገልግሎቶቻችን',
+        'about.services.residential': 'የመኖሪያ ቤት እና አፓርታማ ማጓጓዝ',
+        'about.services.residentialDesc': 'ከስቱዲዮ አፓርታማዎች እስከ ትላልቅ ቤቶች ድረስ ለእርስዎ ፍላጎት የተዘጋጀ አጠቃላይ የቤት ማጓጓዝ አገልግሎት።',
+        'about.services.corporate': 'የቢሮ እና የድርጅት ማጓጓዝ',
+        'about.services.corporateDesc': 'በተቀናጀ፣ ቀልጣፋ እና ደህንነቱ በተጠበቀ የቢሮ ማጓጓዝ መፍትሄዎች የስራ መቋረጥን እንቀንሳለን።',
+        'about.services.packing': 'ፕሮፌሽናል ማሸግ እና ማራገፍ',
+        'about.services.packingDesc': 'በጉዞ ወቅት ምንም አይነት ጉዳት እንዳይደርስ ከፍተኛ ጥራት ያላቸውን ቁሳቁሶች በመጠቀም ንብረትዎን በባለሙያ መያዝ።',
+        'about.services.local': 'የአካባቢ ሎጅስቲክስ',
+        'about.services.localDesc': 'በአዲስ አበባ እና በአካባቢዋ ለሚደረጉ አጫጭር ርቀት ጉዞዎች በፍጥነት እና በደህንነት የተመቻቸ አገልግሎት።',
+
+        // 4. Operational Strengths
+        'about.strengths.title': 'የአሠራር ጥንካሬዎቻችን',
+        'about.strengths.staff': 'በደንብ የሰለጠነ ቡድን',
+        'about.strengths.staffDesc': 'አጓጓዦቻችን በአያያዝ ቴክኒኮች፣ በደህንነት ፕሮቶኮሎች እና በደንበኞች አገልግሎት ላይ ጥብቅ ስልጠና ወስደዋል።',
+        'about.strengths.fleet': 'ዘመናዊ መኪሶች እና መሳሪያዎች',
+        'about.strengths.fleetDesc': 'የንብረትዎን ደህንነት ለማረጋገጥ በደንብ የተያዙ ተሽከርካሪዎችን እና ፕሮፌሽናል የአያያዝ መሳሪያዎችን እንጠቀማለን።',
+        'about.strengths.pricing': 'ግልጽ ዋጋ',
+        'about.strengths.pricingDesc': 'ምንም ድብቅ ክፍያዎች የሌሉበት ግልጽ እና ቀጥተኛ ዋጋ፣ ይህም የፋይናንስ እርግጠኝነትን ይሰጥዎታል።',
+        'about.strengths.planning': 'ስጋትን ያገናዘበ እቅድ',
+        'about.strengths.planningDesc': 'አደጋዎችን ለመቀነስ እና በሰዓቱ መከናወኑን ለማረጋገጥ ዝርዝር የአሠራር እቅድ።',
+
+        // 5. Values
+        'about.values.title': 'የሙያዊ ደረጃዎቻችን',
+        'about.values.reliability': 'አስተማማኝነት',
+        'about.values.reliabilityDesc': 'ቃላችንን ሁልጊዜ እንጠብቃለን።',
+        'about.values.safety': 'ደህንነት',
+        'about.values.safetyDesc': 'የንብረትዎ ደህንነት የእኛ የቅድሚያ ትኩረት ነው።',
+        'about.values.transparency': 'ግልጽነት',
+        'about.values.transparencyDesc': 'ታማኝ ግንኙነት የታመነ ግንኙነታችን መሰረት ነው።',
+        'about.values.efficiency': 'ቅልጥፍና',
+        'about.values.efficiencyDesc': 'ለወቅታዊ እና ለስላሳ አቅርቦት የተመቻቹ ሂደቶች።',
+
+        // 6. Local Expertise
+        'about.local.title': 'የአካባቢ እውቀት',
+        'about.local.content': 'በአዲስ አበባ ውስጥ ለመንቀሳቀስ መኪና ብቻ ሳይሆን ጥልቅ የአካባቢ እውቀት ይጠይቃል። ቡድናችን ስለ ከተማዋ ክፍለ ከተሞች፣ የትራፊክ ሁኔታ እና ልዩ የሎጅስቲክስ ተግዳሮቶች ጥልቅ ግንዛቤ አለው። ይህ እውቀት ቀልጣፋ መስመሮችን ለማቀድ፣ መዘግየቶችን ለማስወገድ እና የአካባቢ ሁኔታዎች ምንም ቢሆኑም ጉዞዎ በጊዜ ሰሌዳው መሰረት መከናወኑን ለማረጋገጥ ያስችለናል።',
+
+        // 7. Closing & CTA
+        'about.ctaTitle': 'ከእኛ ጋር ይስሩ',
+        'about.ctaSubtitle': 'ከእውነተኛ የዘርፉ ባለሙያ ጋር የመስራትን ልዩነት ይለማመዱ። ለስላሳ የማጓጓዝ ልምድ ለማግኘት ዛሬ ሐበሻ አጓጓዦችን ያግኙ።',
+        'about.ctaButton': 'የድርጅት ዋጋ ይጠይቁ',
 
         // Contact Page
         'contact.heroTitle': 'ያግኙን',
