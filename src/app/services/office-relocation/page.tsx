@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Building2, Clock, ShieldCheck, Truck, Users, Layout, FileText, Monitor, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { useLanguage } from '@/components/LanguageContext';
 
 export default function OfficeRelocationPage() {
+    const { t } = useLanguage();
     const fadeIn = {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
@@ -47,29 +49,29 @@ export default function OfficeRelocationPage() {
                     >
                         <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm font-medium dark:bg-[#1C1C1C]/50 dark:border-white/10">
                             <Building2 className="w-4 h-4 text-[#F5A623]" />
-                            <span>Corporate Relocation Specialists</span>
+                            <span>{t('office.hero.badge')}</span>
                         </motion.div>
 
                         <motion.h1 variants={fadeIn} className="text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-                            Efficient. Fast. <br />
+                            {t('office.hero.title1')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5A623] to-[#FFD700]">
-                                Disruption-Free.
+                                {t('office.hero.title2')}
                             </span>
                         </motion.h1>
 
                         <motion.p variants={fadeIn} className="text-xl text-gray-300 max-w-2xl leading-relaxed dark:text-gray-400">
-                            We minimize downtime so you can get back to business. Expert handling of IT infrastructure, office furniture, vs confidential files.
+                            {t('office.hero.description')}
                         </motion.p>
 
                         <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 pt-4">
                             <Link href="/quote">
                                 <Button className="bg-[#8B3A2C] hover:bg-[#702e23] text-white px-8 py-7 rounded-lg text-lg font-semibold shadow-lg transition-all w-full sm:w-auto flex items-center justify-center gap-3">
-                                    Get a Business Quote <ArrowRight className="w-5 h-5" />
+                                    {t('office.hero.cta1')} <ArrowRight className="w-5 h-5" />
                                 </Button>
                             </Link>
                             <Link href="tel:0999220000">
                                 <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 px-8 py-7 rounded-lg text-lg font-semibold w-full sm:w-auto">
-                                    Call 0999220000
+                                    {t('office.hero.cta2')}
                                 </Button>
                             </Link>
                         </motion.div>
@@ -82,10 +84,10 @@ export default function OfficeRelocationPage() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                         {[
-                            { value: "0%", label: "Business Downtime", sub: "Goal for every move" },
-                            { value: "500+", label: "Offices Moved", sub: "Across Ethiopia" },
-                            { value: "100%", label: "IT Safe", sub: "Secure tech handling" },
-                            { value: "24/7", label: "Flexibility", sub: "Weekend & Night moves" },
+                            { value: t('office.stats.downtime'), label: t('office.stats.downtimeLabel'), sub: t('office.stats.downtimeSub') },
+                            { value: t('office.stats.offices'), label: t('office.stats.officesLabel'), sub: t('office.stats.officesSub') },
+                            { value: t('office.stats.itSafe'), label: t('office.stats.itSafeLabel'), sub: t('office.stats.itSafeSub') },
+                            { value: t('office.stats.flexibility'), label: t('office.stats.flexibilityLabel'), sub: t('office.stats.flexibilitySub') },
                         ].map((stat, idx) => (
                             <div key={idx} className="text-center md:text-left border-r last:border-0 border-gray-200 dark:border-[#333] pr-0 md:pr-8">
                                 <p className="text-4xl lg:text-5xl font-bold text-[#8B3A2C] mb-2 dark:text-[#F5A623]">{stat.value}</p>
@@ -101,31 +103,31 @@ export default function OfficeRelocationPage() {
             <section className="py-24">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Complete Corporate Solutions</h2>
-                        <p className="text-lg text-gray-600 dark:text-[#CFCFCF]">We don't just move boxes; we relocate entire workflows. Our specialized services cover every aspect of your business transition.</p>
+                        <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white">{t('office.solutions.title')}</h2>
+                        <p className="text-lg text-gray-600 dark:text-[#CFCFCF]">{t('office.solutions.description')}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
                                 icon: Monitor,
-                                title: "IT & Tech Relocation",
-                                desc: "Safe disconnection, packing, transport, and re-setup of servers, computers, and workstations."
+                                title: t('office.service.it.title'),
+                                desc: t('office.service.it.desc')
                             },
                             {
                                 icon: Layout,
-                                title: "Furniture Assembly",
-                                desc: "Expert disassembly and reassembly of cubicles, conference tables, and executive suites."
+                                title: t('office.service.furniture.title'),
+                                desc: t('office.service.furniture.desc')
                             },
                             {
                                 icon: FileText,
-                                title: "Document Archiving",
-                                desc: "Secure, organized transport of confidential files with strict chain-of-custody protocols."
+                                title: t('office.service.documents.title'),
+                                desc: t('office.service.documents.desc')
                             },
                             {
                                 icon: Clock,
-                                title: "After-Hours Service",
-                                desc: "We work evenings effectively and weekends to ensure you never miss a business day."
+                                title: t('office.service.afterHours.title'),
+                                desc: t('office.service.afterHours.desc')
                             },
                             {
                                 icon: () => (
@@ -137,13 +139,13 @@ export default function OfficeRelocationPage() {
                                         className="w-7 h-7 object-contain brightness-0 dark:brightness-200 opacity-60 group-hover:opacity-100 transition-opacity"
                                     />
                                 ),
-                                title: "Logistics Planning",
-                                desc: "Dedicated project managers to coordinate elevators, parking, and building access."
+                                title: t('office.service.logistics.title'),
+                                desc: t('office.service.logistics.desc')
                             },
                             {
                                 icon: ShieldCheck,
-                                title: "Full Insurance",
-                                desc: "Comprehensive coverage for all office assets, giving you complete peace of mind."
+                                title: t('office.service.insurance.title'),
+                                desc: t('office.service.insurance.desc')
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#8B3A2C]/20 transition-all duration-300 group dark:bg-[#1C1C1C] dark:border-[#2A2A2A] dark:hover:border-[#F5A623]/20">
@@ -164,21 +166,21 @@ export default function OfficeRelocationPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <div>
                             <span className="text-[#F5A623] font-bold tracking-widest uppercase text-sm border-b-2 border-[#F5A623] pb-1">
-                                Our Promise
+                                {t('office.promise.badge')}
                             </span>
                             <h2 className="text-4xl md:text-5xl font-bold mt-6 mb-6 leading-tight">
-                                Minimal Downtime. <br /> Maximum Efficiency.
+                                {t('office.promise.title1')} <br /> {t('office.promise.title2')}
                             </h2>
                             <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                                We know that every hour of downtime costs you money. That's why our "Plan-First" approach ensures a seamless transition.
+                                {t('office.promise.description')}
                             </p>
 
                             <div className="space-y-6">
                                 {[
-                                    "Pre-move consultation & site survey",
-                                    "Detailed labeling system for every department",
-                                    "Floor plan mapping for exact placement",
-                                    "Post-move debris removal & setup support"
+                                    t('office.promise.point1'),
+                                    t('office.promise.point2'),
+                                    t('office.promise.point3'),
+                                    t('office.promise.point4')
                                 ].map((point, i) => (
                                     <div key={i} className="flex items-center gap-4">
                                         <div className="w-6 h-6 rounded-full bg-[#F5A623] flex items-center justify-center flex-shrink-0">
@@ -192,7 +194,7 @@ export default function OfficeRelocationPage() {
                             <div className="mt-10">
                                 <Link href="/quote">
                                     <Button className="bg-[#F5A623] text-black hover:bg-[#d9901c] px-8 py-6 rounded-lg font-bold text-lg">
-                                        Schedule a Site Survey
+                                        {t('office.promise.cta')}
                                     </Button>
                                 </Link>
                             </div>
@@ -209,9 +211,9 @@ export default function OfficeRelocationPage() {
                             <div className="absolute bottom-0 left-0 right-0 p-8 z-20 bg-gradient-to-t from-black to-transparent">
                                 <div className="flex items-center gap-4 mb-2">
                                     <Users className="w-6 h-6 text-[#F5A623]" />
-                                    <span className="text-white font-semibold">Dedicated Project Manager</span>
+                                    <span className="text-white font-semibold">{t('office.promise.imageCaption')}</span>
                                 </div>
-                                <p className="text-gray-400 text-sm">Every corporate move gets a dedicated lead to ensure communication is clear and timelines are met.</p>
+                                <p className="text-gray-400 text-sm">{t('office.promise.imageDesc')}</p>
                             </div>
                         </div>
                     </div>
@@ -226,20 +228,20 @@ export default function OfficeRelocationPage() {
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#8B3A2C]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
 
                     <div className="relative z-10">
-                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Planning a Big Move?</h2>
+                        <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 dark:text-white">{t('office.cta.title')}</h2>
                         <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto dark:text-[#CFCFCF]">
-                            Let's discuss your requirements. We offer free on-site assessments to provide an accurate, fixed-price quote.
+                            {t('office.cta.description')}
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-4">
                             <Link href="/contact">
                                 <Button className="bg-[#8B3A2C] hover:bg-[#702e23] text-white px-10 py-7 rounded-lg text-lg font-bold shadow-lg w-full sm:w-auto">
-                                    Contact Our Business Team
+                                    {t('office.cta.button1')}
                                 </Button>
                             </Link>
                             <Link href="tel:0999220000">
                                 <Button variant="outline" className="border-gray-300 bg-white hover:bg-gray-50 text-gray-900 px-10 py-7 rounded-lg text-lg font-bold w-full sm:w-auto flex items-center justify-center gap-2 dark:bg-[#2A2A2A] dark:text-white dark:border-[#444] dark:hover:bg-[#333]">
                                     <span className="w-2 h-2 rounded-full bg-[#34D399] animate-pulse" />
-                                    0999220000
+                                    {t('office.cta.button2')}
                                 </Button>
                             </Link>
                         </div>

@@ -1,95 +1,13 @@
-"use client";
+// server component
+import { Metadata } from 'next';
+import ContactContent from './ContactContent';
 
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
-import { useLanguage } from '@/components/LanguageContext';
+export const metadata: Metadata = {
+    title: 'Contact Habesha Movers - Professional Moving Company in Addis Ababa',
+    description: 'Get a free quote for reliable moving services in Addis Ababa. Visit us in Gurd Shola or call us for home and office relocation.',
+    keywords: 'moving company in Addis Ababa, professional movers in Ethiopia, Gurd Shola moving services, reliable relocation services Addis Ababa',
+};
 
 export default function ContactPage() {
-    const { t } = useLanguage();
-
-    return (
-        <div className="bg-background transition-colors dark:bg-[#121212]">
-            {/* Hero Section */}
-            <section className="bg-primary py-20 text-white transition-colors dark:bg-[#1C1C1C] dark:border-b dark:border-[#2A2A2A]">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-                    <h1 className="text-4xl font-extrabold sm:text-5xl">{t('contact.heroTitle')}</h1>
-                    <p className="mt-4 text-xl text-white/80 max-w-2xl mx-auto">
-                        {t('contact.heroSubtitle')}
-                    </p>
-                </div>
-            </section>
-
-            <section className="py-24">
-                <div className="max-w-7xl mx-auto px-6 lg:px-8">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                        {/* Contact Info */}
-                        <div>
-                            <h2 className="text-3xl font-bold text-foreground mb-8 dark:text-white">{t('contact.title')}</h2>
-                            <p className="text-lg text-secondary-foreground opacity-90 mb-12 dark:text-[#CFCFCF]">
-                                {t('contact.subtitle')}
-                            </p>
-
-                            <div className="space-y-8">
-                                <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 dark:bg-primary/10">
-                                        <MapPin className="h-6 w-6 text-primary dark:text-[#F5A623]" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-foreground dark:text-white">{t('contact.officeTitle')}</h3>
-                                        <p className="text-secondary-foreground opacity-80 mt-1 dark:text-gray-400">{t('contact.officeAddr')}</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 dark:bg-primary/10">
-                                        <Phone className="h-6 w-6 text-primary dark:text-[#F5A623]" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-foreground dark:text-white">{t('contact.phoneTitle')}</h3>
-                                        <p className="text-secondary-foreground opacity-80 mt-1 dark:text-gray-400">+251 911 123 456</p>
-                                        <p className="text-secondary-foreground opacity-80 dark:text-gray-400">+251 911 789 012</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 dark:bg-primary/10">
-                                        <Mail className="h-6 w-6 text-primary dark:text-[#F5A623]" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-foreground dark:text-white">{t('contact.emailTitle')}</h3>
-                                        <p className="text-secondary-foreground opacity-80 mt-1 dark:text-gray-400">info@habeshamovers.com</p>
-                                        <p className="text-secondary-foreground opacity-80 dark:text-gray-400">support@habeshamovers.com</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start space-x-4">
-                                    <div className="h-12 w-12 rounded-xl bg-primary/5 flex items-center justify-center shrink-0 dark:bg-primary/10">
-                                        <Clock className="h-6 w-6 text-primary dark:text-[#F5A623]" />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold text-foreground dark:text-white">{t('contact.hoursTitle')}</h3>
-                                        <p className="text-secondary-foreground opacity-80 mt-1 dark:text-gray-400">{t('contact.hoursWeekday')}</p>
-                                        <p className="text-secondary-foreground opacity-80 dark:text-gray-400">{t('contact.hoursSaturday')}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Google Map Embed Placeholder */}
-                        <div className="h-full min-h-[400px] w-full bg-gray-100 rounded-3xl overflow-hidden relative shadow-lg dark:bg-[#1C1C1C]">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126115.11545465243!2d38.7188!3d9.006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85cef5ab402d%3A0x8467b6b037a24c49!2sAddis%20Ababa!5e0!3m2!1sen!2set!4v1620000000000!5m2!1sen!2set"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen={true}
-                                loading="lazy"
-                                title="Google Map"
-                                className="  "
-                            ></iframe>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    );
+    return <ContactContent />;
 }

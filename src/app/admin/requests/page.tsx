@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Search, Filter, ClipboardList } from "lucide-react";
 import { Input } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
+import DeleteRequestButton from "@/components/admin/DeleteRequestButton";
 
 import { MovingRequest } from "@prisma/client";
 
@@ -74,12 +75,13 @@ export default async function RequestsListPage() {
                                             {request.status.replace('_', ' ')}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4 text-right">
+                                    <td className="px-6 py-4 text-right flex items-center justify-end gap-2">
                                         <Link href={`/admin/requests/${request.id}`}>
                                             <Button variant="ghost" size="sm" className="text-blue-600 hover:text-blue-700 hover:bg-blue-50">
                                                 View Details
                                             </Button>
                                         </Link>
+                                        <DeleteRequestButton requestId={request.id} />
                                     </td>
                                 </tr>
                             ))}

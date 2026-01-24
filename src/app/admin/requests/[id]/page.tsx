@@ -16,6 +16,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import StatusUpdater from "@/components/admin/StatusUpdater";
+import DeleteRequestButton from "@/components/admin/DeleteRequestButton";
 
 export default async function RequestDetailPage({
     params,
@@ -39,10 +40,7 @@ export default async function RequestDetailPage({
                     Back to Requests
                 </Link>
                 <div className="flex gap-2">
-                    <Button variant="ghost" size="sm" className="text-red-600 hover:bg-red-50">
-                        <Trash2 className="h-4 w-4 mr-2" />
-                        Delete Request
-                    </Button>
+                    <DeleteRequestButton requestId={request.id} variant="full" />
                 </div>
             </div>
 

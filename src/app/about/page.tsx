@@ -49,8 +49,8 @@ export default function AboutPage() {
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden bg-slate-900">
                 <div className="absolute inset-0 z-0 opacity-40">
                     <Image
-                        src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&q=80&w=2000"
-                        alt="Corporate Moving"
+                        src="/images/habesha-movers-team-hero.png"
+                        alt={t('about.hero.alt')}
                         fill
                         className="object-cover"
                         priority
@@ -108,22 +108,22 @@ export default function AboutPage() {
                     <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-4 mt-8">
                             <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
-                                <Image src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&q=80&h=600" alt="Office" fill className="object-cover" />
+                                <Image src="/images/habesha-movers-mission.png" alt={t('about.overview.imageAlt')} fill className="object-cover" />
                             </div>
                             <div className="bg-slate-100 dark:bg-slate-800 p-6 rounded-2xl flex flex-col justify-center items-center text-center">
                                 <Award className="h-10 w-10 text-blue-600 mb-2" />
-                                <span className="text-3xl font-bold text-slate-900 dark:text-white">5+</span>
-                                <span className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-widest">Years</span>
+                                <span className="text-3xl font-bold text-slate-900 dark:text-white">{t('about.stats.years')}</span>
+                                <span className="text-sm text-slate-500 dark:text-slate-400 uppercase tracking-widest">{t('about.stats.yearsLabel')}</span>
                             </div>
                         </div>
                         <div className="space-y-4">
                             <div className="bg-blue-600 p-6 rounded-2xl flex flex-col justify-center items-center text-center text-white">
                                 <CheckCircle className="h-10 w-10 text-white mb-2" />
-                                <span className="text-3xl font-bold">300+</span>
-                                <span className="text-sm text-blue-100 uppercase tracking-widest">Projects</span>
+                                <span className="text-3xl font-bold">{t('about.stats.projects')}</span>
+                                <span className="text-sm text-blue-100 uppercase tracking-widest">{t('about.stats.projectsLabel')}</span>
                             </div>
                             <div className="relative h-64 rounded-2xl overflow-hidden shadow-lg">
-                                <Image src="https://images.unsplash.com/photo-1580674285054-bed31e145f59?auto=format&fit=crop&q=80&h=600" alt="Moving Truck" fill className="object-cover" />
+                                <Image src="/images/habesha-movers-truck.png" alt={t('about.strengths.imageAlt')} fill className="object-cover" />
                             </div>
                         </div>
                     </div>
@@ -211,8 +211,8 @@ export default function AboutPage() {
                         </div>
                         <div className="relative h-96 lg:h-auto bg-slate-100">
                             <Image
-                                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&q=80&w=1200"
-                                alt="Professional Standards"
+                                src="/images/habesha-movers-team-hero.png"
+                                alt={t('about.values.imageAlt')}
                                 fill
                                 className="object-cover"
                             />

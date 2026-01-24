@@ -121,8 +121,8 @@ const Footer = () => {
                         &copy; {new Date().getFullYear()} Habesha Movers. {t('footer.rights')}
                     </p>
                     <div className="flex gap-8 text-xs text-gray-600">
-                        <Link href="/privacy" className="hover:text-gray-400 transition-colors cursor-pointer">Privacy Policy</Link>
-                        <Link href="/terms" className="hover:text-gray-400 transition-colors cursor-pointer">Terms of Service</Link>
+                        <Link href="/privacy" className="hover:text-gray-400 transition-colors cursor-pointer">{t('footer.privacy')}</Link>
+                        <Link href="/terms" className="hover:text-gray-400 transition-colors cursor-pointer">{t('footer.terms')}</Link>
                     </div>
                 </div>
             </div>

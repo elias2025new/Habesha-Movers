@@ -5,6 +5,7 @@ import { MapPin, CheckCircle2, Search } from "lucide-react";
 import { Input } from "./Input";
 import Fuse from "fuse.js";
 import { ALL_ADDIS_LOCATIONS } from "@/constants/locations";
+import { useLanguage } from "../LanguageContext";
 
 interface LocationInputProps {
     placeholder?: string;
@@ -19,6 +20,7 @@ export default function LocationInput({
     defaultValue = "",
     className,
 }: LocationInputProps) {
+    const { t } = useLanguage();
     const [inputValue, setInputValue] = useState(defaultValue);
     const [suggestions, setSuggestions] = useState<string[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
@@ -127,13 +129,13 @@ export default function LocationInput({
                 />
                 {isVerified && (
                     <div className="absolute right-3 top-3 flex items-center gap-1.5 animate-in fade-in zoom-in duration-300">
-                        <span className="text-[10px] font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-1.5 py-0.5 rounded uppercase tracking-wider hidden sm:block">Verified</span>
+                        <span className="text-[10px] font-bold text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-1.5 py-0.5 rounded uppercase tracking-wider hidden sm:block">{t('locationInput.verified')}</span>
                         <CheckCircle2 className="h-5 w-5 text-green-500" />
                     </div>
                 )}
                 {isNonsense && (
                     <div className="absolute right-3 top-3 flex items-center gap-1.5 animate-in fade-in zoom-in slide-in-from-right-2 duration-300">
-                        <span className="text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-1.5 py-0.5 rounded uppercase tracking-wider">Unknown Location</span>
+                        <span className="text-[10px] font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/30 px-1.5 py-0.5 rounded uppercase tracking-wider">{t('locationInput.unknown')}</span>
                     </div>
                 )}
             </div>
@@ -142,7 +144,7 @@ export default function LocationInput({
                 <div className="absolute z-50 w-full mt-1 bg-white dark:bg-[#121212] border border-gray-200 dark:border-[#2A2A2A] rounded-lg shadow-xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                     <div className="p-2 border-b border-gray-100 dark:border-[#2A2A2A] bg-gray-50/50 dark:bg-gray-900/50 flex items-center gap-2">
                         <Search className="h-3 w-3 text-gray-400 dark:text-[#777]" />
-                        <span className="text-[10px] font-semibold text-gray-400 dark:text-[#777] uppercase tracking-widest">Suggested Locations</span>
+                        <span className="text-[10px] font-semibold text-gray-400 dark:text-[#777] uppercase tracking-widest">{t('locationInput.suggested')}</span>
                     </div>
                     <ul className="max-h-60 overflow-auto">
                         {suggestions.map((suggestion, index) => (

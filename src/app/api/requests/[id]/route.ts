@@ -33,17 +33,25 @@ export async function DELETE(
     req: Request,
     { params }: { params: Promise<{ id: string }> }
 ) {
+    const start = Date.now();
     const { id } = await params;
+
+    // Auth check
     const session = await auth();
+    const authTime = Date.now() - start;
 
     if (!session) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
     try {
+        const dbStart = Date.now();
         await prisma.movingRequest.delete({
             where: { id: id },
         });
+        const dbTime = Date.now() - dbStart;
+
+        console.log(`🗑️ DELETE Request ${id}: Total ${Date.now() - start}ms (Auth: ${authTime}ms, DB: ${dbTime}ms)`);
 
         return NextResponse.json({ success: true });
     } catch (error) {

@@ -61,7 +61,7 @@ const Header = () => {
             <div className="bg-primary text-white text-xs py-2 dark:bg-[#2A2A2A]">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 flex justify-between items-center font-medium">
                     <div className="flex items-center gap-2">
-                        <span>Moving company in Addis Ababa</span>
+                        <span>{t('header.tagline')}</span>
                         <span className="opacity-50">||</span>
                         <a href="tel:0999220000" className="hover:text-white/80 transition-colors">0999220000</a>
                     </div>

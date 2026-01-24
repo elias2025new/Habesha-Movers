@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Package, ShieldCheck, Box, CheckCircle2, ArrowRight, Layers, Gem, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { useLanguage } from '@/components/LanguageContext';
 
 export default function PackingServicesPage() {
+    const { t } = useLanguage();
     const fadeIn = {
         initial: { opacity: 0, y: 20 },
         animate: { opacity: 1, y: 0 },
@@ -47,29 +49,29 @@ export default function PackingServicesPage() {
                     >
                         <motion.div variants={fadeIn} className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs md:text-sm font-medium dark:bg-[#1C1C1C]/50 dark:border-white/10">
                             <Box className="w-3.5 h-3.5 md:w-4 md:h-4 text-[#F5A623]" />
-                            <span>Professional Packing Services</span>
+                            <span>{t('packing.hero.badge')}</span>
                         </motion.div>
 
                         <motion.h1 variants={fadeIn} className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-                            Expert Packing for <br />
+                            {t('packing.hero.title1')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F5A623] to-[#FFD700]">
-                                Ultimate Peace of Mind.
+                                {t('packing.hero.title2')}
                             </span>
                         </motion.h1>
 
                         <motion.p variants={fadeIn} className="text-base sm:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed dark:text-gray-300">
-                            Don't stress about the boxes. Our trained professionals use premium materials to wrap, pad, and protect your valuables with military precision.
+                            {t('packing.hero.description')}
                         </motion.p>
 
                         <motion.div variants={fadeIn} className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
                             <Link href="/quote">
                                 <Button className="bg-[#8B3A2C] hover:bg-[#702e23] text-white px-6 py-4 sm:px-8 sm:py-7 rounded-full text-base sm:text-lg font-semibold shadow-lg transition-all w-full sm:w-auto flex items-center justify-center gap-3">
-                                    Get a Packing Quote <ArrowRight className="w-5 h-5" />
+                                    {t('packing.hero.cta1')} <ArrowRight className="w-5 h-5" />
                                 </Button>
                             </Link>
                             <Link href="tel:0999220000">
                                 <Button variant="outline" className="border-white/30 text-white hover:bg-white/10 px-6 py-4 sm:px-8 sm:py-7 rounded-full text-base sm:text-lg font-semibold w-full sm:w-auto">
-                                    Call 0999220000
+                                    {t('packing.hero.cta2')}
                                 </Button>
                             </Link>
                         </motion.div>
@@ -81,26 +83,26 @@ export default function PackingServicesPage() {
             <section className="py-12 md:py-24 bg-[#FDF8F7] dark:bg-[#1C1C1C] transition-colors">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="text-center max-w-3xl mx-auto mb-10 md:mb-16">
-                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white">Premium Materials Only</h2>
-                        <p className="text-base sm:text-lg text-gray-600 dark:text-[#CFCFCF]">We don't cut corners. We use industry-leading packing supplies to ensure your items withstand any journey.</p>
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-gray-900 mb-6 dark:text-white">{t('packing.materials.title')}</h2>
+                        <p className="text-base sm:text-lg text-gray-600 dark:text-[#CFCFCF]">{t('packing.materials.description')}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
                             {
                                 icon: Layers,
-                                title: "Double-Wall Boxes",
-                                desc: "Heavy-duty corrugated cardboard that resists crushing and stacking pressure."
+                                title: t('packing.material.boxes.title'),
+                                desc: t('packing.material.boxes.desc')
                             },
                             {
                                 icon: ShieldCheck,
-                                title: "Industrial Bubble Wrap",
-                                desc: "Multi-layer air cushioning for delicate electronics, glass, and artwork."
+                                title: t('packing.material.bubble.title'),
+                                desc: t('packing.material.bubble.desc')
                             },
                             {
                                 icon: Box,
-                                title: "Custom Crating",
-                                desc: "Made-to-measure wooden crates for sculptures, large mirrors, and antiques."
+                                title: t('packing.material.crating.title'),
+                                desc: t('packing.material.crating.desc')
                             }
                         ].map((item, idx) => (
                             <div key={idx} className="bg-white p-6 sm:p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 text-center group dark:bg-[#2A2A2A] dark:border-[#333] dark:hover:border-[#F5A623]/30">
@@ -135,29 +137,29 @@ export default function PackingServicesPage() {
                                     <Gem className="w-6 h-6 md:w-8 md:h-8 text-[#F5A623]" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-gray-900 text-base md:text-lg dark:text-white">White Glove</p>
-                                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Certified Handling</p>
+                                    <p className="font-bold text-gray-900 text-base md:text-lg dark:text-white">{t('packing.fragile.whiteGlove')}</p>
+                                    <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">{t('packing.fragile.certified')}</p>
                                 </div>
                             </div>
                         </div>
 
                         <div>
                             <span className="text-[#8B3A2C] font-bold tracking-widest uppercase text-sm border-b-2 border-[#F5A623] pb-1">
-                                Fragile Care
+                                {t('packing.fragile.badge')}
                             </span>
                             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-6 mb-8 leading-tight dark:text-white">
-                                We Handle Your Treasures With <span className="text-[#8B3A2C] dark:text-[#F5A623]">Respect.</span>
+                                {t('packing.fragile.title')} <span className="text-[#8B3A2C] dark:text-[#F5A623]">{t('packing.fragile.titleHighlight')}</span>
                             </h2>
                             <p className="text-base sm:text-lg text-gray-600 mb-8 leading-relaxed dark:text-[#CFCFCF]">
-                                From crystal chandeliers to grand pianos, our specialist team is trained in the art of fragile packing. We treat every item as if it were irreplaceable.
+                                {t('packing.fragile.description')}
                             </p>
 
                             <ul className="space-y-4">
                                 {[
-                                    "Acid-free tissue paper for silverware",
-                                    "Anti-static wrapping for electronics",
-                                    "Vertical smooth packing for plates",
-                                    "Corner protectors for framed art"
+                                    t('packing.fragile.point1'),
+                                    t('packing.fragile.point2'),
+                                    t('packing.fragile.point3'),
+                                    t('packing.fragile.point4')
                                 ].map((item, i) => (
                                     <li key={i} className="flex items-center gap-3 text-sm sm:text-lg text-gray-700 dark:text-gray-300">
                                         <CheckCircle2 className="w-5 h-5 text-[#34D399]" />
@@ -169,7 +171,7 @@ export default function PackingServicesPage() {
                             <div className="mt-10">
                                 <Link href="/contact">
                                     <Button className="bg-gray-900 hover:bg-black text-white px-6 py-4 sm:px-8 sm:py-6 rounded-lg font-bold text-sm sm:text-base dark:bg-[#F5A623] dark:text-black dark:hover:bg-[#e09612]">
-                                        Discuss Special Items
+                                        {t('packing.fragile.cta')}
                                     </Button>
                                 </Link>
                             </div>
@@ -183,18 +185,18 @@ export default function PackingServicesPage() {
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">
                     <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-12 gap-8">
                         <div>
-                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">Our Quality Promise</h2>
-                            <p className="text-white/80 text-sm sm:text-lg max-w-xl">Every box we pack goes through a strict verification process to ensure organized and safe delivery.</p>
+                            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4">{t('packing.quality.title')}</h2>
+                            <p className="text-white/80 text-sm sm:text-lg max-w-xl">{t('packing.quality.description')}</p>
                         </div>
                         <ClipboardCheck className="w-16 h-16 sm:w-24 sm:h-24 text-[#F5A623] opacity-50" />
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[
-                            { title: "Categorized", desc: "Items packed by room and type" },
-                            { title: "Labeled", desc: "Clear content description on every box" },
-                            { title: "Inventory", desc: "Digital list of all major items" },
-                            { title: "Sealed", desc: "Tamper-evident taping for security" }
+                            { title: t('packing.quality.categorized.title'), desc: t('packing.quality.categorized.desc') },
+                            { title: t('packing.quality.labeled.title'), desc: t('packing.quality.labeled.desc') },
+                            { title: t('packing.quality.inventory.title'), desc: t('packing.quality.inventory.desc') },
+                            { title: t('packing.quality.sealed.title'), desc: t('packing.quality.sealed.desc') }
                         ].map((card, idx) => (
                             <div key={idx} className="bg-white/10 backdrop-blur border border-white/10 p-4 sm:p-6 rounded-xl hover:bg-white/20 transition-colors">
                                 <h3 className="font-bold text-lg sm:text-xl mb-2 text-[#F5A623]">{card.title}</h3>
@@ -208,20 +210,20 @@ export default function PackingServicesPage() {
             {/* 5. Final CTA */}
             <section className="py-12 md:py-24 bg-white text-center dark:bg-[#121212]">
                 <div className="max-w-4xl mx-auto px-6">
-                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 dark:text-white">Ready to Save Your Back?</h2>
+                    <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 dark:text-white">{t('packing.cta.title')}</h2>
                     <p className="text-base sm:text-xl text-gray-600 mb-10 max-w-2xl mx-auto dark:text-[#CFCFCF]">
-                        Let us do the heavy lifting and the meticulous wrapping. Add professional packing to your move today.
+                        {t('packing.cta.description')}
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
                         <Link href="/quote">
                             <Button className="bg-[#8B3A2C] hover:bg-[#702e23] text-white px-8 py-5 sm:px-10 sm:py-8 rounded-full text-lg sm:text-xl font-bold shadow-xl transition-all w-full sm:w-auto">
-                                Get a Quote
+                                {t('packing.cta.button1')}
                             </Button>
                         </Link>
                         <Link href="tel:0999220000">
                             <Button variant="outline" className="border-gray-200 text-gray-900 hover:bg-gray-50 px-8 py-5 sm:px-10 sm:py-8 rounded-full text-lg sm:text-xl font-bold w-full sm:w-auto flex items-center justify-center gap-2 dark:bg-[#2A2A2A] dark:text-white dark:border-[#444] dark:hover:bg-[#333]">
                                 <span className="w-3 h-3 rounded-full bg-[#34D399]" />
-                                0999220000
+                                {t('packing.cta.button2')}
                             </Button>
                         </Link>
                     </div>

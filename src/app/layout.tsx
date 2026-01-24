@@ -24,6 +24,7 @@ import { Toaster } from "sonner";
 import Preloader from "@/components/Preloader";
 import { LanguageProvider } from "@/components/LanguageContext";
 import MobileCTA from "@/components/ui/MobileCTA";
+import BackToTop from "@/components/ui/BackToTop";
 
 export default function RootLayout({
   children,
@@ -51,6 +52,7 @@ export default function RootLayout({
             </main>
             <Footer />
             <MobileCTA />
+            <BackToTop />
           </ThemeProvider>
         </LanguageProvider>
       </body>

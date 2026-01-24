@@ -87,6 +87,12 @@ const QuoteForm = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // Basic client-side validation for fullName
+        if (formData.fullName.length < 2) {
+            toast.error(t('val.fullName'));
+            return;
+        }
+
         // Ethiopian Phone Validation: +251 followed by 9 or 10 digits (optional leading 0)
         const phoneRegex = /^\+2510?\d{9}$/;
         if (!phoneRegex.test(formData.phone)) {
@@ -129,8 +135,14 @@ const QuoteForm = () => {
                 // Handle Rate Limit specifically
                 const errorKey = result.message === 'rateLimit24h' ? 'error.rateLimit24h' : 'error.rateLimit15m';
                 toast.error(t(errorKey));
+            } else if (result.details && result.details.fieldErrors) {
+                // Handle Zod validation errors
+                const fieldErrors = result.details.fieldErrors;
+                const firstErrorField = Object.keys(fieldErrors)[0];
+                const errorMessage = fieldErrors[firstErrorField]?.[0];
+                toast.error(`${firstErrorField}: ${errorMessage}`);
             } else {
-                toast.error(result.message || result.error || "Submission failed");
+                toast.error(result.message || result.error || t('val.submissionFailed'));
             }
         } catch (error) {
             toast.error(t('toast.error'));
@@ -177,7 +189,7 @@ const QuoteForm = () => {
                     )}
                     <div className="text-center mb-6 sm:mb-8">
                         <h3 className="text-2xl sm:text-3xl font-semibold text-foreground dark:text-white tracking-wide">{t('quote.title')}</h3>
-                        <p className="text-sm text-secondary-foreground dark:text-[#CFCFCF] opacity-70 mt-2">
+                        <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 font-medium">
                             {t('quote.subtitle')}
                         </p>
                     </div>
@@ -380,6 +392,7 @@ const QuoteForm = () => {
                                 value={formData.fullName}
                                 onChange={(e) => updateFormData({ fullName: e.target.value })}
                                 required
+                                minLength={2}
                                 className="  "
                             />
                             <Input
@@ -419,7 +432,7 @@ const QuoteForm = () => {
                                     className="flex-1 h-12"
                                     onClick={prevStep}
                                 >
-                                    Back
+                                    {t('quote.back')}
                                 </Button>
                                 <Button
                                     type="submit"
