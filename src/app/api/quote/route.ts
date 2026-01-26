@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
+
 
 const quoteSchema = z.object({
     fullName: z.string().min(2),
@@ -83,22 +82,22 @@ export async function POST(req: Request) {
         const savedPaths: string[] = [];
 
         if (files.length > 0) {
-            const uploadDir = join(process.cwd(), 'public', 'uploads');
-            await mkdir(uploadDir, { recursive: true });
+            if (files.length > 0) {
+                for (const file of files) {
+                    if (file && file.size > 0) {
+                        // Check file size (max 3MB)
+                        if (file.size > 3 * 1024 * 1024) {
+                            return NextResponse.json({
+                                error: 'File too large',
+                                message: `File ${file.name} exceeds 3MB limit`
+                            }, { status: 400 });
+                        }
 
-            for (const file of files) {
-                if (file && file.size > 0) {
-                    const bytes = await file.arrayBuffer();
-                    const buffer = Buffer.from(bytes);
-
-                    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E9)}`;
-                    const originalName = file.name.replace(/\s+/g, '-');
-                    const filename = `${uniqueSuffix}-${originalName}`;
-
-                    const filepath = join(uploadDir, filename);
-
-                    await writeFile(filepath, buffer);
-                    savedPaths.push(`/uploads/${filename}`);
+                        const bytes = await file.arrayBuffer();
+                        const buffer = Buffer.from(bytes);
+                        const base64String = `data:${file.type};base64,${buffer.toString('base64')}`;
+                        savedPaths.push(base64String);
+                    }
                 }
             }
         }
