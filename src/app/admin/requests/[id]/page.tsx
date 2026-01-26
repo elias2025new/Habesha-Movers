@@ -126,24 +126,28 @@ export default async function RequestDetailPage({
                                     <h3 className="text-sm font-bold text-gray-900">Item Photos</h3>
                                 </div>
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                    {request.attachmentPath.split(',').map((path, index) => (
-                                        <div key={index} className="relative aspect-square rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
-                                            <Image
-                                                src={path}
-                                                alt={`Item photo ${index + 1}`}
-                                                fill
-                                                className="object-cover transition-transform duration-300 group-hover:scale-110"
-                                            />
-                                            <a
-                                                href={path}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
-                                            >
-                                                <span className="text-white text-xs font-medium">View Full</span>
-                                            </a>
-                                        </div>
-                                    ))}
+                                    {request.attachmentPath.split(',').map((_, index) => {
+                                        const imageUrl = `/api/admin/requests/${request.id}/image/${index}`;
+                                        return (
+                                            <div key={index} className="relative aspect-square rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                                                <Image
+                                                    src={imageUrl}
+                                                    alt={`Item photo ${index + 1}`}
+                                                    fill
+                                                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                                                    unoptimized
+                                                />
+                                                <a
+                                                    href={imageUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                                                >
+                                                    <span className="text-white text-xs font-medium">View Full</span>
+                                                </a>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}
