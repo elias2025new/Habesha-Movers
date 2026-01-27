@@ -22,7 +22,7 @@ export async function GET(
             return new NextResponse("Image not found", { status: 404 });
         }
 
-        const attachments = movingRequest.attachmentPath.split(",");
+        const attachments = movingRequest.attachmentPath.split(/,(?=data:)/);
 
         if (imageIndex < 0 || imageIndex >= attachments.length) {
             return new NextResponse("Image not found", { status: 404 });

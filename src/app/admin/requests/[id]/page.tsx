@@ -28,6 +28,11 @@ export default async function RequestDetailPage({
         where: { id: id },
     });
 
+    if (request) {
+        console.log(`[AdminView] Request ID: ${request.id}`);
+        console.log(`[AdminView] AttachmentPath: ${request.attachmentPath ? request.attachmentPath.substring(0, 50) + '...' : 'null'}`);
+    }
+
     if (!request) {
         notFound();
     }
@@ -126,23 +131,30 @@ export default async function RequestDetailPage({
                                     <h3 className="text-sm font-bold text-gray-900">Item Photos</h3>
                                 </div>
                                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                                    {request.attachmentPath.split(',').map((base64String, index) => (
-                                        <div key={index} className="relative aspect-square rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
-                                            <img
-                                                src={base64String}
-                                                alt={`Item photo ${index + 1}`}
-                                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                            />
-                                            <a
-                                                href={base64String}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
-                                            >
-                                                <span className="text-white text-xs font-medium">View Full</span>
-                                            </a>
-                                        </div>
-                                    ))}
+                                    {request.attachmentPath.split(/,(?=data:)/).map((imagePath, index) => {
+                                        // FORCE: Ensure it starts with data:image
+                                        const src = imagePath.startsWith('data:')
+                                            ? imagePath
+                                            : `data:image/jpeg;base64,${imagePath}`; // Fallback if prefix missing
+
+                                        return (
+                                            <div key={index} className="relative aspect-square rounded-xl overflow-hidden border border-gray-100 shadow-sm group">
+                                                <img
+                                                    src={src}
+                                                    alt={`Item photo ${index + 1}`}
+                                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                                />
+                                                <a
+                                                    href={src}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                                                >
+                                                    <span className="text-white text-xs font-medium">View Full</span>
+                                                </a>
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             </div>
                         )}

@@ -82,22 +82,21 @@ export async function POST(req: Request) {
         const savedPaths: string[] = [];
 
         if (files.length > 0) {
-            if (files.length > 0) {
-                for (const file of files) {
-                    if (file && file.size > 0) {
-                        // Check file size (max 3MB)
-                        if (file.size > 3 * 1024 * 1024) {
-                            return NextResponse.json({
-                                error: 'File too large',
-                                message: `File ${file.name} exceeds 3MB limit`
-                            }, { status: 400 });
-                        }
-
-                        const bytes = await file.arrayBuffer();
-                        const buffer = Buffer.from(bytes);
-                        const base64String = `data:${file.type};base64,${buffer.toString('base64')}`;
-                        savedPaths.push(base64String);
+            for (const file of files) {
+                if (file && file.size > 0) {
+                    // Check file size (max 3MB)
+                    if (file.size > 3 * 1024 * 1024) {
+                        return NextResponse.json({
+                            error: 'File too large',
+                            message: `File ${file.name} exceeds 3MB limit`
+                        }, { status: 400 });
                     }
+
+                    const bytes = await file.arrayBuffer();
+                    const buffer = Buffer.from(bytes);
+                    const base64String = `data:${file.type};base64,${buffer.toString('base64')}`;
+                    savedPaths.push(base64String);
+                    console.log(`Saved image: ${file.name}, Base64 length: ${base64String.length}, starts with: ${base64String.substring(0, 50)}`);
                 }
             }
         }
