@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
 import LocationInput from '@/components/ui/LocationInput';
 import { useLanguage } from '../LanguageContext';
 import { toast } from 'sonner';
@@ -151,6 +152,26 @@ const QuoteForm = () => {
         }
     };
 
+    const serviceOptions = [
+        { value: 'house', label: t('quote.service.house') },
+        { value: 'office', label: t('quote.service.office') },
+        { value: 'packing', label: t('quote.service.packing') },
+    ];
+
+    const houseSizeOptions = [
+        { value: 'studio', label: t('size.studio') },
+        { value: '1br', label: t('size.1br') },
+        { value: '2br', label: t('size.2br') },
+        { value: '3br', label: t('size.3br') },
+        { value: '4br', label: t('size.4br') },
+    ];
+
+    const officeSizeOptions = [
+        { value: 'small_office', label: t('quoteForm.smallOffice') },
+        { value: 'medium_office', label: t('quote.service.mediumOffice') },
+        { value: 'large_office', label: t('quoteForm.largeOffice') },
+        { value: 'floor_relocation', label: t('quote.service.floorRelocation') },
+    ];
 
     return (
         <motion.div
@@ -259,51 +280,36 @@ const QuoteForm = () => {
                 {step === 2 && (
                     <div className="space-y-4">
                         <div>
-                            <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.serviceType')}</label>
-                            <select
-                                className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2]"
+                            <Select
+                                label={t('quote.serviceType')}
+                                options={serviceOptions}
                                 value={formData.serviceType}
-                                onChange={(e) => updateFormData({ serviceType: e.target.value, houseSize: "" })} // Reset size on type change
-                            >
-                                <option value="">{t('quote.serviceTypePlaceholder')}</option>
-                                <option value="house">{t('quote.service.house')}</option>
-                                <option value="office">{t('quote.service.office')}</option>
-                                <option value="packing">{t('quote.service.packing')}</option>
-                            </select>
+                                onChange={(val) => updateFormData({ serviceType: val, houseSize: "" })}
+                                placeholder={t('quote.serviceTypePlaceholder')}
+                            />
                         </div>
 
                         {(formData.serviceType === 'house' || formData.serviceType === 'packing') && (
                             <div>
-                                <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.houseSize')}</label>
-                                <select
-                                    className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2]"
+                                <Select
+                                    label={t('quote.houseSize')}
+                                    options={houseSizeOptions}
                                     value={formData.houseSize}
-                                    onChange={(e) => updateFormData({ houseSize: e.target.value })}
-                                >
-                                    <option value="">{t('quote.selectSize')}</option>
-                                    <option value="studio">{t('size.studio')}</option>
-                                    <option value="1br">{t('size.1br')}</option>
-                                    <option value="2br">{t('size.2br')}</option>
-                                    <option value="3br">{t('size.3br')}</option>
-                                    <option value="4br">{t('size.4br')}</option>
-                                </select>
+                                    onChange={(val) => updateFormData({ houseSize: val })}
+                                    placeholder={t('quote.selectSize')}
+                                />
                             </div>
                         )}
 
                         {formData.serviceType === 'office' && (
                             <div>
-                                <label className="block text-sm font-medium text-foreground dark:text-[#F2F2F2] mb-1">{t('quote.officeSize')}</label>
-                                <select
-                                    className="w-full px-4 py-3 bg-white dark:bg-[#121212] border border-gray-300 dark:border-[#2A2A2A] rounded-lg focus:ring-2 focus:ring-primary dark:focus:ring-[#8B3A2C]/40 focus:border-transparent outline-none transition-all text-foreground dark:text-[#F2F2F2]"
-                                    value={formData.houseSize} // reusing houseSize field for convenience, or add officeSize
-                                    onChange={(e) => updateFormData({ houseSize: e.target.value })}
-                                >
-                                    <option value="">{t('quote.selectSize')}</option>
-                                    <option value="small_office">{t('quoteForm.smallOffice')}</option>
-                                    <option value="medium_office">{t('quote.service.mediumOffice')}</option>
-                                    <option value="large_office">{t('quoteForm.largeOffice')}</option>
-                                    <option value="floor_relocation">{t('quote.service.floorRelocation')}</option>
-                                </select>
+                                <Select
+                                    label={t('quote.officeSize')}
+                                    options={officeSizeOptions}
+                                    value={formData.houseSize}
+                                    onChange={(val) => updateFormData({ houseSize: val })}
+                                    placeholder={t('quote.selectSize')}
+                                />
                             </div>
                         )}
 
