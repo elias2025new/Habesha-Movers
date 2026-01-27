@@ -1,4 +1,5 @@
-import { prisma } from './prisma.config';
+import 'dotenv/config';
+import { prisma } from './src/lib/prisma';
 
 async function checkRequest() {
     const requests = await prisma.movingRequest.findMany({
