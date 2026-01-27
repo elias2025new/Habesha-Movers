@@ -16,15 +16,9 @@ export const metadata: Metadata = {
 
 
 
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import SchemaMarkup from "@/components/SEO/SchemaMarkup";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
-import Preloader from "@/components/Preloader";
 import { LanguageProvider } from "@/components/LanguageContext";
-import MobileCTA from "@/components/ui/MobileCTA";
-import BackToTop from "@/components/ui/BackToTop";
 
 export default function RootLayout({
   children,
@@ -44,15 +38,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Toaster position="top-center" richColors />
-            <Preloader />
-            <SchemaMarkup />
-            <Header />
-            <main className="flex-grow pt-32">
-              {children}
-            </main>
-            <Footer />
-            <MobileCTA />
-            <BackToTop />
+            {children}
           </ThemeProvider>
         </LanguageProvider>
       </body>

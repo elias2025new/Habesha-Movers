@@ -69,7 +69,7 @@ const AdminSidebar = ({ isOpen, onClose }: AdminSidebarProps) => {
 
             <div className="p-4 border-t border-gray-100 dark:border-white/5">
                 <button
-                    onClick={() => signOut({ callbackUrl: '/' })}
+                    onClick={() => signOut({ callbackUrl: '/admin/login' })}
                     className="flex items-center space-x-3 px-4 py-3 w-full rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
                 >
                     <LogOut className="h-5 w-5" />

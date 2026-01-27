@@ -40,7 +40,7 @@ export default async function RequestDetailPage({
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
-                <Link href="/admin/requests" className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
+                <Link href="/admin" className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
                     <ArrowLeft className="h-4 w-4 mr-1" />
                     Back to Requests
                 </Link>

@@ -7,8 +7,12 @@ import { Button } from "@/components/ui/Button";
 import DeleteRequestButton from "@/components/admin/DeleteRequestButton";
 
 import { MovingRequest } from "@prisma/client";
+import { cleanupCompletedRequests } from "@/lib/cleanup";
 
 export default async function RequestsListPage() {
+    // Run cleanup for old completed requests
+    await cleanupCompletedRequests();
+
     const requests = await prisma.movingRequest.findMany({
         orderBy: { createdAt: 'desc' },
     });

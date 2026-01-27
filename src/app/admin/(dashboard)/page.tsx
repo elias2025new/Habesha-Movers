@@ -7,8 +7,12 @@ import { cn } from "@/lib/utils";
 import { MovingRequest } from "@prisma/client";
 import { Button } from "@/components/ui/Button";
 import DeleteRequestButton from "@/components/admin/DeleteRequestButton";
+import { cleanupCompletedRequests } from "@/lib/cleanup";
 
 export default async function AdminDashboard() {
+    // Run cleanup for old completed requests
+    await cleanupCompletedRequests();
+
     // Fetch all requests
     const requests = await prisma.movingRequest.findMany({
         orderBy: { createdAt: 'desc' },
