@@ -1,4 +1,5 @@
 import { prisma } from "@/lib/prisma";
+export const dynamic = "force-dynamic";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Search, Filter, ClipboardList } from "lucide-react";
