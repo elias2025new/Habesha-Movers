@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Send } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const Footer = () => {
@@ -27,15 +27,38 @@ const Footer = () => {
                             {t('footer.brandSubtitle')}
                         </p>
                         <div className="flex space-x-4">
-                            {[Facebook, Instagram, Twitter].map((Icon, i) => (
-                                <a
-                                    key={i}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
-                                >
-                                    <Icon className="h-5 w-5" />
-                                </a>
-                            ))}
+                            <a
+                                href="#"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
+                                aria-label="Facebook"
+                            >
+                                <Facebook className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/habeshamovers"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
+                                aria-label="Instagram"
+                            >
+                                <Instagram className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="#"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
+                                aria-label="Twitter"
+                            >
+                                <Twitter className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="https://t.me/Habeshamovers"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
+                                aria-label="Telegram"
+                            >
+                                <Send className="h-5 w-5" />
+                            </a>
                         </div>
                     </div>
 
