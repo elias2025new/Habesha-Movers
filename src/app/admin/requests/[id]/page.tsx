@@ -40,9 +40,10 @@ export default async function RequestDetailPage({
     return (
         <div className="space-y-6">
             <div className="flex items-center justify-between">
-                <Link href="/admin" className="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700">
-                    <ArrowLeft className="h-4 w-4 mr-1" />
-                    Back to Requests
+                <Link href="/admin" className="flex items-center text-sm font-semibold text-gray-500 hover:text-blue-600 transition-colors group">
+                    <ArrowLeft className="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" />
+                    <span className="sm:hidden">Dashboard</span>
+                    <span className="hidden sm:inline">Back to Requests</span>
                 </Link>
                 <div className="flex gap-2">
                     <DeleteRequestButton requestId={request.id} variant="full" />
