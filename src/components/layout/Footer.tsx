@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, Instagram, Send, Music } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 const Footer = () => {
@@ -28,13 +28,6 @@ const Footer = () => {
                         </p>
                         <div className="flex space-x-4">
                             <a
-                                href="#"
-                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
-                                aria-label="Facebook"
-                            >
-                                <Facebook className="h-5 w-5" />
-                            </a>
-                            <a
                                 href="https://www.instagram.com/habeshamovers"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -44,13 +37,6 @@ const Footer = () => {
                                 <Instagram className="h-5 w-5" />
                             </a>
                             <a
-                                href="#"
-                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
-                                aria-label="Twitter"
-                            >
-                                <Twitter className="h-5 w-5" />
-                            </a>
-                            <a
                                 href="https://t.me/Habeshamovers"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -58,6 +44,15 @@ const Footer = () => {
                                 aria-label="Telegram"
                             >
                                 <Send className="h-5 w-5" />
+                            </a>
+                            <a
+                                href="https://www.tiktok.com/@habeshamovers?_r=1&_t=ZS-93RlrYXViBM"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#8B3A2C] hover:text-white transition-all duration-300 cursor-pointer"
+                                aria-label="TikTok"
+                            >
+                                <Music className="h-5 w-5" />
                             </a>
                         </div>
                     </div>
