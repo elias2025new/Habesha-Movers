@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import Select from '@/components/ui/Select';
+import DatePicker from '@/components/ui/DatePicker';
 import LocationInput from '@/components/ui/LocationInput';
 import { useLanguage } from '../LanguageContext';
 import { toast } from 'sonner';
@@ -360,13 +361,11 @@ const QuoteForm = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-foreground mb-1">{t('quote.movingDate')}</label>
-                            <Input
-                                type="date"
+                            <DatePicker
+                                label={t('quote.movingDate')}
                                 value={formData.movingDate}
-                                onChange={(e) => updateFormData({ movingDate: e.target.value })}
-                                min={new Date().toISOString().split('T')[0]}
-                                className="  "
+                                onChange={(val) => updateFormData({ movingDate: val })}
+                                placeholder={t('quote.movingDate')}
                             />
                         </div>
                         <div className="flex gap-4">

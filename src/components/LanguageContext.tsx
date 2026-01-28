@@ -53,7 +53,7 @@ const translations = {
 
         // Why Choose Us
         'why.title': 'Why Choose Us',
-        'why.description': "Here's why customers trust us time and again. From your first quote to your final box, here's how we make moving smooth and stress-free.",
+        'why.description': "Here's why customers trust us time and time again. From your first quote to your final box, here's how we make moving smooth and stress-free.",
         'why.benefit1': 'Licensed and insured moving',
         'why.benefit1Desc': 'Licensed and insured moving services you can trust with your valuables.',
         'why.benefit2': 'Transparent pricing with no hidden fees',
@@ -522,7 +522,7 @@ const translations = {
 
         // Why Choose Us
         'why.title': 'ለምን ሐበሻ?',
-        'why.description': "ደንበኞቻችን ደጋግመው ለምን እንደሚመርጡን እዚህ ያያሉ። ከመጀመሪያው ዋጋ መጠየቂያ እስከ መጨረሻው ሳጥን ድረስ ማጓጓዝን ቀላል እናደርገዋለን።",
+        'why.description': "ደንበኞቻችን ደጋግመው ደጋግመው ለምን እንደሚመርጡን እዚህ ያያሉ። ከመጀመሪያው ዋጋ መጠየቂያ እስከ መጨረሻው ሳጥን ድረስ ማጓጓዝን ቀላል እናደርገዋለን።",
         'why.benefit1': 'ፍቃድ ያለው እና ዋስትና ያለው አገልግሎት',
         'why.benefit1Desc': 'ለእቃዎ ዋስትና የሚሰጥ ህጋዊ እና ኢንሹራንስ ያለው የማጓጓዝ አገልግሎት።',
         'why.benefit2': 'ግልጽ የሆነ ዋጋ ያለ ምንም ተጨማሪ ክፍያ',
@@ -709,10 +709,11 @@ const translations = {
         'quote.service.house': 'የቤት ዕቃ ማጓጓዝ',
         'quote.service.office': 'የቢሮ ዕቃ ማጓጓዝ',
         'quote.service.packing': 'የማሸግ አገልግሎት',
-        'quote.service.mediumOffice': 'መካከለኛ ቢሮ (10-50 ጠረጴዛዎች)',
-        'quote.service.floorRelocation': 'ሙሉ ፎቅ ማዛወር',
         'quote.serviceType': 'የአገልግሎት ዓይነት',
         'quote.serviceTypePlaceholder': 'አገልግሎት ይምረጡ...',
+        'quote.officeSize': 'የቢሮ ስፋት',
+        'quote.service.mediumOffice': 'መካከለኛ ቢሮ (10-50 ጠረጴዛዎች)',
+        'quote.service.floorRelocation': 'ሙሉ ፎቅ ማዛወር',
 
         // Quote Form
         'quote.title': "አሁን ዋጋ ግምት ያግኙ",

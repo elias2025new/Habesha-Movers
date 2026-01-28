@@ -31,19 +31,19 @@ const ProfessionalServices = () => {
             title: t('service.international'),
             description: t('service.internationalDesc'),
             icon: Globe,
-            href: '/services/international'
+            href: '/not-available'
         },
         {
             title: t('service.storage'),
             description: t('service.storageDesc'),
             icon: Package,
-            href: '/services/storage'
+            href: '/not-available'
         },
         {
             title: t('service.car'),
             description: t('service.carDesc'),
             icon: Car,
-            href: '/services/car-transport'
+            href: '/not-available'
         },
     ];
 
