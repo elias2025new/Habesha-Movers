@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
-import StructuredData from "@/components/seo/StructuredData";
+import StructuredData from "@/components/SEO/StructuredData";
 
 export default function RootLayout({
   children,
