@@ -12,7 +12,7 @@ import Link from 'next/link';
 const Hero = () => {
     const { t } = useLanguage();
     return (
-        <div className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+        <div className="relative min-h-[90vh] flex items-center pt-20">
             {/* Background Image */}
             <div
                 className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
