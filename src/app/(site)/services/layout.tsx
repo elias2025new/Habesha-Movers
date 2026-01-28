@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Moving Services in Addis Ababa | House, Office & Packing Services',
+    title: 'Moving Services in Addis Ababa| moving company addis ababa',
     description: 'Professional moving services in Addis Ababa: residential moving, office relocation, packing services, and more. Experienced movers with modern equipment. Get a free quote!',
     keywords: [
         'moving services Addis Ababa',

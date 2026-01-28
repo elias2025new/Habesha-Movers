@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 
     return {
-        title: `Professional Moving Company in ${location.name}, Addis Ababa | Habesha Movers`,
+        title: `moving companies near ${location.name}, Addis Ababa`,
         description: `Reliable and secure house and office moving services in ${location.name}, Addis Ababa. Trusted near ${location.landmarks[0]} and across ${location.subCity}. Get a free quote!`,
         keywords: [
             `moving company ${location.name}`,

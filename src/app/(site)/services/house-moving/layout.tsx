@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Professional House Moving Services Addis Ababa | Habesha Movers',
+    title: 'moving companies near me | moving companies near me Habesha Movers',
     description: 'Stress-free residential moving services in Addis Ababa. Professional packing, secure transport, and careful handling of your furniture. Get a free home moving quote!',
     keywords: [
         'house moving Addis Ababa',

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Get a Free Moving Quote | Habesha Movers Addis Ababa',
+    title: 'movers in addis ababa price',
     description: 'Request a free, no-obligation moving quote from Habesha Movers. Fast response, transparent pricing, and professional service. Get your instant quote today!',
     keywords: [
         'free moving quote',

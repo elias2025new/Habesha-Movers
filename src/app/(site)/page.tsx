@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import HomePage from './HomePage';
 
 export const metadata: Metadata = {
-  title: 'Habesha Movers | Professional Moving Company in Addis Ababa, Ethiopia',
+  title: 'Habesha Movers | movers in addis abeba',
   description: 'Trusted moving company in Addis Ababa offering house moving, office relocation, and packing services. Fast, reliable, and secure. Get your free quote today!',
   keywords: [
     'moving company Addis Ababa',
