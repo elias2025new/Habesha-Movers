@@ -19,6 +19,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
+import StructuredData from "@/components/seo/StructuredData";
 
 export default function RootLayout({
   children,
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased min-h-screen flex flex-col font-sans`}
       >
+        <StructuredData />
         <LanguageProvider>
           <ThemeProvider
             attribute="class"
