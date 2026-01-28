@@ -109,7 +109,7 @@ export default function DatePicker({
                         disabled={isDisabled}
                         onClick={() => !isDisabled && handleDateSelect(cloneDay)}
                         className={cn(
-                            "relative h-10 w-full flex items-center justify-center text-sm transition-all duration-200 rounded-lg",
+                            "relative h-10 w-full flex items-center justify-center text-sm transition-all duration-200 rounded-lg text-gray-900",
                             !isCurrentMonth && "text-gray-300 dark:text-gray-700",
                             isDisabled && "opacity-20 cursor-not-allowed",
                             isSelected
