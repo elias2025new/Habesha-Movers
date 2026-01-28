@@ -21,7 +21,7 @@ if (!globalForPrisma.pool && connectionString) {
       max: 10, // Reduced max connections for better stability with Neon
       idleTimeoutMillis: 20000,
       connectionTimeoutMillis: 10000,
-      //@ts-ignore - pg types might not have keepAlive in older versions but it works
+      //@ts-expect-error - pg types might not have keepAlive in older versions but it works
       keepAlive: true,
     });
 

@@ -99,7 +99,7 @@ export default function AboutPage() {
                         <div className="bg-blue-50 dark:bg-blue-900/20 p-8 rounded-2xl border-l-4 border-blue-600">
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-blue-400 mb-4">{t('about.mission.title')}</h3>
                             <p className="text-lg text-slate-700 dark:text-slate-300 italic font-medium">
-                                "{t('about.mission.content')}"
+                                &quot;{t('about.mission.content')}&quot;
                             </p>
                         </div>
                     </motion.div>
