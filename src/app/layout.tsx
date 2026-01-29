@@ -13,8 +13,13 @@ export const metadata: Metadata = {
   description: "Reliable, fast, and secure house and office moving services in Addis Ababa, Ethiopia. Get a free quote today!",
   keywords: ["moving company", "Addis Ababa", "Ethiopia", "house moving", "office relocation", "Habesha Movers"],
   icons: {
-    icon: "/images/habesha-logo-pro.png",
-    apple: "/images/habesha-logo-pro.png",
+    icon: [
+      { url: "/images/habesha-logo-svg.svg" },
+      { url: "/images/habesha-logo-svg.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/images/habesha-logo-svg.svg" },
+    ],
   },
 };
 
