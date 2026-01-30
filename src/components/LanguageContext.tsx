@@ -72,7 +72,7 @@ const translations = {
         'footer.terms': 'Terms of Service',
 
         // Professional Services Section
-        'pro.title': 'Professional Services',
+        'pro.title': 'Our Moving Services in Addis Ababa',
         'pro.description': 'We provide a comprehensive range of moving services designed to meet your every need. From local house moves to complicated international relocations, our team is ready to help.',
 
         // CTA Section

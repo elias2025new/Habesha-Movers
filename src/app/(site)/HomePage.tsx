@@ -17,6 +17,14 @@ export default function HomePage() {
             <div className="relative z-10">
                 <Hero />
 
+
+                {/* SEO Content Section */}
+                <div className="max-w-7xl mx-auto px-6 py-8 text-center">
+                    <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Habesha Movers is a trusted moving company in Addis Ababa providing professional house moving, office relocation, packing services, loading and unloading, and furniture transportation across Bole, Gurd Shola, CMC, Ayat, Sarbet and surrounding areas.
+                    </p>
+                </div>
+
                 {/* Why Choose Us Section */}
                 <ScrollReveal animation="fade-up" delay={0.2}>
                     <WhyChooseUs />

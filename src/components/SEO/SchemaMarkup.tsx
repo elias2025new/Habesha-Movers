@@ -55,7 +55,12 @@ export default function SchemaMarkup() {
                     }
                 }
             ]
-        }
+        },
+        "sameAs": [
+            "https://www.instagram.com/habeshamovers",
+            "https://t.me/Habeshamovers",
+            "https://www.tiktok.com/@habeshamovers"
+        ]
     };
 
     return (

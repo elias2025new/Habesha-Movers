@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Habesha Movers | movers in addis abeba",
+  title: "Movers in Addis Ababa | House & Office Moving Company | Habesha Movers",
   description: "Reliable, fast, and secure house and office moving services in Addis Ababa, Ethiopia. Get a free quote today!",
   keywords: ["moving company", "Addis Ababa", "Ethiopia", "house moving", "office relocation", "Habesha Movers"],
   icons: {
@@ -29,7 +29,6 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
-import StructuredData from "@/components/SEO/StructuredData";
 
 export default function RootLayout({
   children,
@@ -41,7 +40,6 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} antialiased min-h-screen flex flex-col font-sans`}
       >
-        <StructuredData />
         <LanguageProvider>
           <ThemeProvider
             attribute="class"
