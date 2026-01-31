@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   keywords: ["moving company", "Addis Ababa", "Ethiopia", "house moving", "office relocation", "Habesha Movers"],
   icons: {
     icon: [
-      { url: "/images/habesha-logo-svg.svg" },
+      { url: "/favicon.png", sizes: "512x512", type: "image/png" },
       { url: "/images/habesha-logo-svg.svg", type: "image/svg+xml" },
     ],
     apple: [
-      { url: "/images/habesha-logo-svg.svg" },
+      { url: "/favicon.png", sizes: "180x180", type: "image/png" },
     ],
   },
 };
