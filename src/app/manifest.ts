@@ -11,15 +11,15 @@ export default function manifest(): MetadataRoute.Manifest {
         theme_color: '#8B3A2C',
         icons: [
             {
-                src: '/images/habesha-logo-svg.svg',
+                src: '/favicon.png',
                 sizes: '192x192',
-                type: 'image/svg+xml',
+                type: 'image/png',
                 purpose: 'any',
             },
             {
-                src: '/images/habesha-logo-svg.svg',
+                src: '/favicon.png',
                 sizes: '512x512',
-                type: 'image/svg+xml',
+                type: 'image/png',
                 purpose: 'maskable',
             },
         ],

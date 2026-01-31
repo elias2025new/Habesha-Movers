@@ -17,6 +17,7 @@ export const metadata: Metadata = {
       { url: "/favicon.png", sizes: "512x512", type: "image/png" },
       { url: "/images/habesha-logo-svg.svg", type: "image/svg+xml" },
     ],
+    shortcut: ["/favicon.png"],
     apple: [
       { url: "/favicon.png", sizes: "180x180", type: "image/png" },
     ],
