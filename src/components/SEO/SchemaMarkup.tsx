@@ -6,18 +6,18 @@ export default function SchemaMarkup() {
         "image": "https://habeshamovers.com/logo.png",
         "@id": "https://habeshamovers.com",
         "url": "https://habeshamovers.com",
-        "telephone": "+251911123456",
+        "telephone": "+251999220000",
         "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Bole",
+            "streetAddress": "Gurd Shola",
             "addressLocality": "Addis Ababa",
             "postalCode": "1000",
             "addressCountry": "ET"
         },
         "geo": {
             "@type": "GeoCoordinates",
-            "latitude": 9.006,
-            "longitude": 38.7188
+            "latitude": 9.01908,
+            "longitude": 38.81995
         },
         "openingHoursSpecification": {
             "@type": "OpeningHoursSpecification",
@@ -27,10 +27,11 @@ export default function SchemaMarkup() {
                 "Wednesday",
                 "Thursday",
                 "Friday",
-                "Saturday"
+                "Saturday",
+                "Sunday"
             ],
-            "opens": "08:00",
-            "closes": "18:00"
+            "opens": "00:00",
+            "closes": "23:59"
         },
         "serviceArea": {
             "@type": "AdministrativeArea",

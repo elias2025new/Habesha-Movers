@@ -21,7 +21,6 @@ export const metadata: Metadata = {
       { url: "/images/habesha-logo-svg.svg" },
     ],
   },
-  manifest: "/manifest.json",
 };
 
 
