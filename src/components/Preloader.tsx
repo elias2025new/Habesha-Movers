@@ -21,6 +21,16 @@ export default function Preloader() {
     useEffect(() => {
         if (!containerRef.current) return;
 
+        // --- BOT DETECTION ---
+        // Skip difficult 3D animation for bots/crawlers to improve SEO and indexing speed
+        const userAgent = navigator.userAgent.toLowerCase();
+        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
+
+        if (isBot) {
+            setLoading(false);
+            return;
+        }
+
         // --- SCENE SETUP ---
         const scene = new THREE.Scene();
         // scene.background = new THREE.Color(0xf0f0f0); // REMOVED: Managed by DOM element for transparency
