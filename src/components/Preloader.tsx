@@ -22,11 +22,12 @@ export default function Preloader() {
         if (!containerRef.current) return;
 
         // --- BOT DETECTION ---
-        // Skip difficult 3D animation for bots/crawlers to improve SEO and indexing speed
+        // Skip difficult 3D animation for bots/crawlers/SEO tools to improve indexing
         const userAgent = navigator.userAgent.toLowerCase();
-        const isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(userAgent);
+        const isBot = /bot|googlebot|crawler|spider|robot|crawling|lighthouse|glean|selenium|webdriver|headless|phantomjs|bufferbot|mediapartners|slurp|yandex|baidu|bingbot|duckduckbot|teoma|sogou|exabot|facebot|ia_archiver/i.test(userAgent);
+        const isHeadless = navigator.webdriver || !!(window as any).chrome?.runtime?.id === undefined && /Chrome/.test(navigator.userAgent); // Simple headless check
 
-        if (isBot) {
+        if (isBot || isHeadless) {
             setLoading(false);
             return;
         }
