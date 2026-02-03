@@ -58,14 +58,14 @@ export default function DatePicker({
                         onClick={prevMonth}
                         className="p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-full transition-colors"
                     >
-                        <ChevronLeft className="h-4 w-4 text-gray-500" />
+                        <ChevronLeft className="h-4 w-4 text-gray-500 dark:text-gray-300" />
                     </button>
                     <button
                         type="button"
                         onClick={nextMonth}
                         className="p-1.5 hover:bg-gray-100 dark:hover:bg-white/5 rounded-full transition-colors"
                     >
-                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                        <ChevronRight className="h-4 w-4 text-gray-500 dark:text-gray-300" />
                     </button>
                 </div>
             </div>
@@ -109,8 +109,8 @@ export default function DatePicker({
                         disabled={isDisabled}
                         onClick={() => !isDisabled && handleDateSelect(cloneDay)}
                         className={cn(
-                            "relative h-10 w-full flex items-center justify-center text-sm transition-all duration-200 rounded-lg text-gray-900 dark:text-gray-100",
-                            !isCurrentMonth && "text-gray-300 dark:text-gray-500",
+                            "relative h-10 w-full flex items-center justify-center text-sm transition-all duration-200 rounded-lg text-gray-900 dark:text-white",
+                            !isCurrentMonth && "text-gray-300 dark:text-gray-400",
                             isDisabled && "opacity-20 cursor-not-allowed",
                             isSelected
                                 ? "bg-primary text-white font-bold shadow-lg shadow-primary/20 dark:bg-[#8B3A2C] dark:shadow-[#8B3A2C]/20"
