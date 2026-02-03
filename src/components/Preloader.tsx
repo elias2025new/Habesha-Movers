@@ -448,6 +448,9 @@ export default function Preloader() {
     if (!loading) return null;
 
     return (
+        // LCP Optimization: Fixed overlay doesn't block content rendering or LCP measurement
+        // Content underneath renders immediately and can be measured for LCP
+        // Only shown on desktop (md:block), mobile users see content instantly
         <div
             className="hidden md:block"
             style={{

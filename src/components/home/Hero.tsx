@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import QuoteForm from './QuoteForm';
 import { useLanguage } from '../LanguageContext';
 import { Users, Package } from 'lucide-react';
+import Image from 'next/image';
 
 import ParticleBackground from './ParticleBackground';
 import { GlowButton } from '@/components/ui/shiny-button-1';
@@ -13,13 +14,17 @@ const Hero = () => {
     const { t } = useLanguage();
     return (
         <div className="relative min-h-[90vh] flex items-center pt-20">
-            {/* Background Image */}
-            <div
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: 'url(/images/habesha-hero-final.png)',
-                }}
-            >
+            {/* Background Image - Optimized with Next.js Image */}
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/images/habesha-hero-final.png"
+                    alt="Habesha Movers - Professional Moving Services in Addis Ababa"
+                    fill
+                    priority
+                    quality={90}
+                    sizes="100vw"
+                    className="object-cover object-center"
+                />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-l from-black/90 via-black/70 to-black/40 dark:hidden" />
                 <div className="absolute inset-0 hidden dark:block" style={{
