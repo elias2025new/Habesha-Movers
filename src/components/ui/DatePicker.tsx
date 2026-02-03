@@ -109,11 +109,14 @@ export default function DatePicker({
                         disabled={isDisabled}
                         onClick={() => !isDisabled && handleDateSelect(cloneDay)}
                         className={cn(
-                            "relative h-10 w-full flex items-center justify-center text-sm transition-all duration-200 rounded-lg text-gray-900 dark:text-white",
-                            !isCurrentMonth && "text-gray-300 dark:text-gray-400",
+                            "relative h-10 w-full flex items-center justify-center text-sm transition-all duration-200 rounded-lg",
+                            // Light mode colors
+                            isCurrentMonth ? "text-gray-900" : "text-gray-300",
+                            // Dark mode colors - explicit to override
+                            isCurrentMonth ? "dark:!text-white" : "dark:!text-gray-400",
                             isDisabled && "opacity-20 cursor-not-allowed",
                             isSelected
-                                ? "bg-primary text-white font-bold shadow-lg shadow-primary/20 dark:bg-[#8B3A2C] dark:shadow-[#8B3A2C]/20"
+                                ? "!bg-primary !text-white font-bold shadow-lg shadow-primary/20 dark:!bg-[#8B3A2C] dark:shadow-[#8B3A2C]/20"
                                 : !isDisabled && "hover:bg-primary/10 dark:hover:bg-[#8B3A2C]/10 hover:text-primary dark:hover:text-[#FF6B4A]"
                         )}
                     >
