@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
+import { sendQuoteEmail } from '@/lib/mail';
 import { z } from 'zod';
 
 
@@ -111,6 +112,25 @@ export async function POST(req: Request) {
                 ipAddress: ip
             },
         });
+
+        // Send email notification (non-blocking)
+        try {
+            await sendQuoteEmail({
+                fullName: validatedData.fullName,
+                email: validatedData.email, // email is optional in schema but sendQuoteEmail expects string | undefined
+                phone: validatedData.phone,
+                pickupAddress: validatedData.pickupAddress,
+                destinationAddress: validatedData.destinationAddress,
+                houseSize: validatedData.houseSize,
+                movingDate: validatedData.movingDate,
+                message: validatedData.notes,
+                serviceType: validatedData.serviceType,
+                submissionTime: new Date().toLocaleString('en-US', { timeZone: 'Africa/Addis_Ababa' })
+            });
+        } catch (emailError) {
+            console.error('Failed to send email notification:', emailError);
+            // Continue execution, do not fail the request
+        }
 
         return NextResponse.json({ success: true, id: request.id }, { status: 201 });
     } catch (error: any) {
