@@ -30,6 +30,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default function RootLayout({
   children,
@@ -53,6 +54,7 @@ export default function RootLayout({
           </ThemeProvider>
         </LanguageProvider>
       </body>
+      <GoogleAnalytics gaId="G-2HGG8KPDD9" />
     </html>
   );
 }
