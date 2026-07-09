@@ -31,6 +31,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import CallTracker from "@/components/CallTracker";
 
 export default function RootLayout({
   children,
@@ -50,6 +51,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <Toaster position="top-center" richColors />
+            <CallTracker />
             {children}
           </ThemeProvider>
         </LanguageProvider>
