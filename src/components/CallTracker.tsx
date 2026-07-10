@@ -1,7 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { sendGAEvent } from '@next/third-parties/google';
+
+declare global {
+  interface Window {
+    dataLayer: Record<string, unknown>[];
+  }
+}
 
 export default function CallTracker() {
   useEffect(() => {
@@ -11,7 +16,9 @@ export default function CallTracker() {
       
       // Check if it's a phone link
       if (target && target.href && target.href.startsWith('tel:')) {
-        sendGAEvent('event', 'phone_call_click', {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'phone_call_click',
           category: 'contact',
           label: target.href,
         });
