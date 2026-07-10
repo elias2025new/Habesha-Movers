@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import CallTracker from "@/components/CallTracker";
 
 export default function RootLayout({
@@ -40,6 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <GoogleTagManager gtmId="GTM-NZFFZKCK" />
       <body
         className={`${poppins.variable} antialiased min-h-screen flex flex-col font-sans`}
       >
