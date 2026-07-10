@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/components/LanguageContext";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import CallTracker from "@/components/CallTracker";
 
 export default function RootLayout({
@@ -57,7 +57,7 @@ export default function RootLayout({
           </ThemeProvider>
         </LanguageProvider>
       </body>
-      <GoogleAnalytics gaId="G-2HGG8KPDD9" />
+
     </html>
   );
 }

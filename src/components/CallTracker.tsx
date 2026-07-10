@@ -11,8 +11,7 @@ export default function CallTracker() {
       
       // Check if it's a phone link
       if (target && target.href && target.href.startsWith('tel:')) {
-        sendGAEvent({ 
-          event: 'phone_call_click',
+        sendGAEvent('event', 'phone_call_click', {
           category: 'contact',
           label: target.href,
         });
