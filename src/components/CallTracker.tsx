@@ -2,11 +2,6 @@
 
 import { useEffect } from 'react';
 
-declare global {
-  interface Window {
-    dataLayer: Record<string, unknown>[];
-  }
-}
 
 export default function CallTracker() {
   useEffect(() => {
@@ -16,8 +11,10 @@ export default function CallTracker() {
       
       // Check if it's a phone link
       if (target && target.href && target.href.startsWith('tel:')) {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).dataLayer = (window as any).dataLayer || [];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (window as any).dataLayer.push({
           event: 'phone_call_click',
           category: 'contact',
           label: target.href,
