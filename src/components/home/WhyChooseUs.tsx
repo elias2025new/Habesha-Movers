@@ -74,7 +74,7 @@ const WhyChooseUs = () => {
                 <div className="relative rounded-[3rem] overflow-hidden h-[400px] md:h-[500px] shadow-2xl">
                     <div className="absolute inset-0 bg-black/20 z-10" /> {/* Overlay */}
                     <Image
-                        src="/images/habesha-truck-real.jpg"
+                        src="/images/why-choose-us-bg.jpg"
                         alt="Zemen Movers Truck"
                         fill
                         className="object-cover"
